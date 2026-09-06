@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#07131f">
+  <title>YK CROWN | Real Estate Development in Portugal</title>
+  <meta name="description" content="YK CROWN develops distinctive residential and tourism real estate projects in Portugal.">
+  <style>
+    :root{--navy:#07131f;--navy2:#0c2030;--gold:#c9a45c;--cream:#f5f1e8;--white:#fff;--muted:#aab6c2;--line:rgba(255,255,255,.13)}
+    *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:var(--navy);color:var(--white);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.5}
+    a{color:inherit;text-decoration:none}.container{width:min(1180px,calc(100% - 40px));margin:auto}
+    .nav{position:fixed;z-index:20;top:0;left:0;right:0;padding:18px 0;background:linear-gradient(rgba(7,19,31,.92),rgba(7,19,31,.65),transparent);backdrop-filter:blur(8px)}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between}.brand{font-weight:800;letter-spacing:.2em;font-size:20px}.brand span{color:var(--gold)}
+    .links{display:flex;gap:26px;align-items:center;font-size:13px;color:#e5ebef}.links a:hover{color:var(--gold)}
+    .langs{border-left:1px solid var(--line);padding-left:18px;display:flex;gap:8px}.lang{cursor:pointer;opacity:.65}.lang.active{opacity:1;color:var(--gold)}
+    .menu{display:none;background:none;border:0;color:white;font-size:25px}
+    .hero{min-height:760px;display:flex;align-items:flex-end;position:relative;overflow:hidden;background:var(--navy)}
+    .hero:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(3,10,17,.86),rgba(3,10,17,.48) 48%,rgba(3,10,17,.2)),url("assets/homepage-concept.png") center/cover no-repeat;opacity:.95}
+    .hero:after{content:"";position:absolute;inset:auto 0 0;height:230px;background:linear-gradient(transparent,var(--navy))}
+    .hero-content{position:relative;z-index:2;padding:0 0 92px;max-width:780px}.eyebrow{font-size:12px;letter-spacing:.25em;color:var(--gold);font-weight:700;margin-bottom:18px}
+    h1{font-size:clamp(46px,7vw,86px);line-height:.98;margin:0 0 24px;letter-spacing:-.04em}.hero p{font-size:19px;color:#e0e7ec;max-width:650px;margin:0 0 34px}
+    .buttons{display:flex;gap:12px;flex-wrap:wrap}.btn{padding:13px 21px;border:1px solid rgba(255,255,255,.3);font-size:13px;font-weight:700;letter-spacing:.04em}.btn.primary{background:var(--gold);border-color:var(--gold);color:#101820}.btn:hover{transform:translateY(-1px)}
+    section{padding:96px 0}.section-head{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:38px}.section-head h2{font-size:42px;line-height:1.05;margin:0;letter-spacing:-.03em}.section-head p{max-width:500px;color:var(--muted);margin:0}
+    .features{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}.feature{background:var(--navy2);padding:30px}.feature b{display:block;color:var(--gold);font-size:12px;letter-spacing:.15em;margin-bottom:12px}.feature h3{margin:0 0 10px;font-size:19px}.feature p{margin:0;color:var(--muted);font-size:14px}
+    .projects{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{background:#0c1c2a;border:1px solid var(--line);overflow:hidden}.card-top{height:250px;background:linear-gradient(135deg,#20384a,#0a1722);position:relative}.card-top:after{content:"";position:absolute;inset:0;background:linear-gradient(transparent,rgba(0,0,0,.55))}.tag{position:absolute;z-index:2;top:16px;left:16px;background:rgba(7,19,31,.8);border:1px solid rgba(255,255,255,.18);padding:6px 9px;font-size:10px;letter-spacing:.12em}.card-body{padding:24px}.card-body h3{font-size:24px;margin:0 0 7px}.location{color:var(--gold);font-size:12px;letter-spacing:.1em}.card-body p{color:var(--muted);font-size:14px}.text-link{display:inline-block;margin-top:8px;color:var(--gold);font-size:13px;font-weight:700}
+    .progress-wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:20px}.progress-card{border:1px solid var(--line);padding:32px;background:var(--navy2)}.progress-top{display:flex;justify-content:space-between;align-items:center}.progress-number{font-size:42px;font-weight:800;color:var(--gold)}.bar{height:7px;background:#1b3142;margin:20px 0 26px}.bar span{display:block;height:100%;width:62%;background:var(--gold)}.timeline{display:grid;gap:18px}.step{display:grid;grid-template-columns:90px 1fr;gap:15px;border-top:1px solid var(--line);padding-top:17px}.step small{color:var(--gold);font-weight:700}.step p{margin:2px 0 0;color:var(--muted);font-size:14px}
+    .split{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}.panel{border:1px solid var(--line);padding:40px;background:linear-gradient(145deg,#10283a,#091722)}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);margin-top:30px}.stat{background:var(--navy2);padding:20px}.stat strong{display:block;font-size:27px;color:var(--gold)}.stat span{font-size:12px;color:var(--muted)}
+    .contact{background:var(--cream);color:#0c1720}.contact .section-head p{color:#56616a}.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px}.contact-box{border:1px solid rgba(7,19,31,.16);padding:30px}.contact-box b{font-size:11px;letter-spacing:.16em;color:#7d6540}.contact-box h3{font-size:25px;margin:8px 0 6px}.contact-box p{margin:0;color:#56616a}
+    footer{padding:35px 0;border-top:1px solid var(--line);color:var(--muted);font-size:12px}.footer-inner{display:flex;justify-content:space-between;gap:20px}
+    @media(max-width:850px){.links{display:none}.menu{display:block}.features{grid-template-columns:1fr 1fr}.projects,.progress-wrap,.split,.contact-grid{grid-template-columns:1fr}.section-head{display:block}.section-head p{margin-top:15px}.hero{min-height:700px}.hero-content{padding-bottom:70px}.stats{grid-template-columns:1fr 1fr 1fr}}
+    @media(max-width:520px){.container{width:min(100% - 28px,1180px)}section{padding:70px 0}.features{grid-template-columns:1fr}.projects{gap:12px}.hero p{font-size:16px}.section-head h2{font-size:34px}.stats{grid-template-columns:1fr}.footer-inner{display:block}.footer-inner div+div{margin-top:8px}}
+  </style>
+</head>
+<body>
+<header class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="#home">YK <span>CROWN</span></a>
+    <nav class="links">
+      <a href="#projects" data-i18n="navProjects">Projects</a>
+      <a href="#progress" data-i18n="navProgress">Progress</a>
+      <a href="#investment" data-i18n="navInvestment">Investment</a>
+      <a href="#about" data-i18n="navAbout">About</a>
+      <a href="#contact" data-i18n="navContact">Contact</a>
+      <div class="langs"><span class="lang active" data-lang="en">EN</span><span class="lang" data-lang="pt">PT</span><span class="lang" data-lang="zh">中文</span></div>
+    </nav>
+    <button class="menu" aria-label="Menu">☰</button>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div class="container hero-content">
+    <div class="eyebrow" data-i18n="eyebrow">REAL ESTATE DEVELOPMENT IN PORTUGAL</div>
+    <h1 data-i18n="heroTitle">Building Better Places for a Brighter Tomorrow.</h1>
+    <p data-i18n="heroText">We develop places to live, invest and belong — combining strong locations, thoughtful design and long-term value.</p>
+    <div class="buttons">
+      <a class="btn primary" href="#projects" data-i18n="viewProjects">VIEW PROJECTS</a>
+      <a class="btn" href="#contact" data-i18n="contactUs">CONTACT US</a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="features">
+      <div class="feature"><b>01</b><h3 data-i18n="f1h">Quality Development</h3><p data-i18n="f1p">From land acquisition to delivery, we focus on quality, efficiency and execution.</p></div>
+      <div class="feature"><b>02</b><h3 data-i18n="f2h">Strong Locations</h3><p data-i18n="f2p">Projects selected around urban growth, mobility, lifestyle and investment demand.</p></div>
+      <div class="feature"><b>03</b><h3 data-i18n="f3h">Sustainable Living</h3><p data-i18n="f3p">Better energy performance, smarter buildings and more comfortable homes.</p></div>
+      <div class="feature"><b>04</b><h3 data-i18n="f4h">Transparent Progress</h3><p data-i18n="f4p">A clear construction timeline with updates, photography and milestones.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="container">
+    <div class="section-head"><h2 data-i18n="projectsTitle">Our Projects</h2><p data-i18n="projectsIntro">A growing portfolio of residential and tourism developments across Portugal.</p></div>
+    <div class="projects">
+      <article class="card"><div class="card-top"><span class="tag">PORTO</span></div><div class="card-body"><div class="location">PRAÇA DA CORUJEIRA</div><h3>YK CROWN Porto</h3><p data-i18n="p1">Urban residential and tourism apartments in a strategic Porto location.</p><a class="text-link" href="#contact" data-i18n="learnMore">EXPLORE PROJECT →</a></div></article>
+      <article class="card"><div class="card-top"><span class="tag">GAIA</span></div><div class="card-body"><div class="location">VILA NOVA DE GAIA</div><h3>Gaia Development</h3><p data-i18n="p2">A new residential opportunity connected to the wider Porto metropolitan area.</p><a class="text-link" href="#contact" data-i18n="learnMore">EXPLORE PROJECT →</a></div></article>
+      <article class="card"><div class="card-top"><span class="tag">GONDOMAR</span></div><div class="card-body"><div class="location">FÂNZERES</div><h3>Fânzeres Development</h3><p data-i18n="p3">A location-led development concept focused on modern living and value creation.</p><a class="text-link" href="#contact" data-i18n="learnMore">EXPLORE PROJECT →</a></div></article>
+    </div>
+  </div>
+</section>
+
+<section id="progress">
+  <div class="container">
+    <div class="section-head"><h2 data-i18n="progressTitle">Construction Progress</h2><p data-i18n="progressIntro">We believe development should be visible. Follow each project from planning to completion.</p></div>
+    <div class="progress-wrap">
+      <div class="progress-card">
+        <div class="progress-top"><div><div class="location">YK CROWN PORTO</div><h3>Construction update</h3></div><div class="progress-number">62%</div></div>
+        <div class="bar"><span></span></div>
+        <p style="color:var(--muted);font-size:14px" data-i18n="progressNote">This is a prototype progress view. Final percentages and dates will be connected to the project data.</p>
+      </div>
+      <div class="progress-card timeline">
+        <div class="step"><small>01 / 2026</small><div><b>Planning & preparation</b><p>Project planning, approvals and site preparation.</p></div></div>
+        <div class="step"><small>02 / 2026</small><div><b>Structure</b><p>Structural works and main construction phase.</p></div></div>
+        <div class="step"><small>03 / 2026</small><div><b>Finishing</b><p>Façade, interiors, installations and landscaping.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="investment">
+  <div class="container split">
+    <div>
+      <div class="eyebrow">YK CROWN</div>
+      <h2 data-i18n="investTitle">Built for living. Designed for value.</h2>
+      <p style="color:var(--muted);font-size:17px" data-i18n="investText">We look for projects where location, product quality and disciplined development can create durable value for residents and investors.</p>
+      <div class="stats"><div class="stat"><strong>PT</strong><span>Portugal focus</span></div><div class="stat"><strong>360°</strong><span>Development approach</span></div><div class="stat"><strong>AI</strong><span>Future-ready operations</span></div></div>
+    </div>
+    <div class="panel"><div class="eyebrow">INVESTMENT</div><h3 style="font-size:30px;margin:0 0 12px" data-i18n="panelTitle">Partner with YK CROWN</h3><p style="color:var(--muted)" data-i18n="panelText">For selected projects, we can provide information on development strategy, market positioning, progress and investment opportunities.</p><a class="btn primary" href="#contact" data-i18n="requestInfo">REQUEST INFORMATION</a></div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container">
+    <div class="section-head"><h2 data-i18n="aboutTitle">About YK CROWN</h2><p data-i18n="aboutText">A Portugal-based development platform focused on real estate, tourism and future-oriented projects.</p></div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="section-head"><h2 data-i18n="contactTitle">Let's build the next project.</h2><p data-i18n="contactIntro">For project enquiries, partnerships and investment information, contact YK CROWN.</p></div>
+    <div class="contact-grid">
+      <div class="contact-box"><b>EMAIL</b><h3>info@ykcrown.com</h3><p>General enquiries & partnerships</p></div>
+      <div class="contact-box"><b>PORTUGAL</b><h3>Lisbon · Porto</h3><p>Real estate development across Portugal</p></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <div>© 2026 YK CROWN, LDA. All rights reserved.</div>
+    <div>ykcrown.com · ykcrown.pt</div>
+  </div>
+</footer>
+
+<script>
+const T={
+en:{navProjects:"Projects",navProgress:"Progress",navInvestment:"Investment",navAbout:"About",navContact:"Contact",eyebrow:"REAL ESTATE DEVELOPMENT IN PORTUGAL",heroTitle:"Building Better Places for a Brighter Tomorrow.",heroText:"We develop places to live, invest and belong — combining strong locations, thoughtful design and long-term value.",viewProjects:"VIEW PROJECTS",contactUs:"CONTACT US",f1h:"Quality Development",f1p:"From land acquisition to delivery, we focus on quality, efficiency and execution.",f2h:"Strong Locations",f2p:"Projects selected around urban growth, mobility, lifestyle and investment demand.",f3h:"Sustainable Living",f3p:"Better energy performance, smarter buildings and more comfortable homes.",f4h:"Transparent Progress",f4p:"A clear construction timeline with updates, photography and milestones.",projectsTitle:"Our Projects",projectsIntro:"A growing portfolio of residential and tourism developments across Portugal.",p1:"Urban residential and tourism apartments in a strategic Porto location.",p2:"A new residential opportunity connected to the wider Porto metropolitan area.",p3:"A location-led development concept focused on modern living and value creation.",learnMore:"EXPLORE PROJECT →",progressTitle:"Construction Progress",progressIntro:"We believe development should be visible. Follow each project from planning to completion.",progressNote:"This is a prototype progress view. Final percentages and dates will be connected to the project data.",investTitle:"Built for living. Designed for value.",investText:"We look for projects where location, product quality and disciplined development can create durable value for residents and investors.",panelTitle:"Partner with YK CROWN",panelText:"For selected projects, we can provide information on development strategy, market positioning, progress and investment opportunities.",requestInfo:"REQUEST INFORMATION",aboutTitle:"About YK CROWN",aboutText:"A Portugal-based development platform focused on real estate, tourism and future-oriented projects.",contactTitle:"Let's build the next project.",contactIntro:"For project enquiries, partnerships and investment information, contact YK CROWN."},
+pt:{navProjects:"Projetos",navProgress:"Obra",navInvestment:"Investimento",navAbout:"Sobre nós",navContact:"Contacto",eyebrow:"PROMOÇÃO IMOBILIÁRIA EM PORTUGAL",heroTitle:"Construímos lugares melhores para um futuro melhor.",heroText:"Desenvolvemos espaços para viver, investir e pertencer — combinando localização, design e valor a longo prazo.",viewProjects:"VER PROJETOS",contactUs:"CONTACTO",f1h:"Desenvolvimento de Qualidade",f1p:"Da aquisição do terreno à entrega, focamo-nos na qualidade, eficiência e execução.",f2h:"Localizações Fortes",f2p:"Projetos selecionados com base em crescimento urbano, mobilidade, estilo de vida e procura.",f3h:"Vida Sustentável",f3p:"Melhor eficiência energética, edifícios mais inteligentes e casas mais confortáveis.",f4h:"Progresso Transparente",f4p:"Um calendário claro de obra com atualizações, fotografias e marcos.",projectsTitle:"Os Nossos Projetos",projectsIntro:"Um portefólio em crescimento de projetos residenciais e turísticos em Portugal.",p1:"Apartamentos residenciais e turísticos numa localização estratégica do Porto.",p2:"Uma nova oportunidade residencial ligada à área metropolitana do Porto.",p3:"Um conceito de desenvolvimento orientado pela localização e pela criação de valor.",learnMore:"VER PROJETO →",progressTitle:"Progresso da Obra",progressIntro:"Acreditamos que o desenvolvimento deve ser visível. Acompanhe cada projeto.",progressNote:"Esta é uma vista de protótipo. As percentagens e datas finais serão ligadas aos dados reais do projeto.",investTitle:"Construído para viver. Pensado para valor.",investText:"Procuramos projetos onde localização, qualidade e disciplina de desenvolvimento possam criar valor duradouro.",panelTitle:"Trabalhe com a YK CROWN",panelText:"Para projetos selecionados, podemos fornecer informação sobre estratégia, posicionamento, progresso e oportunidades de investimento.",requestInfo:"PEDIR INFORMAÇÃO",aboutTitle:"Sobre a YK CROWN",aboutText:"Uma plataforma de promoção imobiliária em Portugal, focada em imobiliário, turismo e projetos orientados para o futuro.",contactTitle:"Vamos construir o próximo projeto.",contactIntro:"Para projetos, parcerias e informação de investimento, contacte a YK CROWN."},
+zh:{navProjects:"项目",navProgress:"工程进度",navInvestment:"投资",navAbout:"关于我们",navContact:"联系我们",eyebrow:"葡萄牙房地产开发",heroTitle:"打造更好的空间，创造更好的未来。",heroText:"我们专注于葡萄牙房地产开发，将优质区位、建筑设计与长期价值结合起来。",viewProjects:"查看项目",contactUs:"联系我们",f1h:"品质开发",f1p:"从土地获取到项目交付，重视品质、效率与执行力。",f2h:"优质区位",f2p:"围绕城市发展、交通、生活方式和投资需求选择项目。",f3h:"可持续生活",f3p:"关注能源效率、智能建筑和更舒适的居住体验。",f4h:"透明工程",f4p:"通过时间线、照片和阶段性成果，让项目进度清晰可见。",projectsTitle:"我们的项目",projectsIntro:"持续布局葡萄牙住宅及旅游地产项目。",p1:"位于波尔图重要区域的住宅及旅游公寓项目。",p2:"连接波尔图都市圈的住宅开发机会。",p3:"以区位和价值创造为核心的现代住宅开发项目。",learnMore:"查看项目 →",progressTitle:"工程进度",progressIntro:"我们相信房地产开发应该透明可见，从规划到交付都可以追踪。",progressNote:"这是网站原型中的进度展示，最终百分比和日期将连接真实项目数据。",investTitle:"为居住而建，为价值而设计。",investText:"我们寻找具备优质区位、产品品质和严格开发能力的项目，为居住者和投资者创造长期价值。",panelTitle:"与 YK CROWN 合作",panelText:"针对精选项目，我们可以提供开发策略、市场定位、工程进度及投资机会等信息。",requestInfo:"获取投资资料",aboutTitle:"关于 YK CROWN",aboutText:"立足葡萄牙，专注房地产、旅游地产及面向未来的开发项目。",contactTitle:"一起打造下一个项目。",contactIntro:"项目咨询、合作及投资信息，请联系 YK CROWN。"}
+};
+function setLang(lang){
+ document.documentElement.lang=lang;
+ document.querySelectorAll("[data-i18n]").forEach(el=>{const k=el.dataset.i18n;if(T[lang][k])el.textContent=T[lang][k]});
+ document.querySelectorAll(".lang").forEach(el=>el.classList.toggle("active",el.dataset.lang===lang));
+ localStorage.setItem("ykLang",lang);
+}
+document.querySelectorAll(".lang").forEach(el=>el.addEventListener("click",()=>setLang(el.dataset.lang)));
+setLang(localStorage.getItem("ykLang")||"en");
+</script>
+</body>
+</html>
