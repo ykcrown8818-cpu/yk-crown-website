@@ -4,223 +4,275 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>YK CROWN Insights — Porto City Notes</title>
-
-<meta name="description" content="YK CROWN Insights — perspectives on Porto, architecture, lifestyle and the future of living in Portugal.">
+<title>YK CROWN Insights | Porto</title>
 
 <style>
-* {
-    box-sizing: border-box;
+:root{
+  --navy:#0b1b2b;
+  --gold:#c7a15a;
+  --cream:#f5f3ee;
+  --white:#ffffff;
+  --text:#42515b;
 }
 
-html {
-    scroll-behavior: smooth;
+*{
+  box-sizing:border-box;
 }
 
-body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background: #f5f3ee;
-    color: #14202d;
+html{
+  scroll-behavior:smooth;
 }
 
-header {
-    background: #ffffff;
-    padding: 22px 6%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid #eeeeee;
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  background:var(--cream);
+  color:var(--navy);
+  line-height:1.7;
 }
 
-.logo {
-    font-size: 20px;
-    font-weight: 800;
-    letter-spacing: 3px;
+/* HEADER */
+
+header{
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:rgba(11,27,43,.97);
+  border-bottom:1px solid rgba(199,161,90,.4);
 }
 
-.logo span {
-    color: #b99a57;
+.nav{
+  max-width:1180px;
+  margin:auto;
+  min-height:76px;
+  padding:0 24px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
 }
 
-nav a {
-    margin-left: 25px;
-    text-decoration: none;
-    color: #303943;
-    font-size: 12px;
-    letter-spacing: 1.5px;
+.logo{
+  color:white;
+  text-decoration:none;
+  font-size:21px;
+  font-weight:bold;
+  letter-spacing:3px;
 }
 
-.hero {
-    background: #ffffff;
-    padding: 100px 7%;
+.navlinks{
+  display:flex;
+  gap:25px;
 }
 
-.eyebrow {
-    color: #b99a57;
-    font-size: 12px;
-    font-weight: bold;
-    letter-spacing: 3px;
+.navlinks a{
+  color:white;
+  text-decoration:none;
+  font-size:12px;
+  letter-spacing:1.5px;
+  text-transform:uppercase;
 }
 
-.hero h1 {
-    max-width: 950px;
-    font-size: clamp(45px, 7vw, 88px);
-    line-height: 1;
-    margin: 22px 0;
+.navlinks a:hover{
+  color:var(--gold);
 }
 
-.lead {
-    max-width: 780px;
-    color: #68727c;
-    font-size: 21px;
-    line-height: 1.7;
+/* HERO */
+
+.hero{
+  background:var(--navy);
+  color:white;
+  padding:100px 24px;
 }
 
-.notes {
-    max-width: 1250px;
-    margin: auto;
-    padding: 70px 6%;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
+.hero-inner{
+  max-width:1180px;
+  margin:auto;
 }
 
-.card {
-    background: #ffffff;
-    border: 1px solid #dedbd3;
+.kicker{
+  color:var(--gold);
+  font-size:12px;
+  letter-spacing:3px;
+  margin-bottom:20px;
 }
 
-.card img {
-    width: 100%;
-    display: block;
-    aspect-ratio: 16 / 10;
-    object-fit: cover;
+h1{
+  font-size:clamp(42px,7vw,78px);
+  line-height:1.05;
+  margin:0 0 25px;
+  max-width:850px;
 }
 
-.card-content {
-    padding: 28px;
+.hero p{
+  max-width:700px;
+  font-size:18px;
+  color:#dce3e7;
 }
 
-.card-number {
-    color: #b99a57;
-    font-size: 11px;
-    font-weight: bold;
-    letter-spacing: 2px;
+/* CONTENT */
+
+.container{
+  max-width:1180px;
+  margin:auto;
+  padding:80px 24px;
 }
 
-.card h2 {
-    font-size: 29px;
-    margin: 12px 0;
+.article{
+  background:white;
+  margin-bottom:70px;
 }
 
-.card p {
-    color: #68727c;
-    line-height: 1.65;
+.article-image{
+  width:100%;
+  height:auto;
+  display:block;
+  aspect-ratio:16/10;
+  object-fit:cover;
 }
 
-.card a {
-    color: #14202d;
-    text-decoration: none;
-    font-size: 11px;
-    font-weight: bold;
-    letter-spacing: 2px;
+.article-content{
+  padding:45px;
 }
 
-.article {
-    background: #ffffff;
-    padding: 90px 7%;
-    border-top: 1px solid #dedbd3;
+.article-number{
+  color:var(--gold);
+  font-size:12px;
+  letter-spacing:2.5px;
+  margin-bottom:12px;
 }
 
-.article-inner {
-    max-width: 850px;
-    margin: auto;
+h2{
+  font-size:36px;
+  line-height:1.2;
+  margin:0 0 25px;
 }
 
-.article h2 {
-    font-size: 52px;
-    line-height: 1.05;
-    margin: 15px 0 35px;
+.article p{
+  color:var(--text);
+  font-size:16px;
+  margin:0 0 18px;
 }
 
-.article p {
-    color: #4e5862;
-    font-size: 18px;
-    line-height: 1.85;
+.signature{
+  margin-top:30px;
+  color:var(--navy);
+  font-size:12px;
+  font-weight:bold;
+  letter-spacing:1.5px;
 }
 
-.quote {
-    border-left: 3px solid #b99a57;
-    padding-left: 22px;
-    margin: 40px 0;
-    font-size: 28px;
-    line-height: 1.45;
-    color: #14202d;
+/* BACK */
+
+.back{
+  text-align:center;
+  padding:20px 24px 100px;
 }
 
-footer {
-    background: #14202d;
-    color: #dce2e7;
-    padding: 40px 7%;
-    display: flex;
-    justify-content: space-between;
-    font-size: 12px;
+.back a{
+  display:inline-block;
+  padding:15px 30px;
+  border:1px solid var(--gold);
+  color:var(--navy);
+  text-decoration:none;
+  font-size:12px;
+  letter-spacing:2px;
+  text-transform:uppercase;
 }
 
-@media (max-width: 760px) {
+.back a:hover{
+  background:var(--navy);
+  color:white;
+}
 
-    header {
-        padding: 18px 5%;
-    }
+/* FOOTER */
 
-    nav a {
-        margin-left: 10px;
-        font-size: 9px;
-    }
+footer{
+  background:var(--navy);
+  color:#b9c1c6;
+  text-align:center;
+  padding:35px 20px;
+  font-size:11px;
+  letter-spacing:1px;
+}
 
-    .hero {
-        padding: 65px 6%;
-    }
+footer strong{
+  color:white;
+  letter-spacing:2px;
+}
 
-    .notes {
-        grid-template-columns: 1fr;
-        padding: 45px 5%;
-    }
+/* MOBILE */
 
-    .article {
-        padding: 60px 6%;
-    }
+@media(max-width:700px){
 
-    .article h2 {
-        font-size: 39px;
-    }
+  .nav{
+    padding:0 16px;
+  }
 
-    .article p {
-        font-size: 16px;
-    }
+  .logo{
+    font-size:17px;
+  }
 
-    footer {
-        display: block;
-    }
+  .navlinks{
+    gap:12px;
+  }
+
+  .navlinks a{
+    font-size:9px;
+  }
+
+  .hero{
+    padding:70px 20px;
+  }
+
+  .container{
+    padding:50px 16px;
+  }
+
+  .article{
+    margin-bottom:45px;
+  }
+
+  .article-content{
+    padding:28px 22px;
+  }
+
+  h2{
+    font-size:28px;
+  }
+
+  .article p{
+    font-size:15px;
+  }
+
 }
 </style>
 </head>
+
 
 <body>
 
 <header>
 
-<div class="logo">
-YK <span>CROWN</span>
+<nav class="nav">
+
+<a class="logo" href="index.html">
+YK CROWN
+</a>
+
+<div class="navlinks">
+
+<a href="index.html">Home</a>
+
+<a href="#porto01">Porto 01</a>
+
+<a href="#porto02">Porto 02</a>
+
+<a href="#porto03">Porto 03</a>
+
+<a href="#porto04">Porto 04</a>
+
 </div>
 
-<nav>
-<a href="#notes">INSIGHTS</a>
-<a href="#note01">PORTO 01</a>
-<a href="#note02">PORTO 02</a>
-<a href="#note03">PORTO 03</a>
-<a href="#note04">PORTO 04</a>
 </nav>
 
 </header>
@@ -228,28 +280,236 @@ YK <span>CROWN</span>
 
 <section class="hero">
 
-<div class="eyebrow">
+<div class="hero-inner">
+
+<div class="kicker">
 YK CROWN INSIGHTS
 </div>
 
 <h1>
-Perspectives on Portugal, places and the future of living.
+Perspectives on Portugal,
+places and the future of living.
 </h1>
 
-<p class="lead">
-Exploring the cities, architecture, culture and lifestyle that shape Portugal — beginning with Porto.
+<p>
+Exploring cities, architecture, culture and the places
+that shape the way we live.
 </p>
+
+</div>
 
 </section>
 
 
-<section class="notes" id="notes">
+<main class="container">
 
 
-<article class="card">
+<!-- PORTO 01 -->
 
-<img src="porto-01.jpg" alt="Porto — A City That Inspires">
+<article class="article" id="porto01">
 
-<div class="card-content">
+<img
+class="article-image"
+src="porto-01.jpg"
+alt="Porto Portugal"
+>
 
-<div class="card
+<div class="article-content">
+
+<div class="article-number">
+PORTO CITY NOTES 01
+</div>
+
+<h2>
+Porto — A City That Inspires
+</h2>
+
+<p>
+Porto is a city shaped by history, culture and a unique
+sense of place. Built along the hills overlooking the
+Douro, the city combines a remarkable historic urban
+landscape with a contemporary and creative atmosphere.
+</p>
+
+<p>
+Porto’s Historic Centre has been a UNESCO World Heritage
+property since 1996. Its streets, buildings and relationship
+with the Douro reflect a long urban history and a city that
+has continually evolved while retaining its distinctive
+character.
+</p>
+
+<p>
+Beyond the historic centre, Porto offers a different rhythm
+of life across its neighbourhoods — from the city centre to
+the riverfront and the Atlantic edge.
+</p>
+
+<p>
+Porto is more than a destination.
+It is a way of life.
+</p>
+
+<div class="signature">
+YK CROWN · BUILDING A BRIGHTER TOMORROW
+</div>
+
+</div>
+
+</article>
+
+
+<!-- PORTO 02 -->
+
+<article class="article" id="porto02">
+
+<img
+class="article-image"
+src="porto-02.jpg"
+alt="Authentic Porto"
+>
+
+<div class="article-content">
+
+<div class="article-number">
+PORTO CITY NOTES 02
+</div>
+
+<h2>
+Authentic Porto
+</h2>
+
+<p>
+Porto’s identity is found in the details: traditional
+streets, local cafés, tiled façades, neighbourhood life
+and the relationship between the city and the Douro.
+</p>
+
+<p>
+The city has a strong sense of authenticity. Historic
+character and everyday life remain closely connected,
+while new restaurants, creative spaces and contemporary
+architecture continue to add new layers to Porto.
+</p>
+
+<div class="signature">
+YK CROWN · PORTO, PORTUGAL
+</div>
+
+</div>
+
+</article>
+
+
+<!-- PORTO 03 -->
+
+<article class="article" id="porto03">
+
+<img
+class="article-image"
+src="porto-03.jpg"
+alt="Foz do Douro"
+>
+
+<div class="article-content">
+
+<div class="article-number">
+PORTO CITY NOTES 03
+</div>
+
+<h2>
+Foz do Douro — Ocean Breeze
+</h2>
+
+<p>
+Where the Douro meets the Atlantic, Foz offers a different
+side of Porto — open horizons, sea air, waterfront walks
+and a more relaxed rhythm.
+</p>
+
+<p>
+Foz connects the city with the Atlantic and offers a natural
+extension of Porto’s urban lifestyle, combining the city,
+the river and the ocean.
+</p>
+
+<div class="signature">
+YK CROWN · PORTO, PORTUGAL
+</div>
+
+</div>
+
+</article>
+
+
+<!-- PORTO 04 -->
+
+<article class="article" id="porto04">
+
+<img
+class="article-image"
+src="porto-04.jpg"
+alt="Porto Architecture"
+>
+
+<div class="article-content">
+
+<div class="article-number">
+PORTO CITY NOTES 04
+</div>
+
+<h2>
+A City of Details
+</h2>
+
+<p>
+Porto is a city that rewards attention. Architecture,
+materials, façades, streets and public spaces create a
+visual language that changes from one neighbourhood to
+another.
+</p>
+
+<p>
+From historic buildings to contemporary interventions,
+the city continues to evolve without losing the character
+that makes Porto distinctive.
+</p>
+
+<div class="signature">
+YK CROWN · REAL ESTATE DEVELOPMENT IN PORTUGAL
+</div>
+
+</div>
+
+</article>
+
+
+</main>
+
+
+<div class="back">
+
+<a href="index.html">
+← Back to YK CROWN
+</a>
+
+</div>
+
+
+<footer>
+
+<strong>YK CROWN</strong>
+
+<br><br>
+
+Real Estate Development in Portugal
+
+<br>
+
+Porto · Gaia · Algarve
+
+</footer>
+
+
+</body>
+</html>
