@@ -26,7 +26,7 @@ L10N = {
         "title": "Tabela de Preços", "sub": "Apartamentos T0, T1 e T2 · Campanhã, Porto",
         "issued": "Emitida em", "valid": "Válida até",
         "h_table": "Apartamentos disponíveis", "unit": "Fração", "type": "Tipologia", "floor": "Piso", "pos": "Posição",
-        "au": "Área útil", "abp": "Área bruta privativa", "bal": "Varanda", "price": "Preço",
+        "au": "Área útil", "abp": "Área bruta privativa", "bal": "Varanda", "park": "Garagem", "price": "Preço",
         "gf": "R/C", "front": "Frente", "rear": "Tardoz", "on_req": "Sob consulta",
         "incl": "Área útil sem paredes nem varandas; área bruta privativa medida pelo perímetro exterior e eixos das paredes separadoras, sem partes comuns nem estacionamento. Todos os preços incluem um lugar de estacionamento (elevador de automóveis). Classe energética A+. Entrega prevista: fevereiro de 2028.",
         "h_pay": "Condições de pagamento", "pay_res": "Reserva", "pay_cpcv": "Contrato-promessa (CPCV)",
@@ -41,7 +41,7 @@ L10N = {
         "title": "Price List", "sub": "T0, T1 and T2 apartments · Campanhã, Porto",
         "issued": "Issued", "valid": "Valid until",
         "h_table": "Available apartments", "unit": "Unit", "type": "Type", "floor": "Floor", "pos": "Position",
-        "au": "Usable area", "abp": "Gross private area", "bal": "Balcony", "price": "Price",
+        "au": "Usable area", "abp": "Gross private area", "bal": "Balcony", "park": "Parking", "price": "Price",
         "gf": "Ground", "front": "Front", "rear": "Rear", "on_req": "On request",
         "incl": "Usable area excludes walls and balconies; gross private area is measured to the outer face of external walls and the centre line of party walls, excluding common areas and parking. All prices include one parking space (car lift). Energy class A+. Delivery planned for February 2028.",
         "h_pay": "Payment terms", "pay_res": "Reservation", "pay_cpcv": "Promissory contract (CPCV)",
@@ -56,9 +56,9 @@ L10N = {
         "title": "价格表", "sub": "T0、T1、T2 公寓 · 波尔图 Campanhã",
         "issued": "发布日期", "valid": "有效期至",
         "h_table": "在售公寓", "unit": "单元", "type": "户型", "floor": "楼层", "pos": "位置",
-        "au": "套内使用面积", "abp": "套内建筑面积", "bal": "阳台", "price": "价格",
+        "au": "套内使用面积", "abp": "套内建筑面积", "bal": "阳台", "park": "车位", "price": "价格",
         "gf": "地面层", "front": "前侧", "rear": "后侧", "on_req": "价格面议",
-        "incl": "套内使用面积（Área útil）不含墙体和阳台；套内建筑面积（Área bruta privativa）按外墙外沿和分户墙中线计算，不含公摊和车位。所有价格均含一个车位（汽车升降机）。能源等级 A+。预计 2028 年 2 月交房。",
+        "incl": "套内使用面积（Área útil）不含墙体和阳台；套内建筑面积（Área bruta privativa）= 套内使用面积 + 墙体面积，按外墙外沿和分户墙中线计算，不含公摊和车位。所有价格均含一个车位（汽车升降机）。能源等级 A+。预计 2028 年 2 月交房。",
         "h_pay": "付款方式", "pay_res": "预订金", "pay_cpcv": "签订买卖预约合同（CPCV）",
         "pay_found": "地基完成", "pay_struct": "主体结构完成", "pay_deed": "签署过户契约、交付钥匙",
         "rest": "余款", "tbd": "待定",
@@ -113,7 +113,7 @@ def build(L):
     rows = "".join(
         f"<tr><td><b>{u['letter']}</b></td><td>{u['type']}</td><td>{t['gf'] if u['floor'] == 0 else u['floor']}</td>"
         f"<td>{t['front'] if u['position'].startswith('front') else t['rear']}</td><td>{m2(u['au'])}</td><td>{m2(u['abp'])}</td>"
-        f"<td>{m2(u['balcony'])}</td><td class=p>{eur(P.get(u['id'])) or t['on_req']}</td></tr>" for u in UNITS)
+        f"<td>{m2(u['balcony'])}</td><td>1</td><td class=p>{eur(P.get(u['id'])) or t['on_req']}</td></tr>" for u in UNITS)
     res = eur(PRICES.get("reservation")) or t["tbd"]
     cpcv = f"{PRICES['cpcv_pct']}%" if PRICES.get("cpcv_pct") is not None else t["tbd"]
     rest = f"{100 - 10 - 20 - (PRICES.get('cpcv_pct') or 0)}%" if PRICES.get("cpcv_pct") is not None else t["rest"]
@@ -149,7 +149,7 @@ td{{padding:2.4mm 1.5mm;border-bottom:1px solid #e7e3da}}td.p{{font-weight:700;c
 <h1>Praça da Corujeira<small>{e(t['title'])}</small></h1>
 <div class="meta"><div>{e(t['issued'])}<b>{ym(PRICES['issued'], L)}</b></div><div>{e(t['valid'])}<b>{ymd(PRICES['valid_until'], L)}</b></div><div>A+<b>{len(UNITS)} × T0–T2</b></div></div></div></section>
 <section class="page"><h2>{e(t['h_table'])}</h2>
-<table><tr><th>{e(t['unit'])}</th><th>{e(t['type'])}</th><th>{e(t['floor'])}</th><th>{e(t['pos'])}</th><th>{e(t['au'])}</th><th>{e(t['abp'])}</th><th>{e(t['bal'])}</th><th>{e(t['price'])}</th></tr>{rows}</table>
+<table><tr><th>{e(t['unit'])}</th><th>{e(t['type'])}</th><th>{e(t['floor'])}</th><th>{e(t['pos'])}</th><th>{e(t['au'])}</th><th>{e(t['abp'])}</th><th>{e(t['bal'])}</th><th>{e(t['park'])}</th><th>{e(t['price'])}</th></tr>{rows}</table>
 <p class="note">{e(t['incl'])}</p>
 <div class="two"><div><h2>{e(t['h_pay'])}</h2><div class="steps">{payh}</div></div><div><h2>{e(t['h_why'])}</h2><ul>{why}</ul>
 <div class="photos"><img src="{img('assets/photos/living-room.webp')}"/><img src="{img('assets/photos/bathroom.webp')}"/></div></div></div>
