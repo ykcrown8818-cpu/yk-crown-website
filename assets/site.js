@@ -50,6 +50,35 @@
     if (l) track('contact_whatsapp', { location: l.className || 'link' });
   });
 
+  /* Price-list request form */
+  var plf = document.getElementById('pricelist-form');
+  if (plf) {
+    plf.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (plf.website && plf.website.value) return;
+      var d = {};
+      new FormData(plf).forEach(function (v, k) { d[k] = String(v).trim(); });
+      d.request = 'pricelist';
+      d.interest = 'Price list — Praça da Corujeira';
+      d.page = location.href;
+      d.referrer = document.referrer || null;
+      var qp = new URLSearchParams(location.search);
+      ['utm_source', 'utm_medium', 'utm_campaign'].forEach(function (k) { if (qp.get(k)) d[k] = qp.get(k); });
+      var st = document.getElementById('pl-status');
+      var btn = plf.querySelector('button[type="submit"]');
+      var C = (window.copy && window.copy[lang()]) || {};
+      btn.disabled = true; st.className = ''; st.textContent = C.pl_sending || 'Sending…';
+      fetch(LEAD_ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(d) })
+        .then(function (r) {
+          if (!r.ok) throw new Error('HTTP ' + r.status);
+          plf.reset(); var sl = document.getElementById('pl-language'); if (sl) sl.value = { en: 'English', pt: 'Português', zh: '中文' }[lang()]; st.textContent = C.pl_ok || 'Sent. Please check your inbox.';
+          track('generate_lead', { method: 'pricelist' });
+        })
+        .catch(function () { st.className = 'err'; st.textContent = C.pl_err || 'Error — please contact us on WhatsApp +351 969 058 818.'; })
+        .then(function () { btn.disabled = false; });
+    });
+  }
+
   /* Enquiry form */
   var form = document.getElementById('enquiry-form');
   if (!form) return;

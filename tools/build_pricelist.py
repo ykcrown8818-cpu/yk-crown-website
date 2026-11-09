@@ -23,7 +23,7 @@ e = html.escape
 
 L10N = {
     "pt": {
-        "title": "Tabela de Preços", "sub": "Apartamentos T0, T1 e T2 · Campanhã, Porto",
+        "title": "Tabela de Preços", "h_offer": "Condições especiais até 31 de dezembro de 2026 (à escolha, uma por fração)", "offer": ["Desconto de 2% para os 3 primeiros contratos-promessa assinados", "Custos de escritura e registo predial suportados pela YK CROWN"], "sub": "Apartamentos T0, T1 e T2 · Campanhã, Porto",
         "issued": "Emitida em", "valid": "Válida até",
         "h_table": "Apartamentos disponíveis", "unit": "Fração", "type": "Tipologia", "floor": "Piso", "pos": "Posição",
         "au": "Área útil", "abp": "Área bruta privativa", "bal": "Varanda", "park": "Garagem", "price": "Preço",
@@ -38,7 +38,7 @@ L10N = {
         "lic": "Licença de obras n.º", "months": ["janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho", "agosto", "setembro", "outubro", "novembro", "dezembro"],
     },
     "en": {
-        "title": "Price List", "sub": "T0, T1 and T2 apartments · Campanhã, Porto",
+        "title": "Price List", "h_offer": "Special conditions until 31 December 2026 (one per apartment, buyer's choice)", "offer": ["2% discount for the first 3 promissory contracts signed", "Deed and land-registry costs paid by YK CROWN"], "sub": "T0, T1 and T2 apartments · Campanhã, Porto",
         "issued": "Issued", "valid": "Valid until",
         "h_table": "Available apartments", "unit": "Unit", "type": "Type", "floor": "Floor", "pos": "Position",
         "au": "Usable area", "abp": "Gross private area", "bal": "Balcony", "park": "Parking", "price": "Price",
@@ -53,7 +53,7 @@ L10N = {
         "lic": "Building licence n.º", "months": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
     },
     "zh": {
-        "title": "价格表", "sub": "T0、T1、T2 公寓 · 波尔图 Campanhã",
+        "title": "价格表", "h_offer": "限时优惠（至 2026 年 12 月 31 日，每套可任选一项）", "offer": ["前 3 位签订买卖预约合同（CPCV）的客户，房价优惠 2%", "过户公证费和产权登记费由 YK CROWN 承担"], "sub": "T0、T1、T2 公寓 · 波尔图 Campanhã",
         "issued": "发布日期", "valid": "有效期至",
         "h_table": "在售公寓", "unit": "单元", "type": "户型", "floor": "楼层", "pos": "位置",
         "au": "套内使用面积", "abp": "套内建筑面积", "bal": "阳台", "park": "车位", "price": "价格",
@@ -139,10 +139,11 @@ table{{width:100%;border-collapse:collapse;font-size:9.5pt}}th{{text-align:left;
 td{{padding:2.4mm 1.5mm;border-bottom:1px solid #e7e3da}}td.p{{font-weight:700;color:#0b1b2b;text-align:right}}th:last-child{{text-align:right}}
 .note{{font-size:8.5pt;color:#5f6973;margin-top:4mm}}.steps{{display:grid;gap:2.5mm;margin-top:2mm}}.step{{display:flex;gap:3mm;align-items:center;background:#f5f3ee;padding:2mm 3mm;font-size:9pt}}
 .step span{{width:7mm;height:7mm;border-radius:50%;background:#0b1b2b;color:#fff;display:grid;place-items:center;font-size:9pt;font-weight:700;flex:none}}.step div{{display:flex;justify-content:space-between;width:100%}}.step em{{font-style:normal;font-weight:700;color:#0b1b2b}}
-.two{{display:grid;grid-template-columns:1.1fr .9fr;gap:8mm;margin-top:6mm}}ul{{margin:0;padding-left:4.5mm}}li{{margin:1.2mm 0}}
+.two{{display:grid;grid-template-columns:1.1fr .9fr;gap:8mm;margin-top:5mm}}ul{{margin:0;padding-left:4.5mm}}li{{margin:1.2mm 0}}
 .plans img{{width:100%;height:auto;border:1px solid #e7e3da;margin-bottom:6mm}}
 .foot{{position:absolute;left:16mm;right:16mm;bottom:10mm;font-size:7.5pt;color:#899097;display:flex;justify-content:space-between;border-top:1px solid #e7e3da;padding-top:2.5mm}}
 .photos{{display:grid;grid-template-columns:1fr 1fr;gap:3mm;margin:6mm 0}}.photos img{{width:100%;height:34mm;object-fit:cover}}
+.offer{{border:1.5px solid #c7a15a;background:#fbf7ee;padding:3mm 5mm;margin-top:4mm;font-size:9.5pt}}.offer b{{color:#0b1b2b}}.offer ul{{margin:1.5mm 0 0}}
 .contact{{background:#0b1b2b;color:#fff;padding:7mm;margin-top:6mm}}.contact b{{color:#e3c37e}}
 </style></head><body>
 <section class="page cover"><div class="logo">YK <span>CROWN</span></div><div class="in"><div class="kick">{e(t['sub'])}</div>
@@ -151,6 +152,7 @@ td{{padding:2.4mm 1.5mm;border-bottom:1px solid #e7e3da}}td.p{{font-weight:700;c
 <section class="page"><h2>{e(t['h_table'])}</h2>
 <table><tr><th>{e(t['unit'])}</th><th>{e(t['type'])}</th><th>{e(t['floor'])}</th><th>{e(t['pos'])}</th><th>{e(t['au'])}</th><th>{e(t['abp'])}</th><th>{e(t['bal'])}</th><th>{e(t['park'])}</th><th>{e(t['price'])}</th></tr>{rows}</table>
 <p class="note">{e(t['incl'])}</p>
+{('<div class="offer"><b>' + e(t['h_offer']) + '</b><ul>' + ''.join('<li>' + e(o) + '</li>' for o in t['offer']) + '</ul></div>') if PRICES.get('offers') else ''}
 <div class="two"><div><h2>{e(t['h_pay'])}</h2><div class="steps">{payh}</div></div><div><h2>{e(t['h_why'])}</h2><ul>{why}</ul>
 <div class="photos"><img src="{img('assets/photos/living-room.webp')}"/><img src="{img('assets/photos/bathroom.webp')}"/></div></div></div>
 </section>

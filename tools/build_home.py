@@ -41,7 +41,7 @@ COPY = {
         "apts_kicker": "Apartments", "apts_title": "Choose your apartment",
         "apts_text": "Areas from the approved architecture project. Prices on request — ask us for the price list.",
         "avail_note": f"{NAV_} available · {NSOLD} sold", "flt_all": "All", "th_unit": "Apartment", "th_type": "Type", "th_floor": "Floor", "th_au": "Usable area", "th_abp": "Gross private area", "th_bal": "Balcony", "th_park": "Parking", "th_price": "Price", "th_status": "Status", "st_available": "Available", "st_reserved": "Reserved", "st_sold": "Sold",
-        "gf": "Ground", "front": "Front", "rear": "Rear", "on_req": "On request", "view": "View →", "price_list": "Ask for the price list", "foot_note": "All apartments: energy class A+ · one parking space included · delivery February 2028",
+        "gf": "Ground", "front": "Front", "rear": "Rear", "on_req": "On request", "view": "View →", "price_list": "Ask for the price list", "pl_kicker": "Price list", "pl_title": "Receive the price list by email", "pl_text": "Prices, payment terms, current offers and floor plans of every available apartment — sent to your inbox within a minute.", "pl_btn": "Send me the price list", "pl_ok": "Done — the price list is on its way to your inbox. Please also check your spam folder.", "pl_err": "Something went wrong. Please write to us on WhatsApp: +351 969 058 818.", "pl_sending": "Sending…",  "foot_note": "All apartments: energy class A+ · one parking space included · delivery February 2028",
         "why_kicker": "Why Praça da Corujeira", "why_title": "A new building, made to be lived in",
         "w1_t": "Energy class A+", "w1_d": "New construction with high thermal performance — lower energy bills and better comfort all year.",
         "w2_t": "Parking included", "w2_d": "Every apartment comes with its own space in the building's garage, served by a car lift.",
@@ -77,7 +77,7 @@ COPY = {
         "apts_kicker": "Apartamentos", "apts_title": "Escolha o seu apartamento",
         "apts_text": "Áreas do projeto de arquitetura aprovado. Preços sob consulta — peça-nos a tabela de preços.",
         "avail_note": f"{NAV_} disponíveis · {NSOLD} vendidos", "flt_all": "Todos", "th_unit": "Fração", "th_type": "Tipologia", "th_floor": "Piso", "th_au": "Área útil", "th_abp": "Área bruta privativa", "th_bal": "Varanda", "th_park": "Estacionamento", "th_price": "Preço", "th_status": "Estado", "st_available": "Disponível", "st_reserved": "Reservado", "st_sold": "Vendido",
-        "gf": "R/C", "front": "Frente", "rear": "Tardoz", "on_req": "Sob consulta", "view": "Ver →", "price_list": "Pedir tabela de preços", "foot_note": "Todos os apartamentos: classe energética A+ · um lugar de garagem incluído · entrega em fevereiro de 2028",
+        "gf": "R/C", "front": "Frente", "rear": "Tardoz", "on_req": "Sob consulta", "view": "Ver →", "price_list": "Pedir tabela de preços", "pl_kicker": "Tabela de preços", "pl_title": "Receba a tabela de preços por email", "pl_text": "Preços, condições de pagamento, ofertas em vigor e plantas de todos os apartamentos disponíveis — no seu email em menos de um minuto.", "pl_btn": "Enviar tabela de preços", "pl_ok": "Pronto — a tabela de preços foi enviada para o seu email. Verifique também a pasta de spam.", "pl_err": "Ocorreu um erro. Fale connosco por WhatsApp: +351 969 058 818.", "pl_sending": "A enviar…",  "foot_note": "Todos os apartamentos: classe energética A+ · um lugar de garagem incluído · entrega em fevereiro de 2028",
         "why_kicker": "Porquê a Praça da Corujeira", "why_title": "Um edifício novo, pensado para viver",
         "w1_t": "Classe energética A+", "w1_d": "Construção nova com elevado desempenho térmico — menos custos de energia e mais conforto todo o ano.",
         "w2_t": "Garagem incluída", "w2_d": "Cada apartamento tem o seu lugar na garagem do edifício, servida por elevador de automóveis.",
@@ -113,7 +113,7 @@ COPY = {
         "apts_kicker": "在售公寓", "apts_title": "选择您的公寓",
         "apts_text": "面积数据来自已批准的建筑设计图纸。价格面议，欢迎索取价格表。",
         "avail_note": f"{NAV_} 套可售 · {NSOLD} 套已售", "flt_all": "全部", "th_unit": "单元", "th_type": "户型", "th_floor": "楼层", "th_au": "套内使用面积", "th_abp": "套内建筑面积", "th_bal": "阳台", "th_park": "车位", "th_price": "价格", "th_status": "状态", "st_available": "可售", "st_reserved": "已预订", "st_sold": "已售",
-        "gf": "地面层", "front": "前侧", "rear": "后侧", "on_req": "价格面议", "view": "查看 →", "price_list": "索取价格表", "foot_note": "所有公寓：能源等级 A+ · 含一个车位 · 2028 年 2 月交房",
+        "gf": "地面层", "front": "前侧", "rear": "后侧", "on_req": "价格面议", "view": "查看 →", "price_list": "索取价格表", "pl_kicker": "价格表", "pl_title": "免费获取价格表", "pl_text": "全部在售公寓的价格、付款方式、限时优惠和户型图，一分钟内发到您的邮箱。", "pl_btn": "发送价格表给我", "pl_ok": "已发送，请查收邮箱（如未收到，请检查垃圾邮件文件夹）。", "pl_err": "发送失败，请通过 WhatsApp 联系我们：+351 969 058 818。", "pl_sending": "发送中…",  "foot_note": "所有公寓：能源等级 A+ · 含一个车位 · 2028 年 2 月交房",
         "why_kicker": "为什么选择 Praça da Corujeira", "why_title": "一栋为居住而建的新楼",
         "w1_t": "能源等级 A+", "w1_d": "全新建筑，保温性能高，能耗更低，四季更舒适。",
         "w2_t": "含车位", "w2_d": "每套公寓都配有楼内车库车位，通过汽车升降机进出。",
@@ -249,6 +249,7 @@ section{{padding:88px 0}}.alt{{background:var(--cream)}}h2{{font-size:clamp(30px
 table.units{{width:100%;border-collapse:collapse;background:#fff;font-size:15px}}.units th{{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-align:left;font-weight:600;padding:12px 14px;border-bottom:2px solid var(--ink)}}
 .units td{{padding:15px 14px;border-bottom:1px solid var(--line)}}.units tr:not(.nolink):hover td{{background:#fbfaf7;cursor:pointer}}.units td:first-child strong{{font-size:18px}}.units .view{{font-weight:700;font-size:13px;color:var(--navy);border-bottom:1px solid var(--gold)}}
 .st{{display:inline-block;font-size:12px;font-weight:700;padding:3px 9px;border-radius:999px;white-space:nowrap}}.st-available{{background:#e6f4ea;color:#1e7b3a}}.st-reserved{{background:#fdf1dc;color:#9a6200}}.st-sold{{background:#f0eded;color:#8a5050}}.row-sold td{{color:#9aa1a7}}.row-sold td .st{{color:#8a5050}}
+.pl{{background:var(--navy);color:#fff}}.pl .lead{{color:rgba(255,255,255,.78)}}.plg{{display:grid;grid-template-columns:.85fr 1.15fr;gap:48px;align-items:center}}.plf{{border:0}}#pl-status{{font-size:14px;color:#1e7b3a;font-weight:600}}#pl-status.err{{color:#a33}}@media(max-width:980px){{.plg{{grid-template-columns:1fr;gap:24px}}}}
 .units-foot{{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-top:18px;color:var(--muted);font-size:14px}}
 .whys{{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:36px}}.why{{background:#fff;border:1px solid var(--line);padding:28px}}.why svg{{width:30px;height:30px;fill:none;stroke:var(--gold);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}}.why h3{{margin:14px 0 6px;font-size:18px}}.why p{{margin:0;color:var(--muted);font-size:15px}}
 .tabs{{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0 18px}}.tabs button{{border:0;border-bottom:2px solid transparent;background:none;padding:8px 2px;margin-right:18px;cursor:pointer;font-size:15px;color:var(--muted)}}.tabs button.on{{color:var(--ink);border-color:var(--gold);font-weight:600}}
@@ -296,8 +297,19 @@ footer{{padding:26px 5vw;font-size:12px;color:#747d84;display:flex;justify-conte
 <tbody>
 {unit_rows()}
 </tbody></table>
-<div class="units-foot"><span data-i="foot_note">{t('foot_note')}</span><a class="btn navy sm" data-i="price_list" href="#contact">{t('price_list')}</a></div>
+<div class="units-foot"><span data-i="foot_note">{t('foot_note')}</span><a class="btn navy sm" data-i="price_list" href="#pricelist">{t('price_list')}</a></div>
 </div></section>
+
+<section class="pl" id="pricelist"><div class="wrap plg">
+<div><div class="kicker" data-i="pl_kicker">{t('pl_kicker')}</div><h2 data-i="pl_title">{t('pl_title')}</h2><p class="lead" data-i="pl_text">{t('pl_text')}</p></div>
+<form id="pricelist-form" class="plf">
+<div class="row"><div><label for="pl-name" data-i="l_name">{t('l_name')}</label><input id="pl-name" name="name" autocomplete="name" required/></div><div><label for="pl-email" data-i="l_email">{t('l_email')}</label><input id="pl-email" name="email" type="email" autocomplete="email" required/></div></div>
+<div class="row"><div><label for="pl-phone" data-i="l_phone">{t('l_phone')}</label><input id="pl-phone" name="phone" type="tel" autocomplete="tel"/></div><div><label for="pl-language" data-i="l_lang">{t('l_lang')}</label><select id="pl-language" name="language"><option>English</option><option>Português</option><option>中文</option></select></div></div>
+<div class="hp" aria-hidden="true"><input name="website" tabindex="-1" autocomplete="off"/></div>
+<label class="consent"><input type="checkbox" name="consent" value="yes" required/> <span><span data-i="l_consent">{t('l_consent')}</span> <a href="privacidade.html" target="_blank">↗</a></span></label>
+<button class="btn gold" type="submit" data-i="pl_btn">{t('pl_btn')}</button>
+<div id="pl-status" role="status" aria-live="polite"></div>
+</form></div></section>
 
 <section class="alt" id="highlights"><div class="wrap">
 <div class="kicker" data-i="why_kicker">{t('why_kicker')}</div><h2 data-i="why_title">{t('why_title')}</h2>
@@ -343,9 +355,9 @@ footer{{padding:26px 5vw;font-size:12px;color:#747d84;display:flex;justify-conte
 {legal_footer('')}
 <div class="lightbox" id="lightbox" aria-hidden="true"><button class="lb x" aria-label="Close">×</button><button class="lb p" aria-label="Previous">‹</button><img alt="" id="lb-img"/><button class="lb n" aria-label="Next">›</button></div>
 <script>
-const copy={json.dumps(COPY, ensure_ascii=False)};
+const copy=window.copy={json.dumps(COPY, ensure_ascii=False)};
 function setLang(l){{if(!copy[l])return;document.documentElement.lang=l==="zh"?"zh-CN":l;document.querySelectorAll("[data-lang]").forEach(b=>b.classList.toggle("active",b.dataset.lang===l));document.querySelectorAll("[data-i]").forEach(el=>{{const v=copy[l][el.dataset.i];if(v)el.textContent=v}});try{{localStorage.setItem("yk_lang",l)}}catch(e){{}}
-const ls={{en:"English",pt:"Português",zh:"中文"}};const s=document.getElementById("language");if(s)s.value=ls[l]}}
+const ls={{en:"English",pt:"Português",zh:"中文"}};const s=document.getElementById("language");if(s)s.value=ls[l];const s2=document.getElementById("pl-language");if(s2)s2.value=ls[l]}}
 document.querySelectorAll("[data-lang]").forEach(b=>b.addEventListener("click",()=>setLang(b.dataset.lang)));
 try{{const q=new URLSearchParams(location.search).get("lang")||localStorage.getItem("yk_lang")||((navigator.language||"").slice(0,2));if(q&&q!=="en")setLang(q)}}catch(e){{}}
 document.querySelectorAll(".filters button").forEach(b=>b.addEventListener("click",()=>{{document.querySelectorAll(".filters button").forEach(x=>x.classList.toggle("on",x===b));document.querySelectorAll(".units tbody tr").forEach(r=>r.hidden=b.dataset.f!=="all"&&r.dataset.type!==b.dataset.f)}}));
