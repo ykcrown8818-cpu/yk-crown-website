@@ -1,0 +1,62 @@
+{
+ "_note": "Construction progress. Edit stages[].status (done | current | next) and add entries to updates[] (newest first). Photos go in assets/progress/<date>/ . Run: python3 tools/build_pages.py",
+ "delivery": "2028-02",
+ "stages": [
+  {
+   "id": "licence",
+   "status": "done"
+  },
+  {
+   "id": "demolition",
+   "status": "done"
+  },
+  {
+   "id": "site",
+   "status": "current"
+  },
+  {
+   "id": "structure",
+   "status": "next"
+  },
+  {
+   "id": "envelope",
+   "status": "next"
+  },
+  {
+   "id": "interiors",
+   "status": "next"
+  },
+  {
+   "id": "handover",
+   "status": "next"
+  }
+ ],
+ "updates": [
+  {
+   "date": "2026-11",
+   "photos": [
+    "assets/progress/2026-11/01.webp",
+    "assets/progress/2026-11/03.webp",
+    "assets/progress/2026-11/04.webp"
+   ],
+   "text": {
+    "en": "The site has been fully enclosed with new steel hoarding on the street and on the side lanes. Preparations for the start of construction are under way.",
+    "pt": "O estaleiro foi totalmente vedado com novos tapumes metálicos na rua e nos acessos laterais. Estão em curso os preparativos para o arranque da construção.",
+    "zh": "工地已在临街一侧和两侧通道全部装好新的金属围挡，正式施工前的准备工作正在进行。"
+   }
+  },
+  {
+   "date": "2026-03/2026-06",
+   "photos": [
+    "assets/progress/2026-02/01.webp",
+    "assets/progress/2026-02/04.webp",
+    "assets/progress/2026-02/06.webp"
+   ],
+   "text": {
+    "en": "The old buildings on the plot were demolished and the ground was cleared and levelled, ready for the new building.",
+    "pt": "Os edifícios antigos do lote foram demolidos e o terreno foi limpo e regularizado para receber o novo edifício.",
+    "zh": "地块上的旧建筑已经拆除，场地完成清理和平整，为新楼施工做好准备。"
+   }
+  }
+ ]
+}

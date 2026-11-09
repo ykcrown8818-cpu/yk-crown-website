@@ -1,0 +1,697 @@
+{
+ "_note": "Areas from architecture project ARQ.PE R1 (04/09/2026, Arq. Ricardo Cruz / Arq. Susana Vilela). Energy class A+ per owner. Price/status/parking still to confirm. status: available | reserved | sold.",
+ "project": {
+  "name": "Praça da Corujeira",
+  "address": "Praça da Corujeira 201–203, Campanhã, 4300 Porto",
+  "street": "Praça da Corujeira 201-203",
+  "locality": "Porto",
+  "region": "Porto",
+  "country": "PT",
+  "delivery": "2028-02",
+  "licence": "NUD/679095/2025/CMP"
+ },
+ "units": [
+  {
+   "id": "c",
+   "letter": "C",
+   "type": "T0",
+   "floor": 0,
+   "position": "front_left",
+   "au": 34.5,
+   "abp": 42.15,
+   "balcony": null,
+   "bedrooms": 0,
+   "bathrooms": 1,
+   "rooms": [
+    [
+     "living",
+     19.2
+    ],
+    [
+     "kitchen",
+     6.5
+    ],
+    [
+     "hall",
+     2.8
+    ],
+    [
+     "wc",
+     5.9
+    ]
+   ],
+   "plan": "plans/fracao-c.webp",
+   "energy": "A+",
+   "price": null,
+   "status": "available",
+   "parking": "included"
+  },
+  {
+   "id": "d",
+   "letter": "D",
+   "type": "T2",
+   "floor": 0,
+   "position": "rear_left",
+   "au": 61.0,
+   "abp": 71.0,
+   "balcony": null,
+   "bedrooms": 2,
+   "bathrooms": 2,
+   "rooms": [
+    [
+     "living",
+     17.2
+    ],
+    [
+     "kitchen",
+     6.3
+    ],
+    [
+     "bed1",
+     14.2
+    ],
+    [
+     "bed2",
+     10.0
+    ],
+    [
+     "wc1",
+     5.0
+    ],
+    [
+     "wc2",
+     2.9
+    ],
+    [
+     "corridor",
+     2.8
+    ],
+    [
+     "hall",
+     2.3
+    ]
+   ],
+   "plan": "plans/fracao-d.webp",
+   "energy": "A+",
+   "price": null,
+   "status": "available",
+   "parking": "included"
+  },
+  {
+   "id": "e",
+   "letter": "E",
+   "type": "T2",
+   "floor": 1,
+   "position": "front_left",
+   "au": 61.3,
+   "abp": 72.5,
+   "balcony": 8.25,
+   "bedrooms": 2,
+   "bathrooms": 2,
+   "rooms": [
+    [
+     "living",
+     17.65
+    ],
+    [
+     "kitchenette",
+     6.1
+    ],
+    [
+     "bed1",
+     14.65
+    ],
+    [
+     "bed2",
+     10.1
+    ],
+    [
+     "wc1",
+     4.9
+    ],
+    [
+     "wc2",
+     2.9
+    ],
+    [
+     "corridor",
+     2.7
+    ],
+    [
+     "hall",
+     2.3
+    ],
+    [
+     "balcony",
+     8.25
+    ]
+   ],
+   "plan": "plans/fracao-e.webp",
+   "energy": "A+",
+   "price": null,
+   "status": "available",
+   "parking": "included"
+  },
+  {
+   "id": "f",
+   "letter": "F",
+   "type": "T2",
+   "floor": 1,
+   "position": "rear_left",
+   "au": 69.6,
+   "abp": 82.1,
+   "balcony": null,
+   "bedrooms": 2,
+   "bathrooms": 2,
+   "rooms": [
+    [
+     "living",
+     26.5
+    ],
+    [
+     "kitchenette",
+     6.1
+    ],
+    [
+     "bed1",
+     14.2
+    ],
+    [
+     "bed2",
+     10.0
+    ],
+    [
+     "wc1",
+     4.9
+    ],
+    [
+     "wc2",
+     2.9
+    ],
+    [
+     "corridor",
+     2.7
+    ],
+    [
+     "hall",
+     2.3
+    ]
+   ],
+   "plan": "plans/fracao-f.webp",
+   "energy": "A+",
+   "price": null,
+   "status": "available",
+   "parking": "included"
+  },
+  {
+   "id": "g",
+   "letter": "G",
+   "type": "T1",
+   "floor": 1,
+   "position": "rear_right",
+   "au": 44.7,
+   "abp": 53.2,
+   "balcony": null,
+   "bedrooms": 1,
+   "bathrooms": 1,
+   "rooms": [
+    [
+     "living",
+     18.8
+    ],
+    [
+     "kitchenette",
+     6.0
+    ],
+    [
+     "bed1",
+     12.8
+    ],
+    [
+     "wc",
+     4.8
+    ],
+    [
+     "hall",
+     2.3
+    ]
+   ],
+   "plan": "plans/fracao-g.webp",
+   "energy": "A+",
+   "price": null,
+   "status": "available",
+   "parking": "included"
+  },
+  {
+   "id": "h",
+   "letter": "H",
+   "type": "T1",
+   "floor": 1,
+   "position": "front_right",
+   "au": null,
+   "abp": null,
+   "balcony": null,
+   "bedrooms": 1,
+   "bathrooms": 1,
+   "rooms": [],
+   "plan": null,
+   "energy": "A+",
+   "price": null,
+   "status": "sold",
+   "parking": "included",
+   "page": false
+  },
+  {
+   "id": "i",
+   "letter": "I",
+   "type": "T2",
+   "floor": 2,
+   "position": "front_left",
+   "au": 64.7,
+   "abp": 77.1,
+   "balcony": 8.25,
+   "bedrooms": 2,
+   "bathrooms": 2,
+   "rooms": [
+    [
+     "living",
+     21.05
+    ],
+    [
+     "kitchenette",
+     6.1
+    ],
+    [
+     "bed1",
+     14.65
+    ],
+    [
+     "bed2",
+     10.1
+    ],
+    [
+     "wc1",
+     4.9
+    ],
+    [
+     "wc2",
+     2.9
+    ],
+    [
+     "corridor",
+     2.7
+    ],
+    [
+     "hall",
+     2.3
+    ],
+    [
+     "balcony",
+     8.25
+    ]
+   ],
+   "plan": "plans/fracao-i.webp",
+   "energy": "A+",
+   "price": null,
+   "status": "available",
+   "parking": "included"
+  },
+  {
+   "id": "j",
+   "letter": "J",
+   "type": "T2",
+   "floor": 2,
+   "position": "rear_left",
+   "au": 69.6,
+   "abp": 82.1,
+   "balcony": null,
+   "bedrooms": 2,
+   "bathrooms": 2,
+   "rooms": [
+    [
+     "living",
+     26.5
+    ],
+    [
+     "kitchenette",
+     6.1
+    ],
+    [
+     "bed1",
+     14.2
+    ],
+    [
+     "bed2",
+     10.0
+    ],
+    [
+     "wc1",
+     4.9
+    ],
+    [
+     "wc2",
+     2.9
+    ],
+    [
+     "corridor",
+     2.7
+    ],
+    [
+     "hall",
+     2.3
+    ]
+   ],
+   "plan": "plans/fracao-j.webp",
+   "energy": "A+",
+   "price": null,
+   "status": "available",
+   "parking": "included"
+  },
+  {
+   "id": "k",
+   "letter": "K",
+   "type": "T1",
+   "floor": 2,
+   "position": "rear_right",
+   "au": null,
+   "abp": null,
+   "balcony": null,
+   "bedrooms": 1,
+   "bathrooms": 1,
+   "rooms": [],
+   "plan": null,
+   "energy": "A+",
+   "price": null,
+   "status": "sold",
+   "parking": "included",
+   "page": false
+  },
+  {
+   "id": "l",
+   "letter": "L",
+   "type": "T1",
+   "floor": 2,
+   "position": "front_right",
+   "au": null,
+   "abp": null,
+   "balcony": null,
+   "bedrooms": 1,
+   "bathrooms": 1,
+   "rooms": [],
+   "plan": null,
+   "energy": "A+",
+   "price": null,
+   "status": "sold",
+   "parking": "included",
+   "page": false
+  },
+  {
+   "id": "m",
+   "letter": "M",
+   "type": "T2",
+   "floor": 3,
+   "position": "front_left",
+   "au": 64.7,
+   "abp": 77.1,
+   "balcony": 8.25,
+   "bedrooms": 2,
+   "bathrooms": 2,
+   "rooms": [
+    [
+     "living",
+     21.05
+    ],
+    [
+     "kitchenette",
+     6.1
+    ],
+    [
+     "bed1",
+     14.65
+    ],
+    [
+     "bed2",
+     10.1
+    ],
+    [
+     "wc1",
+     4.9
+    ],
+    [
+     "wc2",
+     2.9
+    ],
+    [
+     "corridor",
+     2.7
+    ],
+    [
+     "hall",
+     2.3
+    ],
+    [
+     "balcony",
+     8.25
+    ]
+   ],
+   "plan": "plans/fracao-m.webp",
+   "energy": "A+",
+   "price": null,
+   "status": "available",
+   "parking": "included"
+  },
+  {
+   "id": "n",
+   "letter": "N",
+   "type": "T2",
+   "floor": 3,
+   "position": "rear_left",
+   "au": 69.6,
+   "abp": 82.1,
+   "balcony": null,
+   "bedrooms": 2,
+   "bathrooms": 2,
+   "rooms": [
+    [
+     "living",
+     26.5
+    ],
+    [
+     "kitchenette",
+     6.1
+    ],
+    [
+     "bed1",
+     14.2
+    ],
+    [
+     "bed2",
+     10.0
+    ],
+    [
+     "wc1",
+     4.9
+    ],
+    [
+     "wc2",
+     2.9
+    ],
+    [
+     "corridor",
+     2.7
+    ],
+    [
+     "hall",
+     2.3
+    ]
+   ],
+   "plan": "plans/fracao-n.webp",
+   "energy": "A+",
+   "price": null,
+   "status": "available",
+   "parking": "included"
+  },
+  {
+   "id": "o",
+   "letter": "O",
+   "type": "T1",
+   "floor": 3,
+   "position": "rear_right",
+   "au": null,
+   "abp": null,
+   "balcony": null,
+   "bedrooms": 1,
+   "bathrooms": 1,
+   "rooms": [],
+   "plan": null,
+   "energy": "A+",
+   "price": null,
+   "status": "sold",
+   "parking": "included",
+   "page": false
+  },
+  {
+   "id": "p",
+   "letter": "P",
+   "type": "T1",
+   "floor": 3,
+   "position": "front_right",
+   "au": null,
+   "abp": null,
+   "balcony": null,
+   "bedrooms": 1,
+   "bathrooms": 1,
+   "rooms": [],
+   "plan": null,
+   "energy": "A+",
+   "price": null,
+   "status": "sold",
+   "parking": "included",
+   "page": false
+  },
+  {
+   "id": "q",
+   "letter": "Q",
+   "type": "T2",
+   "floor": 4,
+   "position": "front_left",
+   "au": 64.7,
+   "abp": 77.1,
+   "balcony": 8.25,
+   "bedrooms": 2,
+   "bathrooms": 2,
+   "rooms": [
+    [
+     "living",
+     21.05
+    ],
+    [
+     "kitchenette",
+     6.1
+    ],
+    [
+     "bed1",
+     14.65
+    ],
+    [
+     "bed2",
+     10.1
+    ],
+    [
+     "wc1",
+     4.9
+    ],
+    [
+     "wc2",
+     2.9
+    ],
+    [
+     "corridor",
+     2.7
+    ],
+    [
+     "hall",
+     2.3
+    ],
+    [
+     "balcony",
+     8.25
+    ]
+   ],
+   "plan": "plans/fracao-q.webp",
+   "energy": "A+",
+   "price": null,
+   "status": "available",
+   "parking": "included"
+  },
+  {
+   "id": "r",
+   "letter": "R",
+   "type": "T2",
+   "floor": 4,
+   "position": "rear_left",
+   "au": 69.6,
+   "abp": 82.1,
+   "balcony": null,
+   "bedrooms": 2,
+   "bathrooms": 2,
+   "rooms": [
+    [
+     "living",
+     26.5
+    ],
+    [
+     "kitchenette",
+     6.1
+    ],
+    [
+     "bed1",
+     14.2
+    ],
+    [
+     "bed2",
+     10.0
+    ],
+    [
+     "wc1",
+     4.9
+    ],
+    [
+     "wc2",
+     2.9
+    ],
+    [
+     "corridor",
+     2.7
+    ],
+    [
+     "hall",
+     2.3
+    ]
+   ],
+   "plan": "plans/fracao-r.webp",
+   "energy": "A+",
+   "price": null,
+   "status": "available",
+   "parking": "included"
+  },
+  {
+   "id": "s",
+   "letter": "S",
+   "type": "T1",
+   "floor": 4,
+   "position": "rear_right",
+   "au": null,
+   "abp": null,
+   "balcony": null,
+   "bedrooms": 1,
+   "bathrooms": 1,
+   "rooms": [],
+   "plan": null,
+   "energy": "A+",
+   "price": null,
+   "status": "sold",
+   "parking": "included",
+   "page": false
+  },
+  {
+   "id": "t",
+   "letter": "T",
+   "type": "T1",
+   "floor": 4,
+   "position": "front_right",
+   "au": null,
+   "abp": null,
+   "balcony": null,
+   "bedrooms": 1,
+   "bathrooms": 1,
+   "rooms": [],
+   "plan": null,
+   "energy": "A+",
+   "price": null,
+   "status": "sold",
+   "parking": "included",
+   "page": false
+  }
+ ]
+}

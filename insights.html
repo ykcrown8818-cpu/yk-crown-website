@@ -1,516 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>YK CROWN Insights | Porto</title>
-
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Insights | Porto property market | YK CROWN</title>
+<meta content="Market data and news on Porto and Portuguese real estate." name="description"/>
+<meta content="#0b1b2b" name="theme-color"/>
+<link href="https://ykcrown.com/insights.html" rel="canonical"/>
+<meta content="Insights | Porto property market | YK CROWN" property="og:title"/><meta content="Market data and news on Porto and Portuguese real estate." property="og:description"/>
+<meta content="https://ykcrown.com/assets/photos/hero.webp" property="og:image"/>
+<link href="assets/favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="assets/site.css" rel="stylesheet"/>
 <style>
-:root{
-  --navy:#0b1b2b;
-  --gold:#c7a15a;
-  --cream:#f5f3ee;
-  --white:#ffffff;
-  --text:#42515b;
-}
-
-*{
-  box-sizing:border-box;
-}
-
-html{
-  scroll-behavior:smooth;
-}
-
-body{
-  margin:0;
-  font-family:Arial,Helvetica,sans-serif;
-  background:var(--cream);
-  color:var(--navy);
-  line-height:1.7;
-}
-
-/* HEADER */
-
-header{
-  position:sticky;
-  top:0;
-  z-index:100;
-  background:rgba(11,27,43,.97);
-  border-bottom:1px solid rgba(199,161,90,.4);
-}
-
-.nav{
-  max-width:1180px;
-  margin:auto;
-  min-height:76px;
-  padding:0 24px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-}
-
-.logo{
-  color:white;
-  text-decoration:none;
-  font-size:21px;
-  font-weight:bold;
-  letter-spacing:3px;
-}
-
-.navlinks{
-  display:flex;
-  gap:25px;
-}
-
-.navlinks a{
-  color:white;
-  text-decoration:none;
-  font-size:12px;
-  letter-spacing:1.5px;
-  text-transform:uppercase;
-}
-
-.navlinks a:hover{
-  color:var(--gold);
-}
-
-/* HERO */
-
-.hero{
-  background:var(--navy);
-  color:white;
-  padding:100px 24px;
-}
-
-.hero-inner{
-  max-width:1180px;
-  margin:auto;
-}
-
-.kicker{
-  color:var(--gold);
-  font-size:12px;
-  letter-spacing:3px;
-  margin-bottom:20px;
-}
-
-h1{
-  font-size:clamp(42px,7vw,78px);
-  line-height:1.05;
-  margin:0 0 25px;
-  max-width:850px;
-}
-
-.hero p{
-  max-width:700px;
-  font-size:18px;
-  color:#dce3e7;
-}
-
-/* CONTENT */
-
-.container{
-  max-width:1180px;
-  margin:auto;
-  padding:80px 24px;
-}
-
-.article{
-  background:white;
-  margin-bottom:70px;
-}
-
-.article-image{
-  width:100%;
-  height:auto;
-  display:block;
-  aspect-ratio:16/9;
-  object-fit:cover;
-}
-
-.article-content{
-  padding:45px;
-}
-
-.article-number{
-  color:var(--gold);
-  font-size:12px;
-  letter-spacing:2.5px;
-  margin-bottom:12px;
-}
-
-h2{
-  font-size:36px;
-  line-height:1.2;
-  margin:0 0 25px;
-}
-
-.article p{
-  color:var(--text);
-  font-size:16px;
-  margin:0 0 18px;
-}
-
-.signature{
-  margin-top:30px;
-  color:var(--navy);
-  font-size:12px;
-  font-weight:bold;
-  letter-spacing:1.5px;
-}
-
-/* BACK */
-
-.back{
-  text-align:center;
-  padding:20px 24px 100px;
-}
-
-.back a{
-  display:inline-block;
-  padding:15px 30px;
-  border:1px solid var(--gold);
-  color:var(--navy);
-  text-decoration:none;
-  font-size:12px;
-  letter-spacing:2px;
-  text-transform:uppercase;
-}
-
-.back a:hover{
-  background:var(--navy);
-  color:white;
-}
-
-/* FOOTER */
-
-footer{
-  background:var(--navy);
-  color:#b9c1c6;
-  text-align:center;
-  padding:35px 20px;
-  font-size:11px;
-  letter-spacing:1px;
-}
-
-footer strong{
-  color:white;
-  letter-spacing:2px;
-}
-
-/* MOBILE */
-
-@media(max-width:700px){
-
-  .nav{
-    padding:0 16px;
-  }
-
-  .logo{
-    font-size:17px;
-  }
-
-  .navlinks{
-    gap:12px;
-  }
-
-  .navlinks a{
-    font-size:9px;
-  }
-
-  .hero{
-    padding:70px 20px;
-  }
-
-  .container{
-    padding:50px 16px;
-  }
-
-  .article{
-    margin-bottom:45px;
-  }
-
-  .article-content{
-    padding:28px 22px;
-  }
-
-  h2{
-    font-size:28px;
-  }
-
-  .article p{
-    font-size:15px;
-  }
-
-}
+:root{--navy:#0b1b2b;--gold:#c7a15a;--cream:#f5f3ee;--ink:#17212b;--muted:#5f6973;--line:#e7e3da}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:72px}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;color:var(--ink);background:#fff;line-height:1.6}
+a{color:inherit;text-decoration:none}img{display:block;max-width:100%;height:auto}.wrap{width:min(1180px,90vw);margin:auto}
+.nav{position:sticky;top:0;z-index:50;height:68px;padding:0 5vw;display:flex;align-items:center;gap:28px;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.logo{font-weight:800;letter-spacing:2.6px;font-size:18px;white-space:nowrap}.logo span{color:var(--gold)}
+.navlinks{display:flex;gap:22px;font-size:13px;color:#3e4852;margin-left:auto}.navlinks a:hover,.navlinks a.cur{color:var(--gold)}
+.lang{display:flex;gap:4px}.lang button{border:1px solid var(--line);background:#fff;padding:5px 7px;font-size:11px;cursor:pointer;font:inherit;font-size:11px}.lang button.active{background:var(--navy);color:#fff;border-color:var(--navy)}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 20px;font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--navy);white-space:nowrap}.btn.navy{background:var(--navy);color:#fff}.btn.gold{background:var(--gold);border-color:var(--gold);color:var(--navy)}.btn.sm{padding:9px 14px;font-size:12px}
+.phero{color:#fff;background:linear-gradient(90deg,rgba(5,16,27,.85),rgba(5,16,27,.35)),var(--img) center/cover;padding:120px 0 70px}
+.kicker{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:700}.phero .kicker{color:#e3c37e}
+h1{font-size:clamp(38px,6vw,72px);line-height:1;margin:14px 0 16px;letter-spacing:-.04em}.phero p{font-size:clamp(17px,2vw,20px);max-width:640px;color:rgba(255,255,255,.88);margin:0}
+section{padding:80px 0}.alt{background:var(--cream)}h2{font-size:clamp(28px,3.6vw,44px);line-height:1.1;letter-spacing:-.03em;margin:10px 0 14px}.lead{font-size:17px;color:var(--muted);max-width:720px;margin:0}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}.two img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:32px}.card{background:#fff;border:1px solid var(--line);padding:28px}.card .n{font-size:13px;color:var(--gold);font-weight:700;letter-spacing:.1em}.card h3{margin:10px 0 6px;font-size:19px}.card p{margin:0;color:var(--muted);font-size:15px}
+.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:30px;border-top:1px solid var(--line)}.facts div{padding:18px 18px 0 0}.facts span{display:block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}.facts strong{font-size:22px}
+.proj{display:grid;grid-template-columns:1.2fr .8fr;background:var(--navy);color:#fff;margin-top:32px}.proj img{width:100%;height:100%;object-fit:cover;aspect-ratio:3/2}.proj .c{padding:44px}.proj .c p{color:rgba(255,255,255,.75)}.proj .tag{display:inline-block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;border:1px solid var(--gold);color:#e3c37e;padding:4px 10px}
+.timeline{list-style:none;padding:0;margin:36px 0 0;display:grid;grid-template-columns:repeat(7,1fr);gap:0;counter-reset:s}
+.timeline li{position:relative;padding:34px 12px 0 0;font-size:14px;color:var(--muted)}.timeline li::before{content:"";position:absolute;top:10px;left:0;right:0;height:3px;background:var(--line)}
+.timeline li::after{content:"";position:absolute;top:2px;left:0;width:19px;height:19px;border-radius:50%;background:#fff;border:3px solid var(--line)}
+.timeline li.done::before,.timeline li.current::before{background:var(--gold)}.timeline li.done::after{background:var(--gold);border-color:var(--gold)}.timeline li.current::after{background:#fff;border-color:var(--gold);box-shadow:0 0 0 5px rgba(199,161,90,.25)}
+.timeline strong{display:block;color:var(--ink);font-size:15px;margin-bottom:2px}.timeline li.current strong{color:var(--navy)}.timeline .st{font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:700}.timeline li.done .st,.timeline li.current .st{color:var(--gold)}
+.log{margin-top:30px;display:grid;gap:22px}.entry{background:#fff;border:1px solid var(--line);padding:26px}.entry time{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:700}.entry p{margin:8px 0 0;font-size:16px}
+.entry .ph{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:16px}.entry .ph img{aspect-ratio:4/3;object-fit:cover;width:100%}
+.note{font-size:12px;color:#899097;margin-top:14px}.ctab{background:var(--navy);color:#fff}.ctab .lead{color:rgba(255,255,255,.75)}.ctab .in{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+footer{padding:26px 5vw;font-size:12px;color:#747d84;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;border-top:1px solid var(--line)}
+@media(max-width:980px){.navlinks{display:none}.two,.proj{grid-template-columns:1fr;gap:32px}.cards{grid-template-columns:1fr 1fr}.facts{grid-template-columns:1fr 1fr}.timeline{grid-template-columns:repeat(4,1fr);row-gap:24px}}
+@media(max-width:640px){.nav{gap:10px}.nav .btn{display:none}.lang{margin-left:auto}section{padding:56px 0}.cards{grid-template-columns:1fr}.proj .c{padding:28px}
+.timeline{grid-template-columns:1fr;row-gap:0}.timeline li{padding:0 0 22px 34px}.timeline li::before{top:0;bottom:0;left:8px;right:auto;width:3px;height:auto}.timeline li::after{top:0}.entry .ph{grid-template-columns:1fr 1fr}}
 </style>
 </head>
-
-
 <body>
-
-<header>
-
-<nav class="nav">
-
-<a class="logo" href="index.html">
-YK CROWN
-</a>
-
-<div class="navlinks">
-
-<a href="index.html">Home</a>
-
-<a href="#porto01">Porto</a>
-
-<a href="#porto02">Lifestyle</a>
-
-<a href="#porto03">River & Ocean</a>
-
-<a href="#porto04">Architecture</a>
-
-</div>
-
-</nav>
-
+<header class="nav">
+<a class="logo" href="index.html">YK <span>CROWN</span></a>
+<nav class="navlinks"><a data-i="nav_apts" href="index.html#apartments">Apartments</a><a data-i="nav_gallery" href="index.html#gallery">Gallery</a><a data-i="nav_progress" href="progress.html">Progress</a><a data-i="nav_about" href="about.html">About</a><a data-i="nav_contact" href="index.html#contact">Contact</a></nav>
+<div class="lang"><button class="active" data-lang="en">EN</button><button data-lang="pt">PT</button><button data-lang="zh">中文</button></div>
+<a class="btn navy sm" data-i="cta_visit" href="index.html#contact">Book a viewing</a>
 </header>
-
-
-<section class="hero">
-
-<div class="hero-inner">
-
-<div class="kicker">
-YK CROWN INSIGHTS
-</div>
-
-<h1>
-Perspectives on Portugal,
-places and the future of living.
-</h1>
-
-<p>
-Exploring cities, architecture, culture and the places
-that shape the way we live.
-</p>
-
-</div>
-
-</section>
-
-
-<main class="container">
-
-
-<!-- PORTO 01 -->
-
-<article class="article" id="porto01">
-
-<img
-class="article-image"
-src="porto-01.jpg"
-alt="Porto Portugal"
->
-
-<div class="article-content">
-
-<div class="article-number">
-THE SPIRIT OF PORTO
-</div>
-
-<h2>
-Porto — A City That Inspires
-</h2>
-
-<p>
-Porto is a city shaped by history, culture and a unique
-sense of place. Built along the hills overlooking the
-Douro, the city combines a remarkable historic urban
-landscape with a contemporary and creative atmosphere.
-</p>
-
-<p>
-Porto’s Historic Centre has been a UNESCO World Heritage
-property since 1996. Its streets, buildings and relationship
-with the Douro reflect a long urban history and a city that
-has continually evolved while retaining its distinctive
-character.
-</p>
-
-<p>
-Beyond the historic centre, Porto offers a different rhythm
-of life across its neighbourhoods — from the city centre to
-the riverfront and the Atlantic edge.
-</p>
-
-<p>
-Porto is more than a destination.
-It is a way of life.
-</p>
-
-<div class="signature">
-YK CROWN · BUILDING A BRIGHTER TOMORROW
-</div>
-
-</div>
-
-</article>
-
-
-<!-- PORTO 02 -->
-
-<article class="article" id="porto02">
-
-<img
-class="article-image"
-src="porto-02.jpg"
-alt="Authentic Porto"
->
-
-<div class="article-content">
-
-<div class="article-number">
-THE SOUL OF PORTO
-</div>
-
-<h2>
-Authentic Porto
-</h2>
-
-<p>
-Porto’s identity is found in the details: traditional
-streets, local cafés, tiled façades, neighbourhood life
-and the relationship between the city and the Douro.
-</p>
-
-<p>
-The city has a strong sense of authenticity. Historic
-character and everyday life remain closely connected,
-while new restaurants, creative spaces and contemporary
-architecture continue to add new layers to Porto.
-</p>
-
-<div class="signature">
-YK CROWN · PORTO, PORTUGAL
-</div>
-
-</div>
-
-</article>
-
-
-<!-- PORTO 03 -->
-
-<article class="article" id="porto03">
-
-<img
-class="article-image"
-src="porto-03.jpg"
-alt="Foz do Douro"
->
-
-<div class="article-content">
-
-<div class="article-number">
-RIVER & OCEAN
-</div>
-
-<h2>
-Foz do Douro — Ocean Breeze
-</h2>
-
-<p>
-Where the Douro meets the Atlantic, Foz offers a different
-side of Porto — open horizons, sea air, waterfront walks
-and a more relaxed rhythm.
-</p>
-
-<p>
-Foz connects the city with the Atlantic and offers a natural
-extension of Porto’s urban lifestyle, combining the city,
-the river and the ocean.
-</p>
-
-<div class="signature">
-YK CROWN · PORTO, PORTUGAL
-</div>
-
-</div>
-
-</article>
-
-
-<!-- PORTO 04 -->
-
-<article class="article" id="porto04">
-
-<img
-class="article-image"
-src="porto-04.jpg"
-alt="Porto Architecture"
->
-
-<div class="article-content">
-
-<div class="article-number">
-PORTO IN DETAIL
-</div>
-
-<h2>
-A City of Details
-</h2>
-
-<p>
-Porto is a city that rewards attention. Architecture,
-materials, façades, streets and public spaces create a
-visual language that changes from one neighbourhood to
-another.
-</p>
-
-<p>
-From historic buildings to contemporary interventions,
-the city continues to evolve without losing the character
-that makes Porto distinctive.
-</p>
-
-<div class="signature">
-YK CROWN · REAL ESTATE DEVELOPMENT IN PORTUGAL
-</div>
-
-</div>
-
-</article>
-
-
+<main>
+<div class="phero" style="--img:url('assets/photos/location-porto.webp')"><div class="wrap">
+<div class="kicker" data-i="i_kicker">Insights</div><h1 data-i="i_title">Porto property market</h1><p data-i="i_text">Market data and news on Porto and Portuguese real estate — housing prices, tourism, interest rates — in English, Portuguese and Chinese.</p></div></div>
+<section><div class="wrap"><div class="card" style="max-width:760px"><div class="n" data-i="i_soon">Coming soon</div><p style="font-size:17px;margin:10px 0 22px" data-i="i_soon_t">Our first market updates will be published here shortly. Meanwhile, see the apartments at Praça da Corujeira or follow the construction progress.</p>
+<div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn navy" data-i="b1" href="index.html#apartments">See the apartments</a><a class="btn" data-i="b2" href="progress.html">Construction progress</a></div></div></div></section>
 </main>
-
-
-<div class="back">
-
-<a href="index.html">
-← Back to YK CROWN
-</a>
-
-</div>
-
-
-<footer>
-
-<strong>YK CROWN</strong>
-
-<br><br>
-
-Real Estate Development in Portugal
-
-<br>
-
-Porto · Gaia · Algarve
-
-</footer>
-
-
+<footer><span>© 2026 YK CROWN, LDA · Porto</span><span><a href="index.html">Praça da Corujeira</a> · <a href="progress.html">Progress</a> · <a href="about.html">About</a> · <a href="insights.html">Insights</a></span></footer>
+<div class="yk-legal"><div><strong>YK CROWN, LDA</strong> · NIPC 514037555 · Rua Fontes Pereira de Melo 22B, 2720-233 Amadora, Portugal · <a href="mailto:info@ykcrown.com">info@ykcrown.com</a> · <a href="tel:+351969058818">+351 969 058 818</a></div><div><a href="privacidade.html">Política de Privacidade · Privacy</a> · <a href="https://www.livroreclamacoes.pt/Inicio/" rel="noopener" target="_blank">Livro de Reclamações</a> · Resolução alternativa de litígios: <a href="https://www.cniacc.pt" rel="noopener" target="_blank">CNIACC</a> (<a href="https://www.consumidor.gov.pt" rel="noopener" target="_blank">consumidor.gov.pt</a>)</div></div>
+<script>
+const copy={"en": {"nav_apts": "Apartments", "nav_gallery": "Gallery", "nav_progress": "Progress", "nav_about": "About", "nav_contact": "Contact", "cta_visit": "Book a viewing", "i_kicker": "Insights", "i_title": "Porto property market", "i_text": "Market data and news on Porto and Portuguese real estate — housing prices, tourism, interest rates — in English, Portuguese and Chinese.", "i_soon": "Coming soon", "i_soon_t": "Our first market updates will be published here shortly. Meanwhile, see the apartments at Praça da Corujeira or follow the construction progress.", "b1": "See the apartments", "b2": "Construction progress"}, "pt": {"nav_apts": "Apartamentos", "nav_gallery": "Galeria", "nav_progress": "Obra", "nav_about": "Sobre nós", "nav_contact": "Contacto", "cta_visit": "Marcar visita", "i_kicker": "Insights", "i_title": "Mercado imobiliário do Porto", "i_text": "Dados e notícias sobre o imobiliário no Porto e em Portugal — preços da habitação, turismo, taxas de juro — em português, inglês e chinês.", "i_soon": "Em breve", "i_soon_t": "As primeiras análises de mercado serão publicadas aqui em breve. Entretanto, veja os apartamentos da Praça da Corujeira ou acompanhe a obra.", "b1": "Ver apartamentos", "b2": "Acompanhar a obra"}, "zh": {"nav_apts": "在售公寓", "nav_gallery": "图库", "nav_progress": "工程进度", "nav_about": "关于我们", "nav_contact": "联系我们", "cta_visit": "预约看房", "i_kicker": "市场资讯", "i_title": "波尔图房地产市场", "i_text": "用中文、英文和葡萄牙语发布波尔图及葡萄牙房地产的市场数据和新闻，包括房价、旅游和利率。", "i_soon": "即将发布", "i_soon_t": "第一批市场资讯将很快在这里发布。您可以先看看 Praça da Corujeira 的在售公寓，或关注工程进度。", "b1": "查看公寓", "b2": "工程进度"}};
+function setLang(l){if(!copy[l])return;document.documentElement.lang=l==="zh"?"zh-CN":l;document.querySelectorAll("[data-lang]").forEach(b=>b.classList.toggle("active",b.dataset.lang===l));document.querySelectorAll("[data-i]").forEach(el=>{const v=copy[l][el.dataset.i];if(v)el.textContent=v});try{localStorage.setItem("yk_lang",l)}catch(e){}}
+document.querySelectorAll("[data-lang]").forEach(b=>b.addEventListener("click",()=>setLang(b.dataset.lang)));
+try{const q=new URLSearchParams(location.search).get("lang")||localStorage.getItem("yk_lang")||((navigator.language||"").slice(0,2));if(q&&q!=="en")setLang(q)}catch(e){}
+</script>
 <script defer src="assets/site.js"></script>
-</body>
-</html>
+</body></html>
