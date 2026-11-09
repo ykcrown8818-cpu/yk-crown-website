@@ -69,9 +69,8 @@ T = {
     },
 }
 LANGS = ["en", "pt", "zh"]
-PHOTOS = [("contemporary-kitchen", "Living area"), ("kitchen-and-living-space", "Kitchen"),
-          ("dining-and-living-area", "Dining area"), ("living-room", "Bedroom"),
-          ("bathroom-detail", "Bathroom"), ("main-architectural-perspective", "Building")]
+PHOTOS = [("living-room", "Living room"), ("kitchen", "Kitchen"), ("dining", "Dining area"),
+          ("bedroom", "Bedroom"), ("bathroom", "Bathroom"), ("park-view", "Building")]
 
 e = html.escape
 
@@ -150,7 +149,7 @@ def page(u):
     others = "".join(
         f'<a href="../fracao-{o["id"]}/"{" class=\"cur\" aria-current=\"page\"" if o["id"]==u["id"] else ""}><strong>{o["letter"]}</strong>'
         f'<span data-i="o_{o["id"]}">{e(o["type"])} · {e(t["floor"](o["floor"]))}</span></a>' for o in UNITS)
-    photos = "".join(f'<img alt="{e(c)} — Praça da Corujeira" loading="lazy" decoding="async" src="../../assets/img/thumb/{p}.webp" width="720" height="480"/>' for p, c in PHOTOS)
+    photos = "".join(f'<img alt="{e(c)} — Praça da Corujeira" loading="lazy" decoding="async" src="../../assets/photos/thumb/{p}.webp" width="800" height="533"/>' for p, c in PHOTOS)
     plan_html = (f'<a href="{img}" target="_blank" rel="noopener"><img alt="{e(name)} {u["type"]} floor plan" src="{img}" width="2000" height="1250"/></a>'
                  if img else f'<div class="soon" data-i="plan_soon">{e(t["plan_soon"])}</div>')
     ld = {"@context": "https://schema.org", "@type": "Apartment", "name": f"{name} · {u['type']} — Praça da Corujeira",
@@ -175,7 +174,7 @@ def page(u):
 <link href="{url}" rel="canonical"/>
 <meta content="{e(name)} · {u['type']} — Praça da Corujeira, Porto" property="og:title"/>
 <meta content="{e(desc)}" property="og:description"/>
-<meta content="{SITE}/assets/img/{u['plan'] or 'hero.webp'}" property="og:image"/>
+<meta content="{SITE}/assets/img/{u['plan'] or '../photos/hero.webp'}" property="og:image"/>
 <meta content="website" property="og:type"/>
 <script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>
 <link href="../../assets/favicon.svg" rel="icon" type="image/svg+xml"/>
@@ -200,7 +199,7 @@ def page(u):
 <p class="note" data-i="indicative">{e(t['indicative'])}</p></div></section>
 </main>
 <section class="photos"><div class="wrap"><h2 data-i="photos">{e(t['photos'])}</h2><p class="note" data-i="photos_note">{e(t['photos_note'])}</p><div class="pgrid">{photos}</div></div></section>
-<section class="wrap about"><div><div class="kicker">YK CROWN</div><h2 data-i="about_t">{e(t['about_t'])}</h2><p class="lead" data-i="about_d">{e(t['about_d'])}</p><p class="note">{e(P['address'])}</p></div><img alt="Praça da Corujeira, Porto" loading="lazy" decoding="async" src="../../assets/img/thumb/aerial-view.webp" width="720" height="480"/></section>
+<section class="wrap about"><div><div class="kicker">YK CROWN</div><h2 data-i="about_t">{e(t['about_t'])}</h2><p class="lead" data-i="about_d">{e(t['about_d'])}</p><p class="note">{e(P['address'])}</p></div><img alt="Praça da Corujeira, Porto" loading="lazy" decoding="async" src="../../assets/photos/thumb/location.webp" width="800" height="533"/></section>
 <section class="wrap others"><h2 data-i="others">{e(t['others'])}</h2><div class="ogrid">{others}</div></section>
 <footer><span>© {date.today().year} YK CROWN, LDA · Portugal</span><span>{e(P['address'])}</span></footer>
 {legal_footer('../../')}

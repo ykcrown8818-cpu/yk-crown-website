@@ -42,7 +42,7 @@ COPY = {
         "w4_t": "On a green square", "w4_d": "The building faces Praça da Corujeira, with mature plane trees, a public garden and play areas.",
         "w5_t": "Well connected", "w5_d": "Close to Campanhã station — metro, urban and intercity trains and buses — and the A1/VCI road network.",
         "w6_t": "Delivery February 2028", "w6_d": "Buy now at the project stage and choose from the full range of apartments.",
-        "gal_kicker": "Gallery", "gal_title": "The building and its interiors", "tab_ext": "Exterior", "tab_int": "Interiors", "tab_bath": "Bathrooms",
+        "gal_kicker": "Gallery", "gal_title": "The building and its interiors", "tab_ext": "Exterior", "tab_int": "Interiors", "tab_bath": "Bathrooms", "tab_loc": "Surroundings",
         "gal_note": "Illustrative images (renders). Furniture and decoration are not included.",
         "loc_kicker": "Location", "loc_title": "Campanhã, eastern Porto",
         "loc_text": "Praça da Corujeira is a quiet residential square in Campanhã, one of the areas of Porto receiving the most investment in urban renewal. Campanhã station, the city centre and the motorway network are all within easy reach.",
@@ -78,7 +78,7 @@ COPY = {
         "w4_t": "Numa praça verde", "w4_d": "O edifício está virado para a Praça da Corujeira, com plátanos centenários, jardim público e zonas de lazer.",
         "w5_t": "Bem servido", "w5_d": "Perto da Estação de Campanhã — metro, comboios urbanos e de longo curso e autocarros — e dos acessos à A1/VCI.",
         "w6_t": "Entrega em fevereiro de 2028", "w6_d": "Compre agora em fase de projeto e escolha entre toda a oferta de apartamentos.",
-        "gal_kicker": "Galeria", "gal_title": "O edifício e os interiores", "tab_ext": "Exterior", "tab_int": "Interiores", "tab_bath": "Casas de banho",
+        "gal_kicker": "Galeria", "gal_title": "O edifício e os interiores", "tab_ext": "Exterior", "tab_int": "Interiores", "tab_bath": "Casas de banho", "tab_loc": "Envolvente",
         "gal_note": "Imagens meramente ilustrativas (renders). Mobiliário e decoração não incluídos.",
         "loc_kicker": "Localização", "loc_title": "Campanhã, zona oriental do Porto",
         "loc_text": "A Praça da Corujeira é uma praça residencial tranquila em Campanhã, uma das zonas do Porto com mais investimento em regeneração urbana. A Estação de Campanhã, o centro da cidade e os acessos às autoestradas ficam próximos.",
@@ -114,7 +114,7 @@ COPY = {
         "w4_t": "面朝绿色广场", "w4_d": "大楼正对 Praça da Corujeira，广场有百年梧桐、公园和休闲区。",
         "w5_t": "交通便利", "w5_d": "靠近 Campanhã 火车站（地铁、城郊及城际火车、巴士），并方便上 A1/VCI 高速。",
         "w6_t": "2028 年 2 月交房", "w6_d": "现在购买期房，可在全部户型中挑选。",
-        "gal_kicker": "图库", "gal_title": "建筑外观与室内", "tab_ext": "外观", "tab_int": "室内", "tab_bath": "卫浴",
+        "gal_kicker": "图库", "gal_title": "建筑外观与室内", "tab_ext": "外观", "tab_int": "室内", "tab_bath": "卫浴", "tab_loc": "周边环境",
         "gal_note": "效果图，仅供参考，家具和装饰不包括在内。",
         "loc_kicker": "位置", "loc_title": "波尔图东部 Campanhã",
         "loc_text": "Praça da Corujeira 是 Campanhã 一处安静的住宅广场。Campanhã 是波尔图城市更新投资最多的区域之一，离 Campanhã 火车站、市中心和高速公路都很近。",
@@ -135,14 +135,14 @@ COPY = {
 }
 
 GALLERY = {
-    "ext": [("main-architectural-perspective", "Praça da Corujeira"), ("residential-frontage-in-context", "Front façade"),
-            ("contemporary-residential-frontage", "Street view"), ("aerial-view", "Aerial view"),
-            ("entrance-and-street-interface", "Entrance"), ("balcony-and-glazing-detail", "Balconies")],
-    "int": [("contemporary-kitchen", "Living area"), ("dining-and-living-area", "Kitchen and dining"),
-            ("kitchen-detail", "Living room"), ("open-plan-kitchen", "Kitchen"),
-            ("living-room", "Bedroom"), ("interior-detail", "Bedroom")],
-    "bath": [("bathroom-detail", "Bathroom"), ("vanity-and-sanitaryware", "Shower"),
-             ("walk-in-shower-and-finishes-2", "Bathroom"), ("walk-in-shower-and-finishes", "Guest bathroom")],
+    "ext": [("hero", "Praça da Corujeira"), ("park-view", "View from the square"), ("front-through-trees", "Front façade"),
+            ("square-view", "Building and square"), ("street-view", "Street view"), ("street-level", "Street level"),
+            ("entrance", "Entrance"), ("balconies", "Balconies"), ("aerial-roof", "Roof with solar panels")],
+    "int": [("living-room", "Living room"), ("living-area", "Living area"), ("open-plan", "Open-plan living"),
+            ("kitchen", "Kitchen"), ("dining", "Dining area"), ("living-garden-view", "Living room"),
+            ("bedroom", "Bedroom"), ("bedroom-2", "Bedroom"), ("bedroom-3", "Bedroom")],
+    "bath": [("bathroom", "Bathroom"), ("bathroom-2", "Bathroom"), ("bathroom-3", "Bathroom"), ("bathroom-4", "Bathroom")],
+    "loc": [("location", "Praça da Corujeira"), ("location-station", "Campanhã and Estádio do Dragão"), ("location-porto", "Towards the Douro")],
 }
 
 ICONS = {  # simple line icons
@@ -177,7 +177,7 @@ def gallery():
     out = []
     for k, items in GALLERY.items():
         figs = "".join(
-            f'<figure><img alt="{e(c)} — Praça da Corujeira" loading="lazy" decoding="async" src="assets/img/thumb/{f}.webp" data-full="assets/img/{f}.webp" width="720" height="480"/></figure>'
+            f'<figure><img alt="{e(c)} — Praça da Corujeira" loading="lazy" decoding="async" src="assets/photos/thumb/{f}.webp" data-full="assets/photos/{f}.webp" width="800" height="533"/></figure>'
             for f, c in items)
         out.append(f'<div class="gal" data-tab="{k}"{" hidden" if k != "ext" else ""}>{figs}</div>')
     return "".join(out)
@@ -197,7 +197,7 @@ def page():
     ld = {"@context": "https://schema.org", "@type": "ApartmentComplex", "name": "Praça da Corujeira",
           "url": "https://ykcrown.com/", "numberOfAccommodationUnits": N,
           "address": {"@type": "PostalAddress", "streetAddress": data["project"]["street"], "addressLocality": "Porto", "addressCountry": "PT"},
-          "image": "https://ykcrown.com/assets/img/hero.webp"}
+          "image": "https://ykcrown.com/assets/photos/hero.webp"}
     return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -209,9 +209,9 @@ def page():
 <link href="https://ykcrown.com/" rel="canonical"/>
 <meta content="Praça da Corujeira, Porto — new apartments by YK CROWN" property="og:title"/>
 <meta content="{N} new apartments T0–T2 · energy class A+ · parking included · delivery February 2028." property="og:description"/>
-<meta content="https://ykcrown.com/assets/img/hero.webp" property="og:image"/>
+<meta content="https://ykcrown.com/assets/photos/hero.webp" property="og:image"/>
 <meta content="website" property="og:type"/>
-<link as="image" href="assets/img/hero.webp" rel="preload"/>
+<link as="image" href="assets/photos/hero.webp" rel="preload"/>
 <link href="assets/favicon.svg" rel="icon" type="image/svg+xml"/>
 <link href="assets/site.css" rel="stylesheet"/>
 <script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>
@@ -226,7 +226,7 @@ a{{color:inherit;text-decoration:none}}img{{display:block;max-width:100%}}button
 .lang{{display:flex;gap:4px}}.lang button{{border:1px solid var(--line);background:#fff;padding:5px 7px;font-size:11px;cursor:pointer}}.lang button.active{{background:var(--navy);color:#fff;border-color:var(--navy)}}
 .btn{{display:inline-flex;align-items:center;justify-content:center;padding:13px 20px;font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--navy);cursor:pointer;white-space:nowrap}}
 .btn.gold{{background:var(--gold);border-color:var(--gold);color:var(--navy)}}.btn.navy{{background:var(--navy);color:#fff}}.btn.ghost{{border-color:rgba(255,255,255,.7);color:#fff}}.btn.sm{{padding:9px 14px;font-size:12px}}
-.hero{{min-height:min(88vh,760px);color:#fff;display:flex;align-items:flex-end;background:linear-gradient(90deg,rgba(5,16,27,.85),rgba(5,16,27,.45) 55%,rgba(5,16,27,.1)),url("assets/img/hero.webp") center/cover}}
+.hero{{min-height:min(88vh,760px);color:#fff;display:flex;align-items:flex-end;background:linear-gradient(90deg,rgba(5,16,27,.78),rgba(5,16,27,.3) 55%,rgba(5,16,27,0)),url("assets/photos/hero.webp") center/cover}}
 .hero .wrap{{padding:90px 0 44px}}.kicker{{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:700}}.hero .kicker{{color:#e3c37e}}
 h1{{font-size:clamp(44px,7vw,88px);line-height:.98;margin:14px 0 18px;letter-spacing:-.045em}}.hero p{{font-size:clamp(17px,2vw,21px);max-width:620px;color:rgba(255,255,255,.9);margin:0 0 28px}}
 .hero .acts{{display:flex;gap:12px;flex-wrap:wrap}}
@@ -293,7 +293,7 @@ footer{{padding:26px 5vw;font-size:12px;color:#747d84;display:flex;justify-conte
 
 <section id="gallery"><div class="wrap">
 <div class="kicker" data-i="gal_kicker">{t('gal_kicker')}</div><h2 data-i="gal_title">{t('gal_title')}</h2>
-<div class="tabs"><button class="on" data-t="ext" data-i="tab_ext">{t('tab_ext')}</button><button data-t="int" data-i="tab_int">{t('tab_int')}</button><button data-t="bath" data-i="tab_bath">{t('tab_bath')}</button></div>
+<div class="tabs"><button class="on" data-t="ext" data-i="tab_ext">{t('tab_ext')}</button><button data-t="int" data-i="tab_int">{t('tab_int')}</button><button data-t="bath" data-i="tab_bath">{t('tab_bath')}</button><button data-t="loc" data-i="tab_loc">{t('tab_loc')}</button></div>
 {gallery()}
 <p class="note" data-i="gal_note">{t('gal_note')}</p>
 </div></section>
@@ -302,7 +302,7 @@ footer{{padding:26px 5vw;font-size:12px;color:#747d84;display:flex;justify-conte
 <div><div class="kicker" data-i="loc_kicker">{t('loc_kicker')}</div><h2 data-i="loc_title">{t('loc_title')}</h2><p class="lead" data-i="loc_text">{t('loc_text')}</p>
 <address>Praça da Corujeira 201–203<br/>4300 Campanhã, Porto</address>
 <a class="btn navy" data-i="loc_btn" href="https://www.google.com/maps/search/?api=1&amp;query=Pra%C3%A7a+da+Corujeira+203%2C+Porto" rel="noopener" target="_blank">{t('loc_btn')}</a></div>
-<img alt="Aerial view of Praça da Corujeira, Porto" loading="lazy" decoding="async" src="assets/img/aerial-view.webp" width="1400" height="933"/>
+<img alt="Aerial view of Praça da Corujeira, Porto" loading="lazy" decoding="async" src="assets/photos/location.webp" width="1920" height="1280"/>
 </div></section>
 
 <section id="faq"><div class="wrap faq">
