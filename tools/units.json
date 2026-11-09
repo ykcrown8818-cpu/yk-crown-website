@@ -8,7 +8,8 @@
   "region": "Porto",
   "country": "PT",
   "delivery": "2028-02",
-  "licence": "NUD/679095/2025/CMP"
+  "licence": "NUD/679095/2025/CMP",
+  "show_status": false
  },
  "units": [
   {
