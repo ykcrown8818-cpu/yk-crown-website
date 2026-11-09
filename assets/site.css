@@ -1,0 +1,6 @@
+/* Shared: legal footer */
+.yk-legal{background:#04101a;color:#9daab3;font:12px/1.7 Arial,Helvetica,sans-serif;padding:22px 5vw 26px;display:grid;gap:6px}
+.yk-legal a{color:#d9c08d;text-decoration:none}.yk-legal a:hover{text-decoration:underline}
+.yk-legal strong{color:#fff;font-weight:700}
+.yk-legal .lr{display:inline-flex;align-items:center;gap:6px}
+@media(max-width:700px){.yk-legal{padding-bottom:84px}}

@@ -5,10 +5,13 @@ Usage (from repo root):  python3 tools/build_units.py
 Writes apartamentos/fracao-<id>/index.html and sitemap.xml.
 """
 import html
+import sys
 import json
 import os
 from datetime import date
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from legal_footer import legal_footer  # noqa: E402
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SITE = "https://ykcrown.com"
 data = json.load(open(os.path.join(ROOT, "tools", "units.json"), encoding="utf-8"))
@@ -128,7 +131,7 @@ h2{font-size:22px;letter-spacing:-.01em;margin:0 0 14px}.facts{width:100%;border
 .about{padding:64px 0;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}.about img{width:100%;aspect-ratio:4/3;object-fit:cover}
 .others{padding:0 0 80px}.ogrid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:16px}.ogrid a{border:1px solid var(--line);padding:14px;display:block}.ogrid a:hover{border-color:var(--gold)}.ogrid strong{display:block;font-size:20px}.ogrid span{font-size:12px;color:var(--muted)}.ogrid a.cur{background:var(--navy);color:#fff;border-color:var(--navy)}.ogrid a.cur span{color:rgba(255,255,255,.7)}
 footer{padding:36px 5vw;border-top:1px solid var(--line);font-size:12px;color:#747d84;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
-@media(max-width:900px){.navlinks{display:none}.grid,.about{grid-template-columns:1fr;gap:32px}.ogrid{grid-template-columns:repeat(3,1fr)}.pgrid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:900px){.nav{flex-wrap:wrap;padding:12px 5vw}.navlinks{order:3;width:100%;overflow:auto;gap:16px;font-size:11px}.grid,.about{grid-template-columns:1fr;gap:32px}.ogrid{grid-template-columns:repeat(3,1fr)}.pgrid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:560px){.ogrid{grid-template-columns:repeat(2,1fr)}.actions{width:100%}.actions .btn{flex:1}}"""
 
 
@@ -175,6 +178,8 @@ def page(u):
 <meta content="{SITE}/assets/img/{u['plan'] or 'hero.webp'}" property="og:image"/>
 <meta content="website" property="og:type"/>
 <script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>
+<link href="../../assets/favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../../assets/site.css" rel="stylesheet"/>
 <style>
 {CSS}
 </style>
@@ -182,7 +187,7 @@ def page(u):
 <body>
 <header class="nav">
 <a class="logo" href="../../index.html">YK <span>CROWN</span></a>
-<nav class="navlinks"><a href="../../index.html#overview">Praça da Corujeira</a><a href="../../index.html#floorplans">Plans</a><a href="../../index.html#gallery">Gallery</a><a href="../../contact.html">Contact</a></nav>
+<nav class="navlinks"><a href="../../index.html#overview">Praça da Corujeira</a><a href="../../index.html#floorplans">Plans</a><a href="../../contact.html">Contact</a></nav>
 <div class="lang"><button class="active" data-lang="en">EN</button><button data-lang="pt">PT</button><button data-lang="zh">中文</button></div>
 </header>
 <main class="wrap">
@@ -198,6 +203,7 @@ def page(u):
 <section class="wrap about"><div><div class="kicker">YK CROWN</div><h2 data-i="about_t">{e(t['about_t'])}</h2><p class="lead" data-i="about_d">{e(t['about_d'])}</p><p class="note">{e(P['address'])}</p></div><img alt="Praça da Corujeira, Porto" loading="lazy" decoding="async" src="../../assets/img/thumb/aerial-view.webp" width="720" height="480"/></section>
 <section class="wrap others"><h2 data-i="others">{e(t['others'])}</h2><div class="ogrid">{others}</div></section>
 <footer><span>© {date.today().year} YK CROWN, LDA · Portugal</span><span>{e(P['address'])}</span></footer>
+{legal_footer('../../')}
 <script>
 const copy={blob};
 function setLang(l){{if(!copy[l])return;document.documentElement.lang=l==="zh"?"zh-CN":l;document.querySelectorAll("[data-lang]").forEach(b=>b.classList.toggle("active",b.dataset.lang===l));document.querySelectorAll("[data-i]").forEach(el=>{{const v=copy[l][el.dataset.i];if(v)el.textContent=v}});try{{localStorage.setItem("yk_lang",l)}}catch(e){{}}}}
@@ -214,7 +220,7 @@ def main():
         d = os.path.join(ROOT, "apartamentos", f"fracao-{u['id']}")
         os.makedirs(d, exist_ok=True)
         open(os.path.join(d, "index.html"), "w", encoding="utf-8").write(page(u))
-    urls = ["", "about.html", "contact.html", "insights.html"] + [f"apartamentos/fracao-{u['id']}/" for u in UNITS]
+    urls = ["", "about.html", "contact.html", "insights.html", "privacidade.html"] + [f"apartamentos/fracao-{u['id']}/" for u in UNITS]
     today = date.today().isoformat()
     sm = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
     sm += "".join(f"  <url><loc>{SITE}/{p}</loc><lastmod>{today}</lastmod></url>\n" for p in urls)
