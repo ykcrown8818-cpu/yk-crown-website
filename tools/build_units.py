@@ -30,7 +30,7 @@ T = {
         "k_bal": "Balcony", "k_bed": "Bedrooms", "k_bath": "Bathrooms", "k_park": "Parking", "k_energy": "Energy class",
         "k_status": "Status", "st": {"available": "Available", "reserved": "Reserved", "sold": "Sold"}, "k_price": "Price", "on_request": "On request", "parking_inc": "1 space included (car lift)", "tbc": "To be confirmed", "energy_tbc": "Certificate in progress",
         "rooms_title": "Room areas", "plan_title": "Floor plan", "plan_soon": "Detailed floor plan available on request.",
-        "facts": "Key facts", "book": "Book a viewing", "wa": "WhatsApp", "others": "Other apartments",
+        "pl": "Price list", "facts": "Key facts", "book": "Book a viewing", "wa": "WhatsApp", "others": "Other apartments",
         "back": "← All apartments", "indicative": "Areas are indicative and may change during the development of the project. Final values follow the approved technical documentation.",
         "photos": "Interiors", "photos_note": "Illustrative images (renders) of the development's finishes.",
         "about_t": "About Praça da Corujeira", "about_d": "A contemporary residential building on a tree-lined square in Campanhã, eastern Porto — ten apartments with generous glazing, timber accents and calm, functional interiors.",
@@ -46,7 +46,7 @@ T = {
         "k_bal": "Varanda", "k_bed": "Quartos", "k_bath": "Casas de banho", "k_park": "Estacionamento", "k_energy": "Classe energética",
         "k_status": "Estado", "st": {"available": "Disponível", "reserved": "Reservado", "sold": "Vendido"}, "k_price": "Preço", "on_request": "Sob consulta", "parking_inc": "1 lugar incluído (elevador de automóveis)", "tbc": "A confirmar", "energy_tbc": "Certificado em emissão",
         "rooms_title": "Áreas das divisões", "plan_title": "Planta", "plan_soon": "Planta detalhada disponível mediante pedido.",
-        "facts": "Características", "book": "Marcar visita", "wa": "WhatsApp", "others": "Outros apartamentos",
+        "pl": "Tabela de preços", "facts": "Características", "book": "Marcar visita", "wa": "WhatsApp", "others": "Outros apartamentos",
         "back": "← Todos os apartamentos", "indicative": "As áreas são indicativas e poderão sofrer alterações durante o desenvolvimento do projeto. Os valores finais seguem a documentação técnica aprovada.",
         "photos": "Interiores", "photos_note": "Imagens meramente ilustrativas (renders) dos acabamentos do empreendimento.",
         "about_t": "Sobre a Praça da Corujeira", "about_d": "Um edifício residencial contemporâneo numa praça arborizada em Campanhã, zona oriental do Porto — dez apartamentos com amplos envidraçados, apontamentos em madeira e interiores calmos e funcionais.",
@@ -62,7 +62,7 @@ T = {
         "k_bal": "阳台", "k_bed": "卧室", "k_bath": "卫生间", "k_park": "车位", "k_energy": "能源等级",
         "k_status": "状态", "st": {"available": "可售", "reserved": "已预订", "sold": "已售"}, "k_price": "价格", "on_request": "价格面议", "parking_inc": "含 1 个车位（汽车升降机）", "tbc": "待确认", "energy_tbc": "证书办理中",
         "rooms_title": "各房间面积", "plan_title": "户型图", "plan_soon": "详细户型图可按需索取。",
-        "facts": "基本信息", "book": "预约看房", "wa": "WhatsApp", "others": "其他户型",
+        "pl": "获取价格表", "facts": "基本信息", "book": "预约看房", "wa": "WhatsApp", "others": "其他户型",
         "back": "← 全部户型", "indicative": "面积为参考数据，可能在项目开发过程中调整，最终以批准的技术文件为准。",
         "photos": "室内实景", "photos_note": "效果图，仅供参考。",
         "about_t": "关于 Praça da Corujeira", "about_d": "位于波尔图东部 Campanhã 一处绿树成荫广场上的现代住宅楼，共十套公寓，大面积玻璃、木质元素，室内安静实用。",
@@ -98,7 +98,7 @@ def i18n_blob(u):
     out = {}
     for L in LANGS:
         t = T[L]
-        d = {k: t[k] for k in ["rooms_title", "plan_title", "plan_soon", "facts", "book", "wa", "others", "back",
+        d = {k: t[k] for k in ["pl", "rooms_title", "plan_title", "plan_soon", "facts", "book", "wa", "others", "back",
                                "indicative", "photos", "photos_note", "about_t", "about_d"]}
         d["lead"] = t["lead"](u)
         d["sub"] = f"{t['floor'](u['floor'])} · {t['pos'][u['position']]}"
@@ -193,7 +193,7 @@ def page(u):
 <main class="wrap">
 <div class="crumb"><a href="../../index.html#floorplans" data-i="back">{e(t['back'])}</a></div>
 <section class="head"><div><div class="kicker">Praça da Corujeira · Porto</div><h1>{e(name)} · {u['type']}</h1><div class="sub" data-i="sub">{e(t['floor'](u['floor']))} · {e(t['pos'][u['position']])}</div><p class="lead" data-i="lead">{e(t['lead'](u))}</p></div>
-<div class="actions"><a class="btn primary" data-i="book" href="../../contact.html?{unit_q}">{e(t['book'])}</a><a class="btn wa" data-wa="{e(name)} ({u['type']}) — Praça da Corujeira" href="https://wa.me/351969058818" rel="noopener" target="_blank">WhatsApp</a></div></section>
+<div class="actions"><a class="btn" data-i="pl" href="../../index.html#pricelist">{e(t['pl'])}</a><a class="btn primary" data-i="book" href="../../contact.html?{unit_q}">{e(t['book'])}</a><a class="btn wa" data-wa="{e(name)} ({u['type']}) — Praça da Corujeira" href="https://wa.me/351969058818" rel="noopener" target="_blank">WhatsApp</a></div></section>
 <section class="grid"><div><h2 data-i="plan_title">{e(t['plan_title'])}</h2><div class="plan">{plan_html}</div></div>
 <div><h2 data-i="facts">{e(t['facts'])}</h2><table class="facts">{rows}</table>
 <div class="rooms"><h2 data-i="rooms_title">{e(t['rooms_title'])}</h2><table class="facts">{rrows}</table></div>
