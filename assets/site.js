@@ -4,7 +4,7 @@
   var EMAIL = 'info@ykcrown.com';
   // When the n8n lead webhook is ready, paste its Production URL here.
   // Until then, enquiries are handed over to WhatsApp so none are lost.
-  var LEAD_ENDPOINT = '';
+  var LEAD_ENDPOINT = 'https://ykcrown.app.n8n.cloud/webhook/website-lead';
 
   function lang() {
     var l = (document.documentElement.lang || 'en').slice(0, 2);
