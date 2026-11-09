@@ -11,6 +11,9 @@ from legal_footer import legal_footer  # noqa: E402
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 data = json.load(open(os.path.join(ROOT, "tools", "units.json"), encoding="utf-8"))
 UNITS = data["units"]
+LISTED = [u for u in UNITS if u.get("page", True)]
+NAV_ = sum(u["status"] == "available" for u in UNITS)
+NSOLD = sum(u["status"] == "sold" for u in UNITS)
 e = html.escape
 
 
@@ -33,7 +36,7 @@ COPY = {
         "btn_apts": "See the apartments",
         "apts_kicker": "Apartments", "apts_title": "Choose your apartment",
         "apts_text": "Areas from the approved architecture project. Prices on request — ask us for the price list.",
-        "flt_all": "All", "th_unit": "Apartment", "th_type": "Type", "th_floor": "Floor", "th_au": "Usable area", "th_abp": "Gross area", "th_bal": "Balcony", "th_price": "Price", "th_status": "Status", "st_available": "Available", "st_reserved": "Reserved", "st_sold": "Sold",
+        "avail_note": f"{NAV_} available · {NSOLD} sold", "flt_all": "All", "th_unit": "Apartment", "th_type": "Type", "th_floor": "Floor", "th_au": "Usable area", "th_abp": "Gross area", "th_bal": "Balcony", "th_price": "Price", "th_status": "Status", "st_available": "Available", "st_reserved": "Reserved", "st_sold": "Sold",
         "gf": "Ground", "front": "Front", "rear": "Rear", "on_req": "On request", "view": "View →", "price_list": "Ask for the price list", "foot_note": "All apartments: energy class A+ · one parking space included · delivery February 2028",
         "why_kicker": "Why Praça da Corujeira", "why_title": "A new building, made to be lived in",
         "w1_t": "Energy class A+", "w1_d": "New construction with high thermal performance — lower energy bills and better comfort all year.",
@@ -69,7 +72,7 @@ COPY = {
         "btn_apts": "Ver apartamentos",
         "apts_kicker": "Apartamentos", "apts_title": "Escolha o seu apartamento",
         "apts_text": "Áreas do projeto de arquitetura aprovado. Preços sob consulta — peça-nos a tabela de preços.",
-        "flt_all": "Todos", "th_unit": "Fração", "th_type": "Tipologia", "th_floor": "Piso", "th_au": "Área útil", "th_abp": "Área bruta", "th_bal": "Varanda", "th_price": "Preço", "th_status": "Estado", "st_available": "Disponível", "st_reserved": "Reservado", "st_sold": "Vendido",
+        "avail_note": f"{NAV_} disponíveis · {NSOLD} vendidos", "flt_all": "Todos", "th_unit": "Fração", "th_type": "Tipologia", "th_floor": "Piso", "th_au": "Área útil", "th_abp": "Área bruta", "th_bal": "Varanda", "th_price": "Preço", "th_status": "Estado", "st_available": "Disponível", "st_reserved": "Reservado", "st_sold": "Vendido",
         "gf": "R/C", "front": "Frente", "rear": "Tardoz", "on_req": "Sob consulta", "view": "Ver →", "price_list": "Pedir tabela de preços", "foot_note": "Todos os apartamentos: classe energética A+ · um lugar de garagem incluído · entrega em fevereiro de 2028",
         "why_kicker": "Porquê a Praça da Corujeira", "why_title": "Um edifício novo, pensado para viver",
         "w1_t": "Classe energética A+", "w1_d": "Construção nova com elevado desempenho térmico — menos custos de energia e mais conforto todo o ano.",
@@ -105,7 +108,7 @@ COPY = {
         "btn_apts": "查看公寓",
         "apts_kicker": "在售公寓", "apts_title": "选择您的公寓",
         "apts_text": "面积数据来自已批准的建筑设计图纸。价格面议，欢迎索取价格表。",
-        "flt_all": "全部", "th_unit": "单元", "th_type": "户型", "th_floor": "楼层", "th_au": "使用面积", "th_abp": "建筑面积", "th_bal": "阳台", "th_price": "价格", "th_status": "状态", "st_available": "可售", "st_reserved": "已预订", "st_sold": "已售",
+        "avail_note": f"{NAV_} 套可售 · {NSOLD} 套已售", "flt_all": "全部", "th_unit": "单元", "th_type": "户型", "th_floor": "楼层", "th_au": "使用面积", "th_abp": "建筑面积", "th_bal": "阳台", "th_price": "价格", "th_status": "状态", "st_available": "可售", "st_reserved": "已预订", "st_sold": "已售",
         "gf": "地面层", "front": "前侧", "rear": "后侧", "on_req": "价格面议", "view": "查看 →", "price_list": "索取价格表", "foot_note": "所有公寓：能源等级 A+ · 含一个车位 · 2028 年 2 月交房",
         "why_kicker": "为什么选择 Praça da Corujeira", "why_title": "一栋为居住而建的新楼",
         "w1_t": "能源等级 A+", "w1_d": "全新建筑，保温性能高，能耗更低，四季更舒适。",
@@ -160,17 +163,20 @@ def unit_rows():
     for u in UNITS:
         fl = '<span data-i="gf">R/C</span>' if u["floor"] == 0 else str(u["floor"])
         pos = "front" if u["position"].startswith("front") else "rear"
-        rows.append(
-            f'<tr data-type="{u["type"]}" class="row-{u["status"]}"><td><a href="apartamentos/fracao-{u["id"]}/"><strong>{u["letter"]}</strong></a></td>'
-            f'<td>{u["type"]}</td><td>{fl} · <span data-i="{pos}">{"Front" if pos=="front" else "Rear"}</span></td>'
-            f'<td><strong>{m2(u["au"])}</strong></td><td class="hide-s">{m2(u["abp"])}</td><td>{m2(u["balcony"]) if u["balcony"] else "—"}</td>'
-            f'<td class="hide-s"><span data-i="on_req">On request</span></td><td><span class="st st-{u["status"]}" data-i="st_{u["status"]}">{COPY["en"]["st_" + u["status"]]}</span></td>'
-            f'<td><a class="view" href="apartamentos/fracao-{u["id"]}/" data-i="view">View →</a></td></tr>')
+        page = u.get("page", True)
+        head = (f'<tr data-type="{u["type"]}" class="row-{u["status"]}"><td><a href="apartamentos/fracao-{u["id"]}/"><strong>{u["letter"]}</strong></a></td>'
+                if page else f'<tr data-type="{u["type"]}" class="row-{u["status"]} nolink"><td><strong>{u["letter"]}</strong></td>')
+        price = '<span data-i="on_req">On request</span>' if u["status"] != "sold" else "—"
+        mid = (f'<td>{u["type"]}</td><td>{fl} · <span data-i="{pos}">{"Front" if pos=="front" else "Rear"}</span></td>'
+               f'<td><strong>{m2(u["au"])}</strong></td><td class="hide-s">{m2(u["abp"])}</td><td>{m2(u["balcony"]) if u["balcony"] else "—"}</td>'
+               f'<td class="hide-s">{price}</td><td><span class="st st-{u["status"]}" data-i="st_{u["status"]}">{COPY["en"]["st_" + u["status"]]}</span></td>')
+        tail = f'<td><a class="view" href="apartamentos/fracao-{u["id"]}/" data-i="view">View →</a></td></tr>' if page else '<td></td></tr>'
+        rows.append(head + mid + tail)
     return "\n".join(rows)
 
 
 def unit_options():
-    return "".join(f'<option value="Fração {u["letter"]} ({u["type"]})">Fração {u["letter"]} · {u["type"]} · {m2(u["au"])}</option>' for u in UNITS)
+    return "".join(f'<option value="Fração {u["letter"]} ({u["type"]})">Fração {u["letter"]} · {u["type"]} · {m2(u["au"])}</option>' for u in LISTED if u["status"] != "sold")
 
 
 def gallery():
@@ -235,7 +241,7 @@ section{{padding:88px 0}}.alt{{background:var(--cream)}}h2{{font-size:clamp(30px
 .head{{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:28px}}
 .filters{{display:flex;gap:6px}}.filters button{{border:1px solid var(--line);background:#fff;padding:8px 14px;cursor:pointer;font-size:13px}}.filters button.on{{background:var(--navy);color:#fff;border-color:var(--navy)}}
 table.units{{width:100%;border-collapse:collapse;background:#fff;font-size:15px}}.units th{{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-align:left;font-weight:600;padding:12px 14px;border-bottom:2px solid var(--ink)}}
-.units td{{padding:15px 14px;border-bottom:1px solid var(--line)}}.units tr:hover td{{background:#fbfaf7}}.units td:first-child strong{{font-size:18px}}.units .view{{font-weight:700;font-size:13px;color:var(--navy);border-bottom:1px solid var(--gold)}}
+.units td{{padding:15px 14px;border-bottom:1px solid var(--line)}}.units tr:not(.nolink):hover td{{background:#fbfaf7;cursor:pointer}}.units td:first-child strong{{font-size:18px}}.units .view{{font-weight:700;font-size:13px;color:var(--navy);border-bottom:1px solid var(--gold)}}
 .st{{display:inline-block;font-size:12px;font-weight:700;padding:3px 9px;border-radius:999px;white-space:nowrap}}.st-available{{background:#e6f4ea;color:#1e7b3a}}.st-reserved{{background:#fdf1dc;color:#9a6200}}.st-sold{{background:#f0eded;color:#8a5050}}.row-sold td{{color:#9aa1a7}}.row-sold td .st{{color:#8a5050}}
 .units-foot{{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-top:18px;color:var(--muted);font-size:14px}}
 .whys{{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:36px}}.why{{background:#fff;border:1px solid var(--line);padding:28px}}.why svg{{width:30px;height:30px;fill:none;stroke:var(--gold);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}}.why h3{{margin:14px 0 6px;font-size:18px}}.why p{{margin:0;color:var(--muted);font-size:15px}}
@@ -278,7 +284,7 @@ footer{{padding:26px 5vw;font-size:12px;color:#747d84;display:flex;justify-conte
 </div></div></div>
 
 <section id="apartments"><div class="wrap">
-<div class="head"><div><div class="kicker" data-i="apts_kicker">{t('apts_kicker')}</div><h2 data-i="apts_title">{t('apts_title')}</h2><p class="lead" data-i="apts_text">{t('apts_text')}</p></div>
+<div class="head"><div><div class="kicker" data-i="apts_kicker">{t('apts_kicker')}</div><h2 data-i="apts_title">{t('apts_title')}</h2><p class="lead" data-i="apts_text">{t('apts_text')}</p><p style="margin:12px 0 0;font-weight:700;color:var(--navy)" data-i="avail_note">{t('avail_note')}</p></div>
 <div class="filters"><button class="on" data-f="all" data-i="flt_all">{t('flt_all')}</button>{flt}</div></div>
 <table class="units"><thead><tr><th data-i="th_unit">{t('th_unit')}</th><th data-i="th_type">{t('th_type')}</th><th data-i="th_floor">{t('th_floor')}</th><th data-i="th_au">{t('th_au')}</th><th class="hide-s" data-i="th_abp">{t('th_abp')}</th><th data-i="th_bal">{t('th_bal')}</th><th class="hide-s" data-i="th_price">{t('th_price')}</th><th data-i="th_status">{t('th_status')}</th><th></th></tr></thead>
 <tbody>
@@ -301,7 +307,7 @@ footer{{padding:26px 5vw;font-size:12px;color:#747d84;display:flex;justify-conte
 
 <section class="alt" id="location"><div class="wrap loc">
 <div><div class="kicker" data-i="loc_kicker">{t('loc_kicker')}</div><h2 data-i="loc_title">{t('loc_title')}</h2><p class="lead" data-i="loc_text">{t('loc_text')}</p>
-<address>Praça da Corujeira 201–203<br/>4300 Campanhã, Porto</address>
+<address>Praça da Corujeira 201–203<br/>4300 Campanhã, Porto</address><p class="note">Licença de obras n.º NUD/679095/2025/CMP · Câmara Municipal do Porto</p>
 <a class="btn navy" data-i="loc_btn" href="https://www.google.com/maps/search/?api=1&amp;query=Pra%C3%A7a+da+Corujeira+203%2C+Porto" rel="noopener" target="_blank">{t('loc_btn')}</a></div>
 <img alt="Aerial view of Praça da Corujeira, Porto" loading="lazy" decoding="async" src="assets/photos/location.webp" width="1920" height="1280"/>
 </div></section>
@@ -337,7 +343,7 @@ const ls={{en:"English",pt:"Português",zh:"中文"}};const s=document.getElemen
 document.querySelectorAll("[data-lang]").forEach(b=>b.addEventListener("click",()=>setLang(b.dataset.lang)));
 try{{const q=new URLSearchParams(location.search).get("lang")||localStorage.getItem("yk_lang")||((navigator.language||"").slice(0,2));if(q&&q!=="en")setLang(q)}}catch(e){{}}
 document.querySelectorAll(".filters button").forEach(b=>b.addEventListener("click",()=>{{document.querySelectorAll(".filters button").forEach(x=>x.classList.toggle("on",x===b));document.querySelectorAll(".units tbody tr").forEach(r=>r.hidden=b.dataset.f!=="all"&&r.dataset.type!==b.dataset.f)}}));
-document.querySelectorAll(".units tbody tr").forEach(r=>r.addEventListener("click",ev=>{{if(!ev.target.closest("a"))location.href=r.querySelector("a").href}}));
+document.querySelectorAll(".units tbody tr:not(.nolink)").forEach(r=>r.addEventListener("click",ev=>{{if(!ev.target.closest("a"))location.href=r.querySelector("a").href}}));
 document.querySelectorAll(".tabs button").forEach(b=>b.addEventListener("click",()=>{{document.querySelectorAll(".tabs button").forEach(x=>x.classList.toggle("on",x===b));document.querySelectorAll(".gal").forEach(g=>g.hidden=g.dataset.tab!==b.dataset.t)}}));
 document.querySelectorAll('a[href="#contact"][data-unit]').forEach(a=>a.addEventListener("click",()=>{{document.getElementById("interest").value=a.dataset.unit}}));
 const lb=document.getElementById("lightbox"),lbi=document.getElementById("lb-img");let list=[],idx=0;

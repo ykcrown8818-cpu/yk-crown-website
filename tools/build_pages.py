@@ -106,7 +106,7 @@ ABOUT = {
         "c5_t": "Energy efficiency", "c5_d": "New buildings designed for energy class A+: lower running costs and better comfort.",
         "c6_t": "Three languages", "c6_d": "We work with Portuguese and international buyers in Portuguese, English and Chinese.",
         "p_kicker": "Current project", "p_tag": "Under construction", "p_title": "Praça da Corujeira, Porto",
-        "p_text": "11 new apartments — T0, T1 and T2 — on a tree-lined square in Campanhã, each with a parking space and energy class A+. Delivery planned for February 2028.",
+        "p_text": "18 new apartments — T0, T1 and T2 — on a tree-lined square in Campanhã, each with a parking space and energy class A+. Delivery planned for February 2028.",
         "p_btn": "See the apartments", "p_btn2": "Construction progress",
         "f_units": "Apartments", "f_floors": "Floors above ground", "f_energy": "Energy class", "f_deliv": "Delivery", "f_deliv_v": "Feb 2028",
         "k_kicker": "Our commitments", "k_title": "What buyers can expect",
@@ -128,7 +128,7 @@ ABOUT = {
         "c5_t": "Eficiência energética", "c5_d": "Edifícios novos pensados para a classe energética A+: menos custos e mais conforto.",
         "c6_t": "Três idiomas", "c6_d": "Trabalhamos com compradores portugueses e internacionais em português, inglês e chinês.",
         "p_kicker": "Projeto atual", "p_tag": "Em construção", "p_title": "Praça da Corujeira, Porto",
-        "p_text": "11 apartamentos novos — T0, T1 e T2 — numa praça arborizada em Campanhã, todos com lugar de garagem e classe energética A+. Entrega prevista para fevereiro de 2028.",
+        "p_text": "18 apartamentos novos — T0, T1 e T2 — numa praça arborizada em Campanhã, todos com lugar de garagem e classe energética A+. Entrega prevista para fevereiro de 2028.",
         "p_btn": "Ver apartamentos", "p_btn2": "Acompanhar a obra",
         "f_units": "Apartamentos", "f_floors": "Pisos acima do solo", "f_energy": "Classe energética", "f_deliv": "Entrega", "f_deliv_v": "Fev. 2028",
         "k_kicker": "Os nossos compromissos", "k_title": "O que o comprador pode esperar",
@@ -150,7 +150,7 @@ ABOUT = {
         "c5_t": "节能", "c5_d": "新建楼按能源等级 A+ 设计，使用成本更低，居住更舒适。",
         "c6_t": "三种语言", "c6_d": "用葡萄牙语、英语和中文为本地及国际买家服务。",
         "p_kicker": "在建项目", "p_tag": "施工中", "p_title": "Praça da Corujeira，波尔图",
-        "p_text": "位于 Campanhã 绿树广场旁的 11 套全新公寓，户型 T0、T1、T2，每套含车位，能源等级 A+，预计 2028 年 2 月交房。",
+        "p_text": "位于 Campanhã 绿树广场旁的 18 套全新公寓，户型 T0、T1、T2，每套含车位，能源等级 A+，预计 2028 年 2 月交房。",
         "p_btn": "查看公寓", "p_btn2": "工程进度",
         "f_units": "公寓", "f_floors": "地上楼层", "f_energy": "能源等级", "f_deliv": "交房", "f_deliv_v": "2028 年 2 月",
         "k_kicker": "我们的承诺", "k_title": "买家可以期待什么",
@@ -178,14 +178,14 @@ def about():
 <div class="proj"><img alt="Praça da Corujeira, Porto" loading="lazy" src="assets/photos/hero.webp" width="1920" height="1280"/>
 <div class="c"><span class="tag" data-i="p_tag">{t('p_tag')}</span><h2 data-i="p_title">{t('p_title')}</h2><p data-i="p_text">{t('p_text')}</p>
 <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:22px"><a class="btn gold" data-i="p_btn" href="index.html#apartments">{t('p_btn')}</a><a class="btn" style="border-color:rgba(255,255,255,.6);color:#fff" data-i="p_btn2" href="progress.html">{t('p_btn2')}</a></div></div></div>
-<div class="facts"><div><span data-i="f_units">{t('f_units')}</span><strong>11</strong></div><div><span data-i="f_floors">{t('f_floors')}</span><strong>5</strong></div><div><span data-i="f_energy">{t('f_energy')}</span><strong>A+</strong></div><div><span data-i="f_deliv">{t('f_deliv')}</span><strong data-i="f_deliv_v">{t('f_deliv_v')}</strong></div></div>
+<div class="facts"><div><span data-i="f_units">{t('f_units')}</span><strong>18</strong></div><div><span data-i="f_floors">{t('f_floors')}</span><strong>5</strong></div><div><span data-i="f_energy">{t('f_energy')}</span><strong>A+</strong></div><div><span data-i="f_deliv">{t('f_deliv')}</span><strong data-i="f_deliv_v">{t('f_deliv_v')}</strong></div></div>
 </div></section>
 <section><div class="wrap">
 <div class="kicker" data-i="k_kicker">{t('k_kicker')}</div><h2 data-i="k_title">{t('k_title')}</h2>
 <div class="cards">{commits}</div></div></section>
 <section class="alt"><div class="wrap two">
 <div><div class="kicker" data-i="co_kicker">{t('co_kicker')}</div><h2 data-i="co_title">{t('co_title')}</h2>
-<p class="lead"><strong>YK CROWN, LDA</strong><br/>NIPC 514037555<br/>Rua Fontes Pereira de Melo 22B<br/>2720-233 Amadora, Portugal<br/><a href="mailto:info@ykcrown.com">info@ykcrown.com</a> · <a href="tel:+351969058818">+351 969 058 818</a></p></div>
+<p class="lead"><strong>YK CROWN, LDA</strong><br/>NIPC 514037555<br/>Licença de obras n.º NUD/679095/2025/CMP (Câmara Municipal do Porto)<br/>Rua Fontes Pereira de Melo 22B<br/>2720-233 Amadora, Portugal<br/><a href="mailto:info@ykcrown.com">info@ykcrown.com</a> · <a href="tel:+351969058818">+351 969 058 818</a></p></div>
 <img alt="Praça da Corujeira, Porto" loading="lazy" src="assets/photos/thumb/location.webp" width="800" height="533"/></div></section>
 <section class="ctab"><div class="wrap in"><div><h2 data-i="ct_title">{t('ct_title')}</h2><p class="lead" data-i="ct_text">{t('ct_text')}</p></div>
 <div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn gold" data-i="ct_btn" href="index.html#contact">{t('ct_btn')}</a><a class="btn" style="border-color:rgba(255,255,255,.6);color:#fff" data-wa="YK CROWN" href="https://wa.me/351969058818" rel="noopener" target="_blank">WhatsApp</a></div></div></section>"""
@@ -253,7 +253,7 @@ def progress():
 <div class="kicker" data-i="g_kicker">{t('g_kicker')}</div><h1>Praça da Corujeira</h1><p data-i="g_text">{t('g_text')}</p></div></div>
 <section><div class="wrap">
 <div class="kicker" data-i="s_kicker">{t('s_kicker')}</div><h2 data-i="s_title">{t('s_title')}</h2>
-<ol class="timeline">{tl}</ol></div></section>
+<ol class="timeline">{tl}</ol><p class="note">Licença de obras de demolição e construção n.º NUD/679095/2025/CMP · Câmara Municipal do Porto</p></div></section>
 <section class="alt"><div class="wrap">
 <div class="kicker" data-i="l_kicker">{t('l_kicker')}</div><h2 data-i="l_title">{t('l_title')}</h2>
 <div class="log">{''.join(entries)}</div><p class="note" data-i="l_note">{t('l_note')}</p></div></section>

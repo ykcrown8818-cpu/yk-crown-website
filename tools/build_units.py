@@ -16,7 +16,8 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SITE = "https://ykcrown.com"
 data = json.load(open(os.path.join(ROOT, "tools", "units.json"), encoding="utf-8"))
 P = data["project"]
-UNITS = data["units"]
+ALL_UNITS = data["units"]
+UNITS = [x for x in ALL_UNITS if x.get("page", True)]
 
 T = {
     "en": {
