@@ -25,7 +25,7 @@ RANGE = f"{min(AU):.0f}–{max(AU):.0f} m²"
 
 COPY = {
     "en": {
-        "nav_apts": "Apartments", "nav_why": "Highlights", "nav_gallery": "Gallery", "nav_loc": "Location", "nav_faq": "FAQ", "nav_contact": "Contact",
+        "nav_apts": "Apartments", "nav_why": "Highlights", "nav_gallery": "Gallery", "nav_loc": "Location", "nav_faq": "FAQ", "nav_contact": "Contact", "nav_progress": "Progress", "nav_about": "About",
         "cta_visit": "Book a viewing",
         "hero_kicker": "New development · Campanhã, Porto",
         "hero_text": f"{N} new apartments — T0, T1 and T2 — on a tree-lined square in eastern Porto. Every apartment includes a parking space and energy class A+.",
@@ -61,7 +61,7 @@ COPY = {
         "l_send": "Send enquiry", "l_alt": "Prefer to talk? WhatsApp or call +351 969 058 818.",
     },
     "pt": {
-        "nav_apts": "Apartamentos", "nav_why": "Destaques", "nav_gallery": "Galeria", "nav_loc": "Localização", "nav_faq": "Perguntas", "nav_contact": "Contacto",
+        "nav_apts": "Apartamentos", "nav_why": "Destaques", "nav_gallery": "Galeria", "nav_loc": "Localização", "nav_faq": "Perguntas", "nav_contact": "Contacto", "nav_progress": "Obra", "nav_about": "Sobre nós",
         "cta_visit": "Marcar visita",
         "hero_kicker": "Novo empreendimento · Campanhã, Porto",
         "hero_text": f"{N} apartamentos novos — T0, T1 e T2 — numa praça arborizada da zona oriental do Porto. Todos com lugar de garagem e classe energética A+.",
@@ -97,7 +97,7 @@ COPY = {
         "l_send": "Enviar pedido", "l_alt": "Prefere falar? WhatsApp ou telefone +351 969 058 818.",
     },
     "zh": {
-        "nav_apts": "在售公寓", "nav_why": "项目亮点", "nav_gallery": "图库", "nav_loc": "位置", "nav_faq": "常见问题", "nav_contact": "联系我们",
+        "nav_apts": "在售公寓", "nav_why": "项目亮点", "nav_gallery": "图库", "nav_loc": "位置", "nav_faq": "常见问题", "nav_contact": "联系我们", "nav_progress": "工程进度", "nav_about": "关于我们",
         "cta_visit": "预约看房",
         "hero_kicker": "全新住宅项目 · 波尔图 Campanhã",
         "hero_text": f"位于波尔图东部绿树广场旁的 {N} 套全新公寓，户型 T0、T1、T2，每套均含车位，能源等级 A+。",
@@ -258,7 +258,7 @@ footer{{padding:26px 5vw;font-size:12px;color:#747d84;display:flex;justify-conte
 <body>
 <header class="nav">
 <a class="logo" href="#top">YK <span>CROWN</span></a>
-<nav class="navlinks"><a data-i="nav_apts" href="#apartments">{t('nav_apts')}</a><a data-i="nav_why" href="#highlights">{t('nav_why')}</a><a data-i="nav_gallery" href="#gallery">{t('nav_gallery')}</a><a data-i="nav_loc" href="#location">{t('nav_loc')}</a><a data-i="nav_faq" href="#faq">{t('nav_faq')}</a><a href="about.html">About</a></nav>
+<nav class="navlinks"><a data-i="nav_apts" href="#apartments">{t('nav_apts')}</a><a data-i="nav_why" href="#highlights">{t('nav_why')}</a><a data-i="nav_gallery" href="#gallery">{t('nav_gallery')}</a><a data-i="nav_loc" href="#location">{t('nav_loc')}</a><a data-i="nav_faq" href="#faq">{t('nav_faq')}</a><a data-i="nav_progress" href="progress.html">{t('nav_progress')}</a><a data-i="nav_about" href="about.html">{t('nav_about')}</a></nav>
 <div class="lang"><button class="active" data-lang="en">EN</button><button data-lang="pt">PT</button><button data-lang="zh">中文</button></div>
 <a class="btn navy sm" data-i="cta_visit" href="#contact">{t('cta_visit')}</a>
 </header>
@@ -326,7 +326,7 @@ footer{{padding:26px 5vw;font-size:12px;color:#747d84;display:flex;justify-conte
 </form>
 </div></section>
 </main>
-<footer><span>© 2026 YK CROWN, LDA · Real estate development · Porto</span><span><a href="about.html">About</a> · <a href="insights.html">Insights</a> · <a href="contact.html">Contact</a></span></footer>
+<footer><span>© 2026 YK CROWN, LDA · Real estate development · Porto</span><span><a href="progress.html">Progress</a> · <a href="about.html">About</a> · <a href="insights.html">Insights</a> · <a href="contact.html">Contact</a></span></footer>
 {legal_footer('')}
 <div class="lightbox" id="lightbox" aria-hidden="true"><button class="lb x" aria-label="Close">×</button><button class="lb p" aria-label="Previous">‹</button><img alt="" id="lb-img"/><button class="lb n" aria-label="Next">›</button></div>
 <script>

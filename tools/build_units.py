@@ -186,7 +186,7 @@ def page(u):
 <body>
 <header class="nav">
 <a class="logo" href="../../index.html">YK <span>CROWN</span></a>
-<nav class="navlinks"><a href="../../index.html#overview">Praça da Corujeira</a><a href="../../index.html#floorplans">Plans</a><a href="../../contact.html">Contact</a></nav>
+<nav class="navlinks"><a href="../../index.html#overview">Praça da Corujeira</a><a href="../../index.html#floorplans">Plans</a><a href="../../progress.html">Progress</a><a href="../../about.html">About</a><a href="../../index.html#contact">Contact</a></nav>
 <div class="lang"><button class="active" data-lang="en">EN</button><button data-lang="pt">PT</button><button data-lang="zh">中文</button></div>
 </header>
 <main class="wrap">
@@ -219,7 +219,7 @@ def main():
         d = os.path.join(ROOT, "apartamentos", f"fracao-{u['id']}")
         os.makedirs(d, exist_ok=True)
         open(os.path.join(d, "index.html"), "w", encoding="utf-8").write(page(u))
-    urls = ["", "about.html", "contact.html", "insights.html", "privacidade.html"] + [f"apartamentos/fracao-{u['id']}/" for u in UNITS]
+    urls = ["", "about.html", "contact.html", "insights.html", "privacidade.html", "progress.html"] + [f"apartamentos/fracao-{u['id']}/" for u in UNITS]
     today = date.today().isoformat()
     sm = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
     sm += "".join(f"  <url><loc>{SITE}/{p}</loc><lastmod>{today}</lastmod></url>\n" for p in urls)
@@ -229,6 +229,10 @@ def main():
     import build_home
     open(os.path.join(ROOT, "index.html"), "w", encoding="utf-8").write(build_home.page())
     print("built index.html")
+    import build_pages
+    open(os.path.join(ROOT, "about.html"), "w", encoding="utf-8").write(build_pages.about())
+    open(os.path.join(ROOT, "progress.html"), "w", encoding="utf-8").write(build_pages.progress())
+    print("built about.html, progress.html")
 
 
 if __name__ == "__main__":
