@@ -27,7 +27,7 @@ T = {
                   "corridor": "Corridor", "hall": "Entrance hall", "balcony": "Balcony"},
         "k_type": "Type", "k_floor": "Floor", "k_pos": "Position", "k_au": "Usable area (Au)", "k_abp": "Gross private area (Abp)",
         "k_bal": "Balcony", "k_bed": "Bedrooms", "k_bath": "Bathrooms", "k_park": "Parking", "k_energy": "Energy class",
-        "k_price": "Price", "on_request": "On request", "parking_inc": "1 space included (car lift)", "tbc": "To be confirmed", "energy_tbc": "Certificate in progress",
+        "k_status": "Status", "st": {"available": "Available", "reserved": "Reserved", "sold": "Sold"}, "k_price": "Price", "on_request": "On request", "parking_inc": "1 space included (car lift)", "tbc": "To be confirmed", "energy_tbc": "Certificate in progress",
         "rooms_title": "Room areas", "plan_title": "Floor plan", "plan_soon": "Detailed floor plan available on request.",
         "facts": "Key facts", "book": "Book a viewing", "wa": "WhatsApp", "others": "Other apartments",
         "back": "← All apartments", "indicative": "Areas are indicative and may change during the development of the project. Final values follow the approved technical documentation.",
@@ -43,7 +43,7 @@ T = {
                   "corridor": "Corredor", "hall": "Hall de entrada", "balcony": "Varanda"},
         "k_type": "Tipologia", "k_floor": "Piso", "k_pos": "Posição", "k_au": "Área útil (Au)", "k_abp": "Área bruta privativa (Abp)",
         "k_bal": "Varanda", "k_bed": "Quartos", "k_bath": "Casas de banho", "k_park": "Estacionamento", "k_energy": "Classe energética",
-        "k_price": "Preço", "on_request": "Sob consulta", "parking_inc": "1 lugar incluído (elevador de automóveis)", "tbc": "A confirmar", "energy_tbc": "Certificado em emissão",
+        "k_status": "Estado", "st": {"available": "Disponível", "reserved": "Reservado", "sold": "Vendido"}, "k_price": "Preço", "on_request": "Sob consulta", "parking_inc": "1 lugar incluído (elevador de automóveis)", "tbc": "A confirmar", "energy_tbc": "Certificado em emissão",
         "rooms_title": "Áreas das divisões", "plan_title": "Planta", "plan_soon": "Planta detalhada disponível mediante pedido.",
         "facts": "Características", "book": "Marcar visita", "wa": "WhatsApp", "others": "Outros apartamentos",
         "back": "← Todos os apartamentos", "indicative": "As áreas são indicativas e poderão sofrer alterações durante o desenvolvimento do projeto. Os valores finais seguem a documentação técnica aprovada.",
@@ -59,7 +59,7 @@ T = {
                   "corridor": "走廊", "hall": "玄关", "balcony": "阳台"},
         "k_type": "户型", "k_floor": "楼层", "k_pos": "位置", "k_au": "使用面积（Au）", "k_abp": "私有建筑面积（Abp）",
         "k_bal": "阳台", "k_bed": "卧室", "k_bath": "卫生间", "k_park": "车位", "k_energy": "能源等级",
-        "k_price": "价格", "on_request": "价格面议", "parking_inc": "含 1 个车位（汽车升降机）", "tbc": "待确认", "energy_tbc": "证书办理中",
+        "k_status": "状态", "st": {"available": "可售", "reserved": "已预订", "sold": "已售"}, "k_price": "价格", "on_request": "价格面议", "parking_inc": "含 1 个车位（汽车升降机）", "tbc": "待确认", "energy_tbc": "证书办理中",
         "rooms_title": "各房间面积", "plan_title": "户型图", "plan_soon": "详细户型图可按需索取。",
         "facts": "基本信息", "book": "预约看房", "wa": "WhatsApp", "others": "其他户型",
         "back": "← 全部户型", "indicative": "面积为参考数据，可能在项目开发过程中调整，最终以批准的技术文件为准。",
@@ -89,7 +89,7 @@ def facts(u, L):
         rows.append(("k_bal", m2(u["balcony"])))
     rows += [("k_bed", str(u["bedrooms"])), ("k_bath", str(u["bathrooms"])),
              ("k_park", t["parking_inc"] if u["parking"] == "included" else (u["parking"] or t["tbc"])), ("k_energy", u["energy"] or t["energy_tbc"]),
-             ("k_price", u["price"] or t["on_request"])]
+             ("k_price", u["price"] or t["on_request"]), ("k_status", t["st"][u["status"] or "available"])]
     return rows
 
 
@@ -232,7 +232,9 @@ def main():
     import build_pages
     open(os.path.join(ROOT, "about.html"), "w", encoding="utf-8").write(build_pages.about())
     open(os.path.join(ROOT, "progress.html"), "w", encoding="utf-8").write(build_pages.progress())
-    print("built about.html, progress.html")
+    for name, fn in [("contact.html", build_pages.contact), ("insights.html", build_pages.insights), ("404.html", build_pages.not_found)]:
+        open(os.path.join(ROOT, name), "w", encoding="utf-8").write(fn())
+    print("built about, progress, contact, insights, 404")
 
 
 if __name__ == "__main__":

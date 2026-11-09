@@ -3,6 +3,7 @@
   "name": "yk-crown-website",
   "compatibility_date": "2026-11-01",
   "assets": {
-    "directory": "./"
+    "directory": "./",
+    "not_found_handling": "404-page"
   }
 }

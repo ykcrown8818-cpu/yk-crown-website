@@ -226,6 +226,11 @@ MONTHS = {"en": ["January", "February", "March", "April", "May", "June", "July",
 
 
 def month(d, L):
+    if "/" in d:
+        a, b = d.split("/")
+        if L == "zh":
+            return f"{a[:4]} 年 {int(a[5:7])}–{int(b[5:7])} 月"
+        return f"{MONTHS[L][int(a[5:7]) - 1]} – {MONTHS[L][int(b[5:7]) - 1]} {b[:4]}"
     y, m = d.split("-")[:2]
     m = int(m)
     return f"{y} 年 {m} 月" if L == "zh" else f"{MONTHS[L][m - 1]} {y}"
@@ -243,7 +248,7 @@ def progress():
     entries = []
     for i, u in enumerate(data["updates"]):
         ph = "".join(f'<a href="{p}" target="_blank"><img alt="Construction site — Praça da Corujeira, {u["date"]}" loading="lazy" src="{p}"/></a>' for p in u["photos"])
-        entries.append(f'<article class="entry"><time datetime="{u["date"]}" data-i="u{i}_d">{e(c["en"][f"u{i}_d"])}</time><p data-i="u{i}_t">{e(u["text"]["en"])}</p>{f"<div class=ph>{ph}</div>" if ph else ""}</article>')
+        entries.append(f'<article class="entry"><time datetime="{u["date"].split("/")[0]}" data-i="u{i}_d">{e(c["en"][f"u{i}_d"])}</time><p data-i="u{i}_t">{e(u["text"]["en"])}</p>{f"<div class=ph>{ph}</div>" if ph else ""}</article>')
     body = f"""<div class="phero" style="--img:url('assets/photos/park-view.webp')"><div class="wrap">
 <div class="kicker" data-i="g_kicker">{t('g_kicker')}</div><h1>Praça da Corujeira</h1><p data-i="g_text">{t('g_text')}</p></div></div>
 <section><div class="wrap">
@@ -263,3 +268,100 @@ if __name__ == "__main__":
     open(os.path.join(ROOT, "about.html"), "w", encoding="utf-8").write(about())
     open(os.path.join(ROOT, "progress.html"), "w", encoding="utf-8").write(progress())
     print("built about.html, progress.html")
+
+
+# ---------------- Contact / Insights / 404 ----------------
+def _home_form():
+    import build_home
+    page = build_home.page()
+    a = page.index('<form id="enquiry-form">')
+    b = page.index("</form>", a) + len("</form>")
+    keys = {L: {k: v for k, v in build_home.COPY[L].items() if k.startswith("l_")} for L in build_home.COPY}
+    return page[a:b], keys
+
+
+FORM_CSS = """form{display:grid;gap:14px;background:#fff;color:var(--ink);padding:30px;border:1px solid var(--line)}.row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+label{display:block;font-size:12px;font-weight:700;letter-spacing:.06em;margin-bottom:6px;color:#39454e}input,select,textarea{width:100%;border:1px solid #d7d8d5;background:#fbfbfa;padding:12px;font:inherit;font-size:15px;border-radius:0}
+textarea{min-height:110px;resize:vertical}input:focus,select:focus,textarea:focus{outline:2px solid var(--gold);outline-offset:-1px}.consent{display:flex;gap:10px;align-items:flex-start;font-weight:400;letter-spacing:0;font-size:13px;color:#5c6871}
+.consent input{width:auto;margin-top:3px}.consent a{text-decoration:underline}.hp{position:absolute;left:-9999px}#form-status{font-size:14px;color:#5c6871}button.btn{cursor:pointer;font:inherit;font-size:13px;font-weight:700}
+.clist{display:grid;gap:0;margin-top:26px}.clist a,.clist div{display:flex;gap:16px;padding:14px 0;border-bottom:1px solid var(--line)}.clist span{width:110px;flex:none;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:700;padding-top:3px}
+@media(max-width:640px){.row{grid-template-columns:1fr}form{padding:20px}}"""
+
+CONTACT = {
+    "en": {"c_kicker": "Contact", "c_title": "Get in touch", "c_text": "Ask for the price list of Praça da Corujeira, book a viewing or tell us what you are looking for. We reply within one business day.",
+           "c_phone": "Phone", "c_wa": "WhatsApp", "c_email": "Email", "c_site": "Project", "c_lang": "Languages", "c_lang_v": "Português · English · 中文",
+           "v_title": "Viewings", "v_text": "Viewings and project presentations are by appointment. While the building is under construction we meet you near the site at Praça da Corujeira and walk you through the plans, renders and specifications.",
+           "wa_chat": "Chat on WhatsApp"},
+    "pt": {"c_kicker": "Contacto", "c_title": "Fale connosco", "c_text": "Peça a tabela de preços da Praça da Corujeira, marque uma visita ou diga-nos o que procura. Respondemos num dia útil.",
+           "c_phone": "Telefone", "c_wa": "WhatsApp", "c_email": "Email", "c_site": "Projeto", "c_lang": "Idiomas", "c_lang_v": "Português · English · 中文",
+           "v_title": "Visitas", "v_text": "As visitas e apresentações do projeto são feitas por marcação. Durante a obra, encontramo-nos junto ao local, na Praça da Corujeira, e apresentamos plantas, imagens e especificações.",
+           "wa_chat": "Falar no WhatsApp"},
+    "zh": {"c_kicker": "联系我们", "c_title": "与我们联系", "c_text": "索取 Praça da Corujeira 价格表、预约看房，或者告诉我们您的需求。我们会在一个工作日内回复。",
+           "c_phone": "电话", "c_wa": "WhatsApp", "c_email": "邮箱", "c_site": "项目地址", "c_lang": "语言", "c_lang_v": "Português · English · 中文",
+           "v_title": "看房", "v_text": "看房和项目介绍需提前预约。施工期间，我们会在 Praça da Corujeira 工地附近与您见面，介绍户型图、效果图和交付标准。",
+           "wa_chat": "WhatsApp 咨询"},
+}
+
+
+def contact():
+    form, fkeys = _home_form()
+    c = {L: {**NAV[L], **CONTACT[L], **fkeys[L]} for L in NAV}
+    t = lambda k: e(c["en"][k])  # noqa: E731
+    body = f"""<style>{FORM_CSS}</style>
+<section><div class="wrap two" style="align-items:start">
+<div><div class="kicker" data-i="c_kicker">{t('c_kicker')}</div><h1 style="color:var(--ink);font-size:clamp(34px,5vw,56px)" data-i="c_title">{t('c_title')}</h1><p class="lead" data-i="c_text">{t('c_text')}</p>
+<div class="clist">
+<a href="tel:+351969058818"><span data-i="c_phone">{t('c_phone')}</span>+351 969 058 818</a>
+<a data-wa="YK CROWN" href="https://wa.me/351969058818" rel="noopener" target="_blank"><span data-i="c_wa">{t('c_wa')}</span><b data-i="wa_chat">{t('wa_chat')}</b></a>
+<a href="mailto:info@ykcrown.com"><span data-i="c_email">{t('c_email')}</span>info@ykcrown.com</a>
+<a href="https://www.google.com/maps/search/?api=1&amp;query=Pra%C3%A7a+da+Corujeira+203%2C+Porto" rel="noopener" target="_blank"><span data-i="c_site">{t('c_site')}</span>Praça da Corujeira 201–203, Porto ↗</a>
+<div><span data-i="c_lang">{t('c_lang')}</span>{t('c_lang_v')}</div></div>
+<h2 style="font-size:24px;margin-top:36px" data-i="v_title">{t('v_title')}</h2><p class="lead" style="font-size:15px" data-i="v_text">{t('v_text')}</p></div>
+{form}
+</div></section>"""
+    return shell("contact", "Contact | YK CROWN · Praça da Corujeira, Porto",
+                 "Contact YK CROWN for the price list and viewings of Praça da Corujeira, Porto.", "contact.html", body, c, "index.html#contact")
+
+
+INSIGHTS = {
+    "en": {"i_kicker": "Insights", "i_title": "Porto property market", "i_text": "Market data and news on Porto and Portuguese real estate — housing prices, tourism, interest rates — in English, Portuguese and Chinese.",
+           "i_soon": "Coming soon", "i_soon_t": "Our first market updates will be published here shortly. Meanwhile, see the apartments at Praça da Corujeira or follow the construction progress.",
+           "b1": "See the apartments", "b2": "Construction progress"},
+    "pt": {"i_kicker": "Insights", "i_title": "Mercado imobiliário do Porto", "i_text": "Dados e notícias sobre o imobiliário no Porto e em Portugal — preços da habitação, turismo, taxas de juro — em português, inglês e chinês.",
+           "i_soon": "Em breve", "i_soon_t": "As primeiras análises de mercado serão publicadas aqui em breve. Entretanto, veja os apartamentos da Praça da Corujeira ou acompanhe a obra.",
+           "b1": "Ver apartamentos", "b2": "Acompanhar a obra"},
+    "zh": {"i_kicker": "市场资讯", "i_title": "波尔图房地产市场", "i_text": "用中文、英文和葡萄牙语发布波尔图及葡萄牙房地产的市场数据和新闻，包括房价、旅游和利率。",
+           "i_soon": "即将发布", "i_soon_t": "第一批市场资讯将很快在这里发布。您可以先看看 Praça da Corujeira 的在售公寓，或关注工程进度。",
+           "b1": "查看公寓", "b2": "工程进度"},
+}
+
+
+def insights():
+    c = {L: {**NAV[L], **INSIGHTS[L]} for L in NAV}
+    t = lambda k: e(c["en"][k])  # noqa: E731
+    body = f"""<div class="phero" style="--img:url('assets/photos/location-porto.webp')"><div class="wrap">
+<div class="kicker" data-i="i_kicker">{t('i_kicker')}</div><h1 data-i="i_title">{t('i_title')}</h1><p data-i="i_text">{t('i_text')}</p></div></div>
+<section><div class="wrap"><div class="card" style="max-width:760px"><div class="n" data-i="i_soon">{t('i_soon')}</div><p style="font-size:17px;margin:10px 0 22px" data-i="i_soon_t">{t('i_soon_t')}</p>
+<div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn navy" data-i="b1" href="index.html#apartments">{t('b1')}</a><a class="btn" data-i="b2" href="progress.html">{t('b2')}</a></div></div></div></section>"""
+    return shell("insights", "Insights | Porto property market | YK CROWN",
+                 "Market data and news on Porto and Portuguese real estate.", "insights.html", body, c, "")
+
+
+NF = {
+    "en": {"n_title": "Page not found", "n_text": "The page you are looking for does not exist or has moved.", "n_b1": "Go to the homepage", "n_b2": "See the apartments"},
+    "pt": {"n_title": "Página não encontrada", "n_text": "A página que procura não existe ou foi movida.", "n_b1": "Ir para a página inicial", "n_b2": "Ver apartamentos"},
+    "zh": {"n_title": "页面不存在", "n_text": "您要找的页面不存在或已经移动。", "n_b1": "返回首页", "n_b2": "查看公寓"},
+}
+
+
+def not_found():
+    c = {L: {**NAV[L], **NF[L]} for L in NAV}
+    t = lambda k: e(c["en"][k])  # noqa: E731
+    body = f"""<div class="phero" style="--img:url('/assets/photos/park-view.webp');min-height:70vh;display:flex;align-items:center"><div class="wrap">
+<div class="kicker">404</div><h1 data-i="n_title">{t('n_title')}</h1><p data-i="n_text">{t('n_text')}</p>
+<div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:24px"><a class="btn gold" data-i="n_b1" href="/">{t('n_b1')}</a><a class="btn" style="border-color:rgba(255,255,255,.6);color:#fff" data-i="n_b2" href="/#apartments">{t('n_b2')}</a></div></div></div>"""
+    html_ = shell("404", "Page not found | YK CROWN", "Page not found.", "", body, c, "")
+    # 404 is served at any path: make links absolute
+    for a in ['href="assets/', 'src="assets/', 'href="index.html', 'href="progress.html', 'href="about.html', 'href="insights.html', 'href="privacidade.html', 'href="contact.html']:
+        html_ = html_.replace(a, a.replace('"', '"/', 1))
+    return html_.replace('<meta content="width=device-width', '<meta name="robots" content="noindex"/>\n<meta content="width=device-width', 1)

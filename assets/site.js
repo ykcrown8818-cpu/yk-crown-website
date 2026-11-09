@@ -62,6 +62,13 @@
     if (match) sel.value = match.value;
   }
   var unit = params.get('unit');
+  var unitSel = form.querySelector('[name="interest"]');
+  if (unit && unitSel && Array.prototype.some.call(unitSel.options, function (o) { return o.value === unit; })) {
+    unitSel.value = unit;
+    unit = null; // already captured by the select
+    var m0 = form.querySelector('[name="message"]');
+    if (m0 && !m0.value) m0.value = "I'm interested in " + unitSel.value + ' at Praça da Corujeira. Please send me availability, price and possible viewing times.';
+  }
   if (unit) {
     var msg = form.querySelector('[name="message"]');
     if (msg && !msg.value) msg.value = "I'm interested in " + unit + ' at Praça da Corujeira. Please send me availability, price and possible viewing times.';

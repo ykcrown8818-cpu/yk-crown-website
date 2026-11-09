@@ -33,7 +33,7 @@ COPY = {
         "btn_apts": "See the apartments",
         "apts_kicker": "Apartments", "apts_title": "Choose your apartment",
         "apts_text": "Areas from the approved architecture project. Prices on request — ask us for the price list.",
-        "flt_all": "All", "th_unit": "Apartment", "th_type": "Type", "th_floor": "Floor", "th_au": "Usable area", "th_abp": "Gross area", "th_bal": "Balcony", "th_price": "Price",
+        "flt_all": "All", "th_unit": "Apartment", "th_type": "Type", "th_floor": "Floor", "th_au": "Usable area", "th_abp": "Gross area", "th_bal": "Balcony", "th_price": "Price", "th_status": "Status", "st_available": "Available", "st_reserved": "Reserved", "st_sold": "Sold",
         "gf": "Ground", "front": "Front", "rear": "Rear", "on_req": "On request", "view": "View →", "price_list": "Ask for the price list", "foot_note": "All apartments: energy class A+ · one parking space included · delivery February 2028",
         "why_kicker": "Why Praça da Corujeira", "why_title": "A new building, made to be lived in",
         "w1_t": "Energy class A+", "w1_d": "New construction with high thermal performance — lower energy bills and better comfort all year.",
@@ -69,7 +69,7 @@ COPY = {
         "btn_apts": "Ver apartamentos",
         "apts_kicker": "Apartamentos", "apts_title": "Escolha o seu apartamento",
         "apts_text": "Áreas do projeto de arquitetura aprovado. Preços sob consulta — peça-nos a tabela de preços.",
-        "flt_all": "Todos", "th_unit": "Fração", "th_type": "Tipologia", "th_floor": "Piso", "th_au": "Área útil", "th_abp": "Área bruta", "th_bal": "Varanda", "th_price": "Preço",
+        "flt_all": "Todos", "th_unit": "Fração", "th_type": "Tipologia", "th_floor": "Piso", "th_au": "Área útil", "th_abp": "Área bruta", "th_bal": "Varanda", "th_price": "Preço", "th_status": "Estado", "st_available": "Disponível", "st_reserved": "Reservado", "st_sold": "Vendido",
         "gf": "R/C", "front": "Frente", "rear": "Tardoz", "on_req": "Sob consulta", "view": "Ver →", "price_list": "Pedir tabela de preços", "foot_note": "Todos os apartamentos: classe energética A+ · um lugar de garagem incluído · entrega em fevereiro de 2028",
         "why_kicker": "Porquê a Praça da Corujeira", "why_title": "Um edifício novo, pensado para viver",
         "w1_t": "Classe energética A+", "w1_d": "Construção nova com elevado desempenho térmico — menos custos de energia e mais conforto todo o ano.",
@@ -105,7 +105,7 @@ COPY = {
         "btn_apts": "查看公寓",
         "apts_kicker": "在售公寓", "apts_title": "选择您的公寓",
         "apts_text": "面积数据来自已批准的建筑设计图纸。价格面议，欢迎索取价格表。",
-        "flt_all": "全部", "th_unit": "单元", "th_type": "户型", "th_floor": "楼层", "th_au": "使用面积", "th_abp": "建筑面积", "th_bal": "阳台", "th_price": "价格",
+        "flt_all": "全部", "th_unit": "单元", "th_type": "户型", "th_floor": "楼层", "th_au": "使用面积", "th_abp": "建筑面积", "th_bal": "阳台", "th_price": "价格", "th_status": "状态", "st_available": "可售", "st_reserved": "已预订", "st_sold": "已售",
         "gf": "地面层", "front": "前侧", "rear": "后侧", "on_req": "价格面议", "view": "查看 →", "price_list": "索取价格表", "foot_note": "所有公寓：能源等级 A+ · 含一个车位 · 2028 年 2 月交房",
         "why_kicker": "为什么选择 Praça da Corujeira", "why_title": "一栋为居住而建的新楼",
         "w1_t": "能源等级 A+", "w1_d": "全新建筑，保温性能高，能耗更低，四季更舒适。",
@@ -161,10 +161,10 @@ def unit_rows():
         fl = '<span data-i="gf">R/C</span>' if u["floor"] == 0 else str(u["floor"])
         pos = "front" if u["position"].startswith("front") else "rear"
         rows.append(
-            f'<tr data-type="{u["type"]}"><td><a href="apartamentos/fracao-{u["id"]}/"><strong>{u["letter"]}</strong></a></td>'
+            f'<tr data-type="{u["type"]}" class="row-{u["status"]}"><td><a href="apartamentos/fracao-{u["id"]}/"><strong>{u["letter"]}</strong></a></td>'
             f'<td>{u["type"]}</td><td>{fl} · <span data-i="{pos}">{"Front" if pos=="front" else "Rear"}</span></td>'
             f'<td><strong>{m2(u["au"])}</strong></td><td class="hide-s">{m2(u["abp"])}</td><td>{m2(u["balcony"]) if u["balcony"] else "—"}</td>'
-            f'<td class="hide-s"><span data-i="on_req">On request</span></td>'
+            f'<td class="hide-s"><span data-i="on_req">On request</span></td><td><span class="st st-{u["status"]}" data-i="st_{u["status"]}">{COPY["en"]["st_" + u["status"]]}</span></td>'
             f'<td><a class="view" href="apartamentos/fracao-{u["id"]}/" data-i="view">View →</a></td></tr>')
     return "\n".join(rows)
 
@@ -236,9 +236,10 @@ section{{padding:88px 0}}.alt{{background:var(--cream)}}h2{{font-size:clamp(30px
 .filters{{display:flex;gap:6px}}.filters button{{border:1px solid var(--line);background:#fff;padding:8px 14px;cursor:pointer;font-size:13px}}.filters button.on{{background:var(--navy);color:#fff;border-color:var(--navy)}}
 table.units{{width:100%;border-collapse:collapse;background:#fff;font-size:15px}}.units th{{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-align:left;font-weight:600;padding:12px 14px;border-bottom:2px solid var(--ink)}}
 .units td{{padding:15px 14px;border-bottom:1px solid var(--line)}}.units tr:hover td{{background:#fbfaf7}}.units td:first-child strong{{font-size:18px}}.units .view{{font-weight:700;font-size:13px;color:var(--navy);border-bottom:1px solid var(--gold)}}
+.st{{display:inline-block;font-size:12px;font-weight:700;padding:3px 9px;border-radius:999px;white-space:nowrap}}.st-available{{background:#e6f4ea;color:#1e7b3a}}.st-reserved{{background:#fdf1dc;color:#9a6200}}.st-sold{{background:#f0eded;color:#8a5050}}.row-sold td{{color:#9aa1a7}}.row-sold td .st{{color:#8a5050}}
 .units-foot{{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-top:18px;color:var(--muted);font-size:14px}}
 .whys{{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:36px}}.why{{background:#fff;border:1px solid var(--line);padding:28px}}.why svg{{width:30px;height:30px;fill:none;stroke:var(--gold);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}}.why h3{{margin:14px 0 6px;font-size:18px}}.why p{{margin:0;color:var(--muted);font-size:15px}}
-.tabs{{display:flex;gap:6px;margin:6px 0 18px}}.tabs button{{border:0;border-bottom:2px solid transparent;background:none;padding:8px 2px;margin-right:18px;cursor:pointer;font-size:15px;color:var(--muted)}}.tabs button.on{{color:var(--ink);border-color:var(--gold);font-weight:600}}
+.tabs{{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0 18px}}.tabs button{{border:0;border-bottom:2px solid transparent;background:none;padding:8px 2px;margin-right:18px;cursor:pointer;font-size:15px;color:var(--muted)}}.tabs button.on{{color:var(--ink);border-color:var(--gold);font-weight:600}}
 .gal{{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}}.gal figure{{margin:0;overflow:hidden;background:#eee;cursor:zoom-in}}.gal[hidden]{{display:none}}.gal img{{width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;transition:transform .4s}}.gal figure:hover img{{transform:scale(1.03)}}
 .note{{font-size:12px;color:#899097;margin-top:12px}}
 .loc{{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}}.loc img{{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover}}.loc address{{font-style:normal;margin:20px 0;font-weight:600}}
@@ -252,7 +253,7 @@ footer{{padding:26px 5vw;font-size:12px;color:#747d84;display:flex;justify-conte
 .lightbox{{position:fixed;inset:0;background:rgba(5,12,20,.94);z-index:999;display:none;align-items:center;justify-content:center}}.lightbox.open{{display:flex}}.lightbox img{{max-width:94vw;max-height:88vh}}.lb{{position:fixed;border:0;background:rgba(255,255,255,.14);color:#fff;width:46px;height:46px;border-radius:50%;font-size:26px;cursor:pointer}}.lb.x{{top:16px;right:16px}}.lb.p{{left:14px;top:50%}}.lb.n{{right:14px;top:50%}}
 @media(max-width:980px){{.navlinks{{display:none}}.facts{{grid-template-columns:repeat(3,1fr)}}.whys{{grid-template-columns:1fr 1fr}}.loc,.cgrid{{grid-template-columns:1fr;gap:32px}}.hide-s{{display:none}}}}
 @media(max-width:640px){{.nav{{gap:10px}}.nav .btn{{display:none}}.lang{{margin-left:auto}}section{{padding:60px 0}}.facts{{grid-template-columns:1fr 1fr}}.whys{{grid-template-columns:1fr}}.gal{{grid-template-columns:1fr 1fr}}.why{{padding:20px}}.row{{grid-template-columns:1fr}}form{{padding:20px}}
-.units th,.units td{{padding:12px 6px;font-size:14px}}.units th:nth-child(6),.units td:nth-child(6),.units th:nth-child(8),.units td:nth-child(8){{display:none}}.units td:first-child strong{{color:var(--navy);border-bottom:2px solid var(--gold)}}.hero .btn{{flex:1}}}}
+.units th,.units td{{padding:12px 6px;font-size:14px}}.units th:nth-child(3),.units td:nth-child(3),.units th:nth-child(6),.units td:nth-child(6),.units th:nth-child(9),.units td:nth-child(9){{display:none}}.units .st{{font-size:11px;padding:2px 7px}}.units td:first-child strong{{color:var(--navy);border-bottom:2px solid var(--gold)}}.hero .btn{{flex:1}}}}
 </style>
 </head>
 <body>
@@ -279,7 +280,7 @@ footer{{padding:26px 5vw;font-size:12px;color:#747d84;display:flex;justify-conte
 <section id="apartments"><div class="wrap">
 <div class="head"><div><div class="kicker" data-i="apts_kicker">{t('apts_kicker')}</div><h2 data-i="apts_title">{t('apts_title')}</h2><p class="lead" data-i="apts_text">{t('apts_text')}</p></div>
 <div class="filters"><button class="on" data-f="all" data-i="flt_all">{t('flt_all')}</button>{flt}</div></div>
-<table class="units"><thead><tr><th data-i="th_unit">{t('th_unit')}</th><th data-i="th_type">{t('th_type')}</th><th data-i="th_floor">{t('th_floor')}</th><th data-i="th_au">{t('th_au')}</th><th class="hide-s" data-i="th_abp">{t('th_abp')}</th><th data-i="th_bal">{t('th_bal')}</th><th class="hide-s" data-i="th_price">{t('th_price')}</th><th></th></tr></thead>
+<table class="units"><thead><tr><th data-i="th_unit">{t('th_unit')}</th><th data-i="th_type">{t('th_type')}</th><th data-i="th_floor">{t('th_floor')}</th><th data-i="th_au">{t('th_au')}</th><th class="hide-s" data-i="th_abp">{t('th_abp')}</th><th data-i="th_bal">{t('th_bal')}</th><th class="hide-s" data-i="th_price">{t('th_price')}</th><th data-i="th_status">{t('th_status')}</th><th></th></tr></thead>
 <tbody>
 {unit_rows()}
 </tbody></table>

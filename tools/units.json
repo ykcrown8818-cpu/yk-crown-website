@@ -1,5 +1,5 @@
 {
- "_note": "Areas from architecture project ARQ.PE R1 (04/09/2026, Arq. Ricardo Cruz / Arq. Susana Vilela). Energy class A+ per owner. Price/status/parking still to confirm.",
+ "_note": "Areas from architecture project ARQ.PE R1 (04/09/2026, Arq. Ricardo Cruz / Arq. Susana Vilela). Energy class A+ per owner. Price/status/parking still to confirm. status: available | reserved | sold.",
  "project": {
   "name": "Praça da Corujeira",
   "address": "Praça da Corujeira 201–203, Campanhã, 4300 Porto",
@@ -42,7 +42,7 @@
    "plan": "plans/fracao-c.webp",
    "energy": "A+",
    "price": null,
-   "status": null,
+   "status": "available",
    "parking": "included"
   },
   {
@@ -93,7 +93,7 @@
    "plan": "plans/fracao-d.webp",
    "energy": "A+",
    "price": null,
-   "status": null,
+   "status": "available",
    "parking": "included"
   },
   {
@@ -148,7 +148,7 @@
    "plan": "plans/fracao-e.webp",
    "energy": "A+",
    "price": null,
-   "status": null,
+   "status": "available",
    "parking": "included"
   },
   {
@@ -199,7 +199,7 @@
    "plan": "plans/fracao-f.webp",
    "energy": "A+",
    "price": null,
-   "status": null,
+   "status": "available",
    "parking": "included"
   },
   {
@@ -238,7 +238,7 @@
    "plan": "plans/fracao-g.webp",
    "energy": "A+",
    "price": null,
-   "status": null,
+   "status": "available",
    "parking": "included"
   },
   {
@@ -293,7 +293,7 @@
    "plan": "plans/fracao-i.webp",
    "energy": "A+",
    "price": null,
-   "status": null,
+   "status": "available",
    "parking": "included"
   },
   {
@@ -344,7 +344,7 @@
    "plan": "plans/fracao-j.webp",
    "energy": "A+",
    "price": null,
-   "status": null,
+   "status": "available",
    "parking": "included"
   },
   {
@@ -399,7 +399,7 @@
    "plan": "plans/fracao-m.webp",
    "energy": "A+",
    "price": null,
-   "status": null,
+   "status": "available",
    "parking": "included"
   },
   {
@@ -450,7 +450,7 @@
    "plan": "plans/fracao-n.webp",
    "energy": "A+",
    "price": null,
-   "status": null,
+   "status": "available",
    "parking": "included"
   },
   {
@@ -505,7 +505,7 @@
    "plan": "plans/fracao-q.webp",
    "energy": "A+",
    "price": null,
-   "status": null,
+   "status": "available",
    "parking": "included"
   },
   {
@@ -556,7 +556,7 @@
    "plan": "plans/fracao-r.webp",
    "energy": "A+",
    "price": null,
-   "status": null,
+   "status": "available",
    "parking": "included"
   }
  ]
