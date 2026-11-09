@@ -21,7 +21,7 @@ h2{margin:0 0 20px;font-size:42px;line-height:1.1;font-weight:500;color:var(--na
 .contact-list{display:grid;gap:14px}.contact-item{display:flex;gap:15px;align-items:flex-start;text-decoration:none;padding:14px 0;border-bottom:1px solid #dedbd3}.label{width:88px;flex:none;color:#8b6c36;font-size:11px;letter-spacing:.15em;font-weight:700}.value{color:var(--navy);font-size:16px}
 .card{background:#fff;padding:38px;box-shadow:0 18px 45px #07152214;border:1px solid #e8e5de}.card h3{margin:0 0 8px;color:var(--navy);font-size:26px;font-weight:500}.card>p{margin:0 0 28px;color:#6a7379}
 form{display:grid;gap:18px}.row{display:grid;grid-template-columns:1fr 1fr;gap:18px}label{display:block;color:#39454e;font-size:12px;font-weight:700;letter-spacing:.08em;margin-bottom:7px}
-input,select,textarea{width:100%;border:1px solid #d7d8d5;background:#fbfbfa;padding:13px 14px;font:inherit;color:var(--text);border-radius:0;outline:0}input:focus,select:focus,textarea:focus{border-color:var(--gold)}textarea{min-height:140px;resize:vertical}
+input,select,textarea{width:100%;border:1px solid #d7d8d5;background:#fbfbfa;padding:13px 14px;font:inherit;color:var(--text);border-radius:0;outline:0}input:focus,select:focus,textarea:focus{border-color:var(--gold)}textarea{min-height:140px;resize:vertical}.hp{position:absolute;left:-9999px}.consent{display:flex;gap:10px;align-items:flex-start;font-weight:400;letter-spacing:0;font-size:13px;color:#5c6871}.consent input{width:auto;margin-top:3px}button:disabled{opacity:.6}
 button{border:0;background:var(--navy);color:#fff;padding:15px 24px;font-size:12px;font-weight:700;letter-spacing:.15em;cursor:pointer}.note{margin-top:10px;font-size:12px;color:#7b8388}
 .quick{background:var(--navy);color:#fff;padding:62px 28px}.quick-inner{display:flex;align-items:center;justify-content:space-between;gap:30px}.quick h2{color:#fff;margin:0 0 8px;font-size:34px}.quick p{margin:0;color:#c7d0d6}.buttons{display:flex;gap:12px;flex-wrap:wrap}.btn{display:inline-block;text-decoration:none;padding:13px 20px;border:1px solid #ffffff4d;color:#fff;font-size:12px;font-weight:700;letter-spacing:.12em}.btn.gold{background:var(--gold);border-color:var(--gold);color:var(--navy)}
 footer{background:#04101a;color:#9daab3;padding:30px 28px;font-size:12px}.footer-inner{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.back{text-decoration:none;color:#fff}
@@ -31,7 +31,7 @@ footer{background:#04101a;color:#9daab3;padding:30px 28px;font-size:12px}.footer
 <body>
 <header class="top"><nav class="nav">
 <a class="brand" href="index.html">YK <span>CROWN</span></a>
-<div class="links"><a href="index.html">HOME</a><a href="index.html#projects">PROJECTS</a><a href="index.html#gallery">GALLERY</a><a href="insights.html">INSIGHTS</a><a href="contact.html">CONTACT</a></div>
+<div class="links"><a href="index.html">HOME</a><a href="index.html#overview">PROJECTS</a><a href="index.html#gallery">GALLERY</a><a href="insights.html">INSIGHTS</a><a href="contact.html">CONTACT</a></div>
 </nav></header>
 
 <section class="hero"><div class="hero-inner">
@@ -55,16 +55,20 @@ footer{background:#04101a;color:#9daab3;padding:30px 28px;font-size:12px}.footer
 </section>
 
 <section class="card"><h3>Send an Enquiry</h3><p>Tell us a little about what you are looking for and we will get back to you.</p>
-<form action="mailto:info@ykcrown.com" method="post" enctype="text/plain">
-<div class="row"><div><label for="name">NAME</label><input id="name" name="Name" required></div><div><label for="email">EMAIL</label><input id="email" name="Email" type="email" required></div></div>
-<div class="row"><div><label for="phone">PHONE</label><input id="phone" name="Phone" type="tel"></div><div><label for="country">COUNTRY</label><input id="country" name="Country"></div></div>
-<div><label for="interest">INTEREST</label><select id="interest" name="Interest"><option value="">Please select</option><option>Residential Property</option><option>Investment</option><option>Tourism Projects</option><option>Development Projects</option><option>Partnership</option><option>Other</option></select></div>
-<div><label for="message">MESSAGE</label><textarea id="message" name="Message" placeholder="How can we help?"></textarea></div>
-<button type="submit">SEND ENQUIRY</button><div class="note">Your email application will open to send the enquiry to info@ykcrown.com.</div>
+<form id="enquiry-form">
+<div class="row"><div><label for="name">NAME *</label><input id="name" name="name" autocomplete="name" required></div><div><label for="email">EMAIL *</label><input id="email" name="email" type="email" autocomplete="email" required></div></div>
+<div class="row"><div><label for="phone">PHONE / WHATSAPP</label><input id="phone" name="phone" type="tel" autocomplete="tel"></div><div><label for="country">COUNTRY</label><input id="country" name="country" autocomplete="country-name"></div></div>
+<div class="row"><div><label for="interest">INTEREST</label><select id="interest" name="interest"><option value="">Please select</option><option>Praça da Corujeira apartments</option><option>Residential Property</option><option>Investment</option><option>Tourism Projects</option><option>Development Projects</option><option>Partnership</option><option>Other</option></select></div>
+<div><label for="language">PREFERRED LANGUAGE</label><select id="language" name="language"><option>English</option><option>Português</option><option>中文</option></select></div></div>
+<div><label for="message">MESSAGE</label><textarea id="message" name="message" placeholder="How can we help? e.g. apartment type (T1/T2), budget, timing"></textarea></div>
+<div class="hp" aria-hidden="true"><label for="website">Website</label><input id="website" name="website" tabindex="-1" autocomplete="off"></div>
+<label class="consent"><input type="checkbox" name="consent" value="yes" required> I agree that YK CROWN LDA may use these details to reply to my enquiry. We do not share your data with third parties.</label>
+<button type="submit">SEND ENQUIRY</button><div class="note" id="form-status" role="status" aria-live="polite">Prefer a quick chat? Use the WhatsApp button — we usually reply the same day.</div>
 </form></section>
 </div></main>
 
 <section class="quick"><div class="quick-inner"><div><h2>Let's build something better.</h2><p>Connect with YK CROWN for property, investment and development opportunities in Portugal.</p></div>
 <div class="buttons"><a class="btn gold" href="https://wa.me/351969058818" target="_blank" rel="noopener">WHATSAPP</a><a class="btn" href="mailto:info@ykcrown.com">EMAIL US</a><a class="btn" href="https://www.instagram.com/ykcrown8818/" target="_blank" rel="noopener">INSTAGRAM</a></div></div></section>
 <footer><div class="footer-inner"><div>© YK CROWN LDA · Real Estate Development in Portugal</div><a class="back" href="index.html">← Back to YK CROWN</a></div></footer>
+<script defer src="assets/site.js"></script>
 </body></html>
