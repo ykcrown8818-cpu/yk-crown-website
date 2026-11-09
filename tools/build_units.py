@@ -207,7 +207,7 @@ def page(u):
 const copy={blob};
 function setLang(l){{if(!copy[l])return;document.documentElement.lang=l==="zh"?"zh-CN":l;document.querySelectorAll("[data-lang]").forEach(b=>b.classList.toggle("active",b.dataset.lang===l));document.querySelectorAll("[data-i]").forEach(el=>{{const v=copy[l][el.dataset.i];if(v)el.textContent=v}});try{{localStorage.setItem("yk_lang",l)}}catch(e){{}}}}
 document.querySelectorAll("[data-lang]").forEach(b=>b.addEventListener("click",()=>setLang(b.dataset.lang)));
-try{{const q=new URLSearchParams(location.search).get("lang")||localStorage.getItem("yk_lang");if(q&&q!=="en")setLang(q)}}catch(e){{}}
+try{{const q=new URLSearchParams(location.search).get("lang")||localStorage.getItem("yk_lang")||((navigator.language||"").slice(0,2));if(q&&q!=="en")setLang(q)}}catch(e){{}}
 </script>
 <script defer src="../../assets/site.js"></script>
 </body></html>

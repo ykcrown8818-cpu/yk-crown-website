@@ -334,7 +334,7 @@ const copy={json.dumps(COPY, ensure_ascii=False)};
 function setLang(l){{if(!copy[l])return;document.documentElement.lang=l==="zh"?"zh-CN":l;document.querySelectorAll("[data-lang]").forEach(b=>b.classList.toggle("active",b.dataset.lang===l));document.querySelectorAll("[data-i]").forEach(el=>{{const v=copy[l][el.dataset.i];if(v)el.textContent=v}});try{{localStorage.setItem("yk_lang",l)}}catch(e){{}}
 const ls={{en:"English",pt:"Português",zh:"中文"}};const s=document.getElementById("language");if(s)s.value=ls[l]}}
 document.querySelectorAll("[data-lang]").forEach(b=>b.addEventListener("click",()=>setLang(b.dataset.lang)));
-try{{const q=new URLSearchParams(location.search).get("lang")||localStorage.getItem("yk_lang");if(q&&q!=="en")setLang(q)}}catch(e){{}}
+try{{const q=new URLSearchParams(location.search).get("lang")||localStorage.getItem("yk_lang")||((navigator.language||"").slice(0,2));if(q&&q!=="en")setLang(q)}}catch(e){{}}
 document.querySelectorAll(".filters button").forEach(b=>b.addEventListener("click",()=>{{document.querySelectorAll(".filters button").forEach(x=>x.classList.toggle("on",x===b));document.querySelectorAll(".units tbody tr").forEach(r=>r.hidden=b.dataset.f!=="all"&&r.dataset.type!==b.dataset.f)}}));
 document.querySelectorAll(".units tbody tr").forEach(r=>r.addEventListener("click",ev=>{{if(!ev.target.closest("a"))location.href=r.querySelector("a").href}}));
 document.querySelectorAll(".tabs button").forEach(b=>b.addEventListener("click",()=>{{document.querySelectorAll(".tabs button").forEach(x=>x.classList.toggle("on",x===b));document.querySelectorAll(".gal").forEach(g=>g.hidden=g.dataset.tab!==b.dataset.t)}}));
