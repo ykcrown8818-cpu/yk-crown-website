@@ -302,9 +302,9 @@ footer{{padding:26px 5vw;font-size:12px;color:#747d84;display:flex;justify-conte
 
 <section class="pl" id="pricelist"><div class="wrap plg">
 <div><div class="kicker" data-i="pl_kicker">{t('pl_kicker')}</div><h2 data-i="pl_title">{t('pl_title')}</h2><p class="lead" data-i="pl_text">{t('pl_text')}</p></div>
-<form id="pricelist-form" class="plf">
+<form id="pricelist-form" class="plf" translate="no">
 <div class="row"><div><label for="pl-name" data-i="l_name">{t('l_name')}</label><input id="pl-name" name="name" autocomplete="name" required/></div><div><label for="pl-email" data-i="l_email">{t('l_email')}</label><input id="pl-email" name="email" type="email" autocomplete="email" required/></div></div>
-<div class="row"><div><label for="pl-phone" data-i="l_phone">{t('l_phone')}</label><input id="pl-phone" name="phone" type="tel" autocomplete="tel"/></div><div><label for="pl-language" data-i="l_lang">{t('l_lang')}</label><select id="pl-language" name="language"><option>English</option><option>Português</option><option>中文</option></select></div></div>
+<div class="row"><div><label for="pl-phone" data-i="l_phone">{t('l_phone')}</label><input id="pl-phone" name="phone" type="tel" autocomplete="tel"/></div><div><label for="pl-language" data-i="l_lang">{t('l_lang')}</label><select id="pl-language" name="language"><option value="English">English</option><option value="Português">Português</option><option value="中文">中文</option></select></div></div>
 <div class="hp" aria-hidden="true"><input name="website" tabindex="-1" autocomplete="off"/></div>
 <label class="consent"><input type="checkbox" name="consent" value="yes" required/> <span><span data-i="l_consent">{t('l_consent')}</span> <a href="privacidade.html" target="_blank">↗</a></span></label>
 <button class="btn gold" type="submit" data-i="pl_btn">{t('pl_btn')}</button>
@@ -338,11 +338,11 @@ footer{{padding:26px 5vw;font-size:12px;color:#747d84;display:flex;justify-conte
 <section class="contact" id="contact"><div class="wrap cgrid">
 <div><div class="kicker" data-i="ct_kicker">{t('ct_kicker')}</div><h2 data-i="ct_title">{t('ct_title')}</h2><p class="lead" data-i="ct_text">{t('ct_text')}</p>
 <div class="alt-c"><a class="btn gold" data-wa="Praça da Corujeira" href="https://wa.me/351969058818" rel="noopener" target="_blank">WhatsApp</a><a class="btn ghost" href="tel:+351969058818">+351 969 058 818</a></div></div>
-<form id="enquiry-form">
+<form id="enquiry-form" translate="no">
 <div class="row"><div><label for="name" data-i="l_name">{t('l_name')}</label><input id="name" name="name" autocomplete="name" required/></div><div><label for="email" data-i="l_email">{t('l_email')}</label><input id="email" name="email" type="email" autocomplete="email" required/></div></div>
 <div class="row"><div><label for="phone" data-i="l_phone">{t('l_phone')}</label><input id="phone" name="phone" type="tel" autocomplete="tel"/></div><div><label for="country" data-i="l_country">{t('l_country')}</label><input id="country" name="country" autocomplete="country-name"/></div></div>
 <div class="row"><div><label for="interest" data-i="l_interest">{t('l_interest')}</label><select id="interest" name="interest"><option value="Praça da Corujeira apartments" data-i="l_any">{t('l_any')}</option>{unit_options()}</select></div>
-<div><label for="language" data-i="l_lang">{t('l_lang')}</label><select id="language" name="language"><option>English</option><option>Português</option><option>中文</option></select></div></div>
+<div><label for="language" data-i="l_lang">{t('l_lang')}</label><select id="language" name="language"><option value="English">English</option><option value="Português">Português</option><option value="中文">中文</option></select></div></div>
 <div><label for="message" data-i="l_msg">{t('l_msg')}</label><textarea id="message" name="message"></textarea></div>
 <div class="hp" aria-hidden="true"><label for="website">Website</label><input id="website" name="website" tabindex="-1" autocomplete="off"/></div>
 <label class="consent"><input type="checkbox" name="consent" value="yes" required/> <span><span data-i="l_consent">{t('l_consent')}</span> <a href="privacidade.html" target="_blank">↗</a></span></label>
