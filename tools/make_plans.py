@@ -25,6 +25,7 @@ REAR_T2 = (1190, 780, 2350, 1730)
 FRONT_T2 = (1190, 1715, 2350, 2760)
 REAR_T1 = (2600, 780, 3580, 1730)
 CROPS = {
+    "c": ("04_Piso1", (1190, 1700, 2150, 2617)),
     "d": ("04_Piso1", REAR_T2), "e": ("05_Piso2", FRONT_T2), "f": ("05_Piso2", REAR_T2), "g": ("05_Piso2", REAR_T1),
     "i": ("06_Piso3", FRONT_T2), "j": ("06_Piso3", REAR_T2), "m": ("07_Piso4", FRONT_T2), "n": ("07_Piso4", REAR_T2),
     "q": ("08_Piso5", FRONT_T2), "r": ("08_Piso5", REAR_T2),
@@ -61,6 +62,11 @@ def m2(v):
 def card(u):
     sheet, box = CROPS[u["id"]]
     plan = render(sheet).crop(box)
+    if u["id"] == "c":  # car-lift shaft (common area) beside the T0: mask it so it is not read as part of the unit
+        dm = ImageDraw.Draw(plan)
+        x0, y0 = 1262 - box[0], 1995 - box[1]
+        dm.rectangle((x0, y0, 1565 - box[0], box[3] - box[1] - 40), fill=(236, 236, 236))
+        dm.text((x0 + 30, y0 + 250), "Elevador de\nautomóveis\n(área comum)", font=sans(30), fill=(120, 120, 120))
     plan = ImageOps.autocontrast(ImageOps.grayscale(plan), cutoff=0.5).convert("RGB")
     W, H, PW = 2000, 1250, 1300
     img = Image.new("RGB", (W, H), BG)

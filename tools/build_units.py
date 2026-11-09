@@ -31,7 +31,7 @@ T = {
         "rooms_title": "Room areas", "plan_title": "Floor plan", "plan_soon": "Detailed floor plan available on request.",
         "facts": "Key facts", "book": "Book a viewing", "wa": "WhatsApp", "others": "Other apartments",
         "back": "← All apartments", "indicative": "Areas are indicative and may change during the development of the project. Final values follow the approved technical documentation.",
-        "photos": "Interiors", "photos_note": "Representative images of the development's finishes.",
+        "photos": "Interiors", "photos_note": "Illustrative images (renders) of the development's finishes.",
         "about_t": "About Praça da Corujeira", "about_d": "A contemporary residential building on a tree-lined square in Campanhã, eastern Porto — ten apartments with generous glazing, timber accents and calm, functional interiors.",
         "lead": lambda u: f"{u['type']} apartment on {('the ground floor' if u['floor']==0 else 'floor ' + str(u['floor']))} of Praça da Corujeira, a new residential development by YK CROWN in Campanhã, Porto.",
     },
@@ -47,7 +47,7 @@ T = {
         "rooms_title": "Áreas das divisões", "plan_title": "Planta", "plan_soon": "Planta detalhada disponível mediante pedido.",
         "facts": "Características", "book": "Marcar visita", "wa": "WhatsApp", "others": "Outros apartamentos",
         "back": "← Todos os apartamentos", "indicative": "As áreas são indicativas e poderão sofrer alterações durante o desenvolvimento do projeto. Os valores finais seguem a documentação técnica aprovada.",
-        "photos": "Interiores", "photos_note": "Imagens representativas dos acabamentos do empreendimento.",
+        "photos": "Interiores", "photos_note": "Imagens meramente ilustrativas (renders) dos acabamentos do empreendimento.",
         "about_t": "Sobre a Praça da Corujeira", "about_d": "Um edifício residencial contemporâneo numa praça arborizada em Campanhã, zona oriental do Porto — dez apartamentos com amplos envidraçados, apontamentos em madeira e interiores calmos e funcionais.",
         "lead": lambda u: f"Apartamento {u['type']} {('no R/C' if u['floor']==0 else 'no ' + str(u['floor']) + '.º piso')} da Praça da Corujeira, novo empreendimento residencial da YK CROWN em Campanhã, Porto.",
     },
@@ -63,15 +63,15 @@ T = {
         "rooms_title": "各房间面积", "plan_title": "户型图", "plan_soon": "详细户型图可按需索取。",
         "facts": "基本信息", "book": "预约看房", "wa": "WhatsApp", "others": "其他户型",
         "back": "← 全部户型", "indicative": "面积为参考数据，可能在项目开发过程中调整，最终以批准的技术文件为准。",
-        "photos": "室内实景", "photos_note": "项目装修标准的示意图片。",
+        "photos": "室内实景", "photos_note": "效果图，仅供参考。",
         "about_t": "关于 Praça da Corujeira", "about_d": "位于波尔图东部 Campanhã 一处绿树成荫广场上的现代住宅楼，共十套公寓，大面积玻璃、木质元素，室内安静实用。",
         "lead": lambda u: f"Praça da Corujeira {('地面层' if u['floor']==0 else str(u['floor']) + ' 楼')}的 {u['type']} 公寓，YK CROWN 在波尔图 Campanhã 开发的全新住宅项目。",
     },
 }
 LANGS = ["en", "pt", "zh"]
-PHOTOS = [("kitchen-and-living-space", "Kitchen and living space"), ("living-room-composition", "Living room"),
-          ("living-room", "Living room"), ("contemporary-kitchen", "Kitchen"),
-          ("contemporary-bathroom", "Bathroom"), ("main-architectural-perspective", "Building")]
+PHOTOS = [("contemporary-kitchen", "Living area"), ("kitchen-and-living-space", "Kitchen"),
+          ("dining-and-living-area", "Dining area"), ("living-room", "Bedroom"),
+          ("bathroom-detail", "Bathroom"), ("main-architectural-perspective", "Building")]
 
 e = html.escape
 
@@ -127,8 +127,8 @@ CSS = """:root{--navy:#0b1b2b;--gold:#c7a15a;--cream:#f5f3ee;--ink:#17212b;--mut
 .plan{background:var(--cream);padding:14px;border:1px solid var(--line)}.plan img{width:100%;height:auto;cursor:zoom-in}.plan .soon{padding:80px 20px;text-align:center;color:var(--muted)}
 h2{font-size:22px;letter-spacing:-.01em;margin:0 0 14px}.facts{width:100%;border-collapse:collapse;font-size:15px}.facts th,.facts td{padding:11px 0;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}.facts th{font-weight:500;color:var(--muted);width:55%}.facts td{font-weight:600}
 .rooms{margin-top:34px}.note{font-size:12px;color:#899097;margin-top:14px}
-.photos{background:var(--cream);padding:64px 0}.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px}.pgrid img{width:100%;aspect-ratio:4/3;object-fit:cover}
-.about{padding:64px 0;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}.about img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.photos{background:var(--cream);padding:64px 0}.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px}.pgrid img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover}
+.about{padding:64px 0;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}.about img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover}
 .others{padding:0 0 80px}.ogrid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:16px}.ogrid a{border:1px solid var(--line);padding:14px;display:block}.ogrid a:hover{border-color:var(--gold)}.ogrid strong{display:block;font-size:20px}.ogrid span{font-size:12px;color:var(--muted)}.ogrid a.cur{background:var(--navy);color:#fff;border-color:var(--navy)}.ogrid a.cur span{color:rgba(255,255,255,.7)}
 footer{padding:36px 5vw;border-top:1px solid var(--line);font-size:12px;color:#747d84;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 @media(max-width:900px){.nav{flex-wrap:wrap;padding:12px 5vw}.navlinks{order:3;width:100%;overflow:auto;gap:16px;font-size:11px}.grid,.about{grid-template-columns:1fr;gap:32px}.ogrid{grid-template-columns:repeat(3,1fr)}.pgrid{grid-template-columns:repeat(2,1fr)}}
@@ -227,6 +227,9 @@ def main():
     sm += "</urlset>\n"
     open(os.path.join(ROOT, "sitemap.xml"), "w").write(sm)
     print(f"built {len(UNITS)} unit pages + sitemap.xml")
+    import build_home
+    open(os.path.join(ROOT, "index.html"), "w", encoding="utf-8").write(build_home.page())
+    print("built index.html")
 
 
 if __name__ == "__main__":

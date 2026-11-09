@@ -6,9 +6,45 @@
   "street": "Praça da Corujeira 201-203",
   "locality": "Porto",
   "region": "Porto",
-  "country": "PT"
+  "country": "PT",
+  "delivery": "2028-02"
  },
  "units": [
+  {
+   "id": "c",
+   "letter": "C",
+   "type": "T0",
+   "floor": 0,
+   "position": "front_left",
+   "au": 34.5,
+   "abp": 42.15,
+   "balcony": null,
+   "bedrooms": 0,
+   "bathrooms": 1,
+   "rooms": [
+    [
+     "living",
+     19.2
+    ],
+    [
+     "kitchen",
+     6.5
+    ],
+    [
+     "hall",
+     2.8
+    ],
+    [
+     "wc",
+     5.9
+    ]
+   ],
+   "plan": "plans/fracao-c.webp",
+   "energy": "A+",
+   "price": null,
+   "status": null,
+   "parking": "included"
+  },
   {
    "id": "d",
    "letter": "D",
