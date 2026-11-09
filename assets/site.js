@@ -61,6 +61,11 @@
     var match = Array.prototype.find.call(sel.options, function (o) { return o.value && norm(o.value).indexOf(norm(interest)) === 0; });
     if (match) sel.value = match.value;
   }
+  var unit = params.get('unit');
+  if (unit) {
+    var msg = form.querySelector('[name="message"]');
+    if (msg && !msg.value) msg.value = "I'm interested in " + unit + ' at Praça da Corujeira. Please send me availability, price and possible viewing times.';
+  }
   var status = document.getElementById('form-status');
 
   form.addEventListener('submit', function (e) {
@@ -68,6 +73,7 @@
     if (form.website && form.website.value) return; // spam trap
     var d = {};
     new FormData(form).forEach(function (v, k) { d[k] = String(v).trim(); });
+    if (unit) d.interest = (d.interest ? d.interest + ' · ' : '') + unit;
     d.page = location.href;
     d.referrer = document.referrer || null;
     ['utm_source', 'utm_medium', 'utm_campaign'].forEach(function (k) { if (params.get(k)) d[k] = params.get(k); });

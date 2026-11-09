@@ -1,0 +1,43 @@
+{
+  "_note": "PROVISIONAL data read from the marketing floor-plan images. Replace with official values (caderneta / ficha técnica) before publishing. null = not confirmed.",
+  "project": {
+    "name": "Praça da Corujeira",
+    "address": "Praça da Corujeira 201–203, Campanhã, 4300 Porto",
+    "street": "Praça da Corujeira 201-203",
+    "locality": "Porto",
+    "region": "Porto",
+    "country": "PT"
+  },
+  "units": [
+    {"id": "d", "letter": "D", "type": "T2", "floor": 0, "position": "rear_left", "au": 61.0, "abp": null, "balcony": null, "bedrooms": 2, "bathrooms": 2,
+     "rooms": [["living", 17.2], ["kitchen", 6.3], ["bed1", 14.2], ["bed2", 10.0], ["wc1", 5.0], ["wc2", 2.9], ["corridor", 2.8], ["hall", 2.3]],
+     "plan": "fracao-d-t2-floor-plan.webp", "energy": null, "price": null, "status": null, "parking": null},
+    {"id": "e", "letter": "E", "type": "T2", "floor": 1, "position": "front_left", "au": 69.6, "abp": 82.1, "balcony": null, "bedrooms": 2, "bathrooms": 2,
+     "rooms": [["living", 26.5], ["kitchenette", 6.1], ["bed1", 14.2], ["bed2", 10.0], ["wc1", 4.9], ["wc2", 2.9], ["corridor", 2.7], ["hall", 2.3]],
+     "plan": "fracao-e-t2-floor-plan.webp", "energy": null, "price": null, "status": null, "parking": null},
+    {"id": "f", "letter": "F", "type": "T2", "floor": 1, "position": "rear_left", "au": 69.6, "abp": 82.1, "balcony": null, "bedrooms": 2, "bathrooms": 2,
+     "rooms": [["living", 26.5], ["kitchenette", 6.1], ["bed1", 14.2], ["bed2", 10.0], ["wc1", 4.9], ["wc2", 2.9], ["corridor", 2.7], ["hall", 2.3]],
+     "plan": "fracao-f-t2-floor-plan.webp", "energy": null, "price": null, "status": null, "parking": null},
+    {"id": "g", "letter": "G", "type": "T1", "floor": 1, "position": "rear_right", "au": null, "abp": null, "balcony": null, "bedrooms": 1, "bathrooms": 1,
+     "rooms": [["living_dining", 26.5], ["bed1", 12.8], ["wc", 5.6]],
+     "plan": "fracao-g-t1-floor-plan.webp", "energy": null, "price": null, "status": null, "parking": null},
+    {"id": "i", "letter": "I", "type": "T2", "floor": 2, "position": "front_left", "au": 69.6, "abp": 82.1, "balcony": null, "bedrooms": 2, "bathrooms": 2,
+     "rooms": [["living", 26.5], ["kitchenette", 6.1], ["bed1", 14.2], ["bed2", 10.0], ["wc1", 4.9], ["wc2", 2.9], ["corridor", 2.7], ["hall", 2.3]],
+     "plan": "fracao-i-t2-floor-plan.webp", "energy": null, "price": null, "status": null, "parking": null},
+    {"id": "j", "letter": "J", "type": "T2", "floor": 2, "position": "rear_left", "au": 69.6, "abp": 82.1, "balcony": null, "bedrooms": 2, "bathrooms": 2,
+     "rooms": [["living", 26.5], ["kitchenette", 6.1], ["bed1", 14.2], ["bed2", 10.0], ["wc1", 4.9], ["wc2", 2.9], ["corridor", 2.7], ["hall", 2.3]],
+     "plan": "fracao-j-t2-floor-plan.webp", "energy": null, "price": null, "status": null, "parking": null},
+    {"id": "m", "letter": "M", "type": "T2", "floor": 3, "position": "front_left", "au": 64.7, "abp": 77.1, "balcony": null, "bedrooms": 2, "bathrooms": 2,
+     "rooms": [["living", 21.05], ["kitchenette", 6.1], ["bed1", 14.65], ["bed2", 10.1], ["wc1", 4.9], ["wc2", 2.9], ["corridor", 2.7], ["hall", 2.3]],
+     "plan": "fracao-m-t2-floor-plan.webp", "energy": null, "price": null, "status": null, "parking": null},
+    {"id": "n", "letter": "N", "type": "T2", "floor": 3, "position": "rear_left", "au": 69.6, "abp": 82.1, "balcony": null, "bedrooms": 2, "bathrooms": 2,
+     "rooms": [["living", 26.5], ["kitchenette", 6.1], ["bed1", 14.2], ["bed2", 10.0], ["wc1", 4.9], ["wc2", 2.9], ["corridor", 2.7], ["hall", 2.3]],
+     "plan": "fracao-n-t2-floor-plan.webp", "energy": null, "price": null, "status": null, "parking": null},
+    {"id": "q", "letter": "Q", "type": "T2", "floor": 4, "position": "front_left", "au": 64.7, "abp": 77.1, "balcony": 8.25, "bedrooms": 2, "bathrooms": 2,
+     "rooms": [["living", 21.05], ["kitchenette", 6.1], ["bed1", 14.65], ["bed2", 10.1], ["wc1", 4.9], ["wc2", 2.9], ["corridor", 2.7], ["hall", 2.3], ["balcony", 8.25]],
+     "plan": "fracao-q-t2-floor-plan.webp", "energy": null, "price": null, "status": null, "parking": null},
+    {"id": "r", "letter": "R", "type": "T2", "floor": 4, "position": "rear_left", "au": 69.6, "abp": 82.1, "balcony": null, "bedrooms": 2, "bathrooms": 2,
+     "rooms": [["living", 26.5], ["kitchenette", 6.1], ["bed1", 14.2], ["bed2", 10.0], ["wc1", 4.9], ["wc2", 2.9], ["corridor", 2.7], ["hall", 2.3]],
+     "plan": null, "energy": null, "price": null, "status": null, "parking": null}
+  ]
+}
