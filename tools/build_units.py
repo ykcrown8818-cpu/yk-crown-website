@@ -58,7 +58,7 @@ T = {
         "rooms": {"living": "客厅", "living_dining": "客厅 / 餐厅", "kitchen": "厨房", "kitchenette": "开放式厨房",
                   "bed1": "卧室 1", "bed2": "卧室 2", "wc": "卫生间", "wc1": "卫生间 1", "wc2": "卫生间 2",
                   "corridor": "走廊", "hall": "玄关", "balcony": "阳台"},
-        "k_type": "户型", "k_floor": "楼层", "k_pos": "位置", "k_au": "使用面积（Au）", "k_abp": "私有建筑面积（Abp）",
+        "k_type": "户型", "k_floor": "楼层", "k_pos": "位置", "k_au": "套内使用面积（Au）", "k_abp": "套内建筑面积（Abp，含墙体）",
         "k_bal": "阳台", "k_bed": "卧室", "k_bath": "卫生间", "k_park": "车位", "k_energy": "能源等级",
         "k_status": "状态", "st": {"available": "可售", "reserved": "已预订", "sold": "已售"}, "k_price": "价格", "on_request": "价格面议", "parking_inc": "含 1 个车位（汽车升降机）", "tbc": "待确认", "energy_tbc": "证书办理中",
         "rooms_title": "各房间面积", "plan_title": "户型图", "plan_soon": "详细户型图可按需索取。",
