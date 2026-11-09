@@ -17,7 +17,7 @@ SITE = "https://ykcrown.com"
 data = json.load(open(os.path.join(ROOT, "tools", "units.json"), encoding="utf-8"))
 P = data["project"]
 ALL_UNITS = data["units"]
-UNITS = [x for x in ALL_UNITS if x.get("page", True)]
+UNITS = [x for x in ALL_UNITS if x.get("page", True) and (data["project"].get("show_status", True) or x["status"] != "sold")]
 
 T = {
     "en": {
