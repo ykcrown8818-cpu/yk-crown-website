@@ -23,7 +23,10 @@ def m2(v):
 
 
 AU = [u["au"] for u in UNITS if u["au"]]
-TYPES = sorted({u["type"] for u in UNITS})
+TYPES = sorted({u["type"] for u in UNITS if u.get("page", True) and u["status"] != "sold"})
+TYPES_EN = " and ".join([", ".join(TYPES[:-1]), TYPES[-1]]) if len(TYPES) > 1 else TYPES[0]
+TYPES_PT = TYPES_EN.replace(" and ", " e ")
+TYPES_ZH = "、".join(TYPES)
 N = len(UNITS)
 RANGE = f"{min(AU):.0f}–{max(AU):.0f} m²"
 
@@ -32,7 +35,7 @@ COPY = {
         "nav_apts": "Apartments", "nav_why": "Highlights", "nav_gallery": "Gallery", "nav_loc": "Location", "nav_faq": "FAQ", "nav_contact": "Contact", "nav_progress": "Progress", "nav_about": "About",
         "cta_visit": "Book a viewing",
         "hero_kicker": "New development · Campanhã, Porto",
-        "hero_text": f"{N} new apartments — T0, T1 and T2 — on a tree-lined square in eastern Porto. Every apartment includes a parking space and energy class A+.",
+        "hero_text": f"{N} new apartments — {TYPES_EN} — on a tree-lined square in eastern Porto. Every apartment includes a parking space and energy class A+.",
         "f_types": "Types", "f_area": "Usable area", "f_energy": "Energy class", "f_park": "Parking", "f_park_v": "Included", "f_deliv": "Delivery", "f_deliv_v": "Feb 2028",
         "btn_apts": "See the apartments",
         "apts_kicker": "Apartments", "apts_title": "Choose your apartment",
@@ -68,7 +71,7 @@ COPY = {
         "nav_apts": "Apartamentos", "nav_why": "Destaques", "nav_gallery": "Galeria", "nav_loc": "Localização", "nav_faq": "Perguntas", "nav_contact": "Contacto", "nav_progress": "Obra", "nav_about": "Sobre nós",
         "cta_visit": "Marcar visita",
         "hero_kicker": "Novo empreendimento · Campanhã, Porto",
-        "hero_text": f"{N} apartamentos novos — T0, T1 e T2 — numa praça arborizada da zona oriental do Porto. Todos com lugar de garagem e classe energética A+.",
+        "hero_text": f"{N} apartamentos novos — {TYPES_PT} — numa praça arborizada da zona oriental do Porto. Todos com lugar de garagem e classe energética A+.",
         "f_types": "Tipologias", "f_area": "Área útil", "f_energy": "Classe energética", "f_park": "Garagem", "f_park_v": "Incluída", "f_deliv": "Entrega", "f_deliv_v": "Fev. 2028",
         "btn_apts": "Ver apartamentos",
         "apts_kicker": "Apartamentos", "apts_title": "Escolha o seu apartamento",
@@ -104,7 +107,7 @@ COPY = {
         "nav_apts": "在售公寓", "nav_why": "项目亮点", "nav_gallery": "图库", "nav_loc": "位置", "nav_faq": "常见问题", "nav_contact": "联系我们", "nav_progress": "工程进度", "nav_about": "关于我们",
         "cta_visit": "预约看房",
         "hero_kicker": "全新住宅项目 · 波尔图 Campanhã",
-        "hero_text": f"位于波尔图东部绿树广场旁的 {N} 套全新公寓，户型 T0、T1、T2，每套均含车位，能源等级 A+。",
+        "hero_text": f"位于波尔图东部绿树广场旁的 {N} 套全新公寓，户型 {TYPES_ZH}，每套均含车位，能源等级 A+。",
         "f_types": "户型", "f_area": "套内使用面积", "f_energy": "能源等级", "f_park": "车位", "f_park_v": "包含", "f_deliv": "交房", "f_deliv_v": "2028 年 2 月",
         "btn_apts": "查看公寓",
         "apts_kicker": "在售公寓", "apts_title": "选择您的公寓",
@@ -212,12 +215,12 @@ def page():
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<title>Praça da Corujeira, Porto — New apartments T0, T1, T2 | YK CROWN</title>
-<meta content="{N} new apartments T0–T2 at Praça da Corujeira, Campanhã, Porto. {RANGE} usable area, energy class A+, parking included, delivery February 2028." name="description"/>
+<title>Praça da Corujeira, Porto — New apartments {", ".join(TYPES)} | YK CROWN</title>
+<meta content="{N} new apartments {TYPES_EN} at Praça da Corujeira, Campanhã, Porto. {RANGE} usable area, energy class A+, parking included, delivery February 2028." name="description"/>
 <meta content="#0b1b2b" name="theme-color"/>
 <link href="https://ykcrown.com/" rel="canonical"/>
 <meta content="Praça da Corujeira, Porto — new apartments by YK CROWN" property="og:title"/>
-<meta content="{N} new apartments T0–T2 · energy class A+ · parking included · delivery February 2028." property="og:description"/>
+<meta content="{N} new apartments {TYPES_EN} · energy class A+ · parking included · delivery February 2028." property="og:description"/>
 <meta content="https://ykcrown.com/assets/photos/hero.webp" property="og:image"/>
 <meta content="website" property="og:type"/>
 <link as="image" href="assets/photos/hero.webp" rel="preload"/>
