@@ -274,7 +274,7 @@ if __name__ == "__main__":
 def _home_form():
     import build_home
     page = build_home.page()
-    a = page.index('<form id="enquiry-form">')
+    a = page.index('<form id="enquiry-form"')
     b = page.index("</form>", a) + len("</form>")
     keys = {L: {k: v for k, v in build_home.COPY[L].items() if k.startswith("l_")} for L in build_home.COPY}
     return page[a:b], keys
