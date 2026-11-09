@@ -90,7 +90,7 @@ def facts(u, L):
         rows.append(("k_bal", m2(u["balcony"])))
     rows += [("k_bed", str(u["bedrooms"])), ("k_bath", str(u["bathrooms"])),
              ("k_park", t["parking_inc"] if u["parking"] == "included" else (u["parking"] or t["tbc"])), ("k_energy", u["energy"] or t["energy_tbc"]),
-             ("k_price", u["price"] or t["on_request"]), ("k_status", t["st"][u["status"] or "available"])]
+             ("k_price", u["price"] or t["on_request"])] + ([("k_status", t["st"][u["status"] or "available"])] if data["project"].get("show_status", True) else [])
     return rows
 
 
