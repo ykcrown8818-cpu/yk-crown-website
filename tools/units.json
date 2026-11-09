@@ -54,11 +54,11 @@
      2.3
     ]
    ],
-   "plan": "fracao-d-t2-floor-plan.webp",
+   "plan": "plans/fracao-d.webp",
    "energy": "A+",
    "price": null,
    "status": null,
-   "parking": null
+   "parking": "included"
   },
   {
    "id": "e",
@@ -109,11 +109,11 @@
      8.25
     ]
    ],
-   "plan": null,
+   "plan": "plans/fracao-e.webp",
    "energy": "A+",
    "price": null,
    "status": null,
-   "parking": null
+   "parking": "included"
   },
   {
    "id": "f",
@@ -160,11 +160,11 @@
      2.3
     ]
    ],
-   "plan": "fracao-f-t2-floor-plan.webp",
+   "plan": "plans/fracao-f.webp",
    "energy": "A+",
    "price": null,
    "status": null,
-   "parking": null
+   "parking": "included"
   },
   {
    "id": "g",
@@ -199,11 +199,11 @@
      2.3
     ]
    ],
-   "plan": null,
+   "plan": "plans/fracao-g.webp",
    "energy": "A+",
    "price": null,
    "status": null,
-   "parking": null
+   "parking": "included"
   },
   {
    "id": "i",
@@ -254,11 +254,11 @@
      8.25
     ]
    ],
-   "plan": null,
+   "plan": "plans/fracao-i.webp",
    "energy": "A+",
    "price": null,
    "status": null,
-   "parking": null
+   "parking": "included"
   },
   {
    "id": "j",
@@ -305,11 +305,11 @@
      2.3
     ]
    ],
-   "plan": "fracao-j-t2-floor-plan.webp",
+   "plan": "plans/fracao-j.webp",
    "energy": "A+",
    "price": null,
    "status": null,
-   "parking": null
+   "parking": "included"
   },
   {
    "id": "m",
@@ -360,11 +360,11 @@
      8.25
     ]
    ],
-   "plan": "fracao-m-t2-floor-plan.webp",
+   "plan": "plans/fracao-m.webp",
    "energy": "A+",
    "price": null,
    "status": null,
-   "parking": null
+   "parking": "included"
   },
   {
    "id": "n",
@@ -411,11 +411,11 @@
      2.3
     ]
    ],
-   "plan": "fracao-n-t2-floor-plan.webp",
+   "plan": "plans/fracao-n.webp",
    "energy": "A+",
    "price": null,
    "status": null,
-   "parking": null
+   "parking": "included"
   },
   {
    "id": "q",
@@ -466,11 +466,11 @@
      8.25
     ]
    ],
-   "plan": "fracao-q-t2-floor-plan.webp",
+   "plan": "plans/fracao-q.webp",
    "energy": "A+",
    "price": null,
    "status": null,
-   "parking": null
+   "parking": "included"
   },
   {
    "id": "r",
@@ -517,11 +517,11 @@
      2.3
     ]
    ],
-   "plan": null,
+   "plan": "plans/fracao-r.webp",
    "energy": "A+",
    "price": null,
    "status": null,
-   "parking": null
+   "parking": "included"
   }
  ]
 }
