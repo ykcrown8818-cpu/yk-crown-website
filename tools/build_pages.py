@@ -33,7 +33,7 @@ section{padding:80px 0}.alt{background:var(--cream)}h2{font-size:clamp(28px,3.6v
 .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:32px}.card{background:#fff;border:1px solid var(--line);padding:28px}.card .n{font-size:13px;color:var(--gold);font-weight:700;letter-spacing:.1em}.card h3{margin:10px 0 6px;font-size:19px}.card p{margin:0;color:var(--muted);font-size:15px}
 .facts{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:30px;border-top:1px solid var(--line)}.facts div{padding:18px 18px 0 0}.facts span{display:block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}.facts strong{font-size:22px}
 .proj{display:grid;grid-template-columns:1.2fr .8fr;background:var(--navy);color:#fff;margin-top:32px}.proj img{width:100%;height:100%;object-fit:cover;aspect-ratio:3/2}.proj .c{padding:44px}.proj .c p{color:rgba(255,255,255,.75)}.proj .tag{display:inline-block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;border:1px solid var(--gold);color:#e3c37e;padding:4px 10px}
-.timeline{list-style:none;padding:0;margin:36px 0 0;display:grid;grid-template-columns:repeat(6,1fr);gap:0;counter-reset:s}
+.timeline{list-style:none;padding:0;margin:36px 0 0;display:grid;grid-template-columns:repeat(7,1fr);gap:0;counter-reset:s}
 .timeline li{position:relative;padding:34px 12px 0 0;font-size:14px;color:var(--muted)}.timeline li::before{content:"";position:absolute;top:10px;left:0;right:0;height:3px;background:var(--line)}
 .timeline li::after{content:"";position:absolute;top:2px;left:0;width:19px;height:19px;border-radius:50%;background:#fff;border:3px solid var(--line)}
 .timeline li.done::before,.timeline li.current::before{background:var(--gold)}.timeline li.done::after{background:var(--gold);border-color:var(--gold)}.timeline li.current::after{background:#fff;border-color:var(--gold);box-shadow:0 0 0 5px rgba(199,161,90,.25)}
@@ -42,7 +42,7 @@ section{padding:80px 0}.alt{background:var(--cream)}h2{font-size:clamp(28px,3.6v
 .entry .ph{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:16px}.entry .ph img{aspect-ratio:4/3;object-fit:cover;width:100%}
 .note{font-size:12px;color:#899097;margin-top:14px}.ctab{background:var(--navy);color:#fff}.ctab .lead{color:rgba(255,255,255,.75)}.ctab .in{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
 footer{padding:26px 5vw;font-size:12px;color:#747d84;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;border-top:1px solid var(--line)}
-@media(max-width:980px){.navlinks{display:none}.two,.proj{grid-template-columns:1fr;gap:32px}.cards{grid-template-columns:1fr 1fr}.facts{grid-template-columns:1fr 1fr}.timeline{grid-template-columns:1fr 1fr 1fr;row-gap:24px}}
+@media(max-width:980px){.navlinks{display:none}.two,.proj{grid-template-columns:1fr;gap:32px}.cards{grid-template-columns:1fr 1fr}.facts{grid-template-columns:1fr 1fr}.timeline{grid-template-columns:repeat(4,1fr);row-gap:24px}}
 @media(max-width:640px){.nav{gap:10px}.nav .btn{display:none}.lang{margin-left:auto}section{padding:56px 0}.cards{grid-template-columns:1fr}.proj .c{padding:28px}
 .timeline{grid-template-columns:1fr;row-gap:0}.timeline li{padding:0 0 22px 34px}.timeline li::before{top:0;bottom:0;left:8px;right:auto;width:3px;height:auto}.timeline li::after{top:0}.entry .ph{grid-template-columns:1fr 1fr}}"""
 
@@ -196,27 +196,27 @@ def about():
 
 # ---------------- Progress ----------------
 STAGES = {
-    "en": {"licence": "Licensing", "site": "Site works & foundations", "structure": "Structure", "envelope": "Façade & roof",
+    "en": {"licence": "Licensing", "demolition": "Demolition & levelling", "site": "Site enclosure & foundations", "structure": "Structure", "envelope": "Façade & roof",
            "interiors": "Interiors & finishes", "handover": "Handover · Feb 2028",
            "done": "Completed", "current": "In progress", "next": "Upcoming",
            "g_kicker": "Construction progress", "g_title": "Follow the works at Praça da Corujeira",
-           "g_text": "Construction has started. We publish regular updates with photos from the site so buyers can follow every stage until handover in February 2028.",
+           "g_text": "Demolition is complete and the site is enclosed. We publish regular updates with photos from the site so buyers can follow every stage until handover in February 2028.",
            "s_kicker": "Stages", "s_title": "Where we are now", "l_kicker": "Site diary", "l_title": "Latest updates",
            "l_note": "Photos taken on site. Stage dates are estimates and may change.",
            "ct_title": "Want to see the site?", "ct_text": "Ask us for the latest photos or book a visit to Praça da Corujeira.", "ct_btn": "Contact us"},
-    "pt": {"licence": "Licenciamento", "site": "Estaleiro e fundações", "structure": "Estrutura", "envelope": "Fachada e cobertura",
+    "pt": {"licence": "Licenciamento", "demolition": "Demolição e regularização", "site": "Estaleiro e fundações", "structure": "Estrutura", "envelope": "Fachada e cobertura",
            "interiors": "Interiores e acabamentos", "handover": "Entrega · fev. 2028",
            "done": "Concluído", "current": "Em curso", "next": "A seguir",
            "g_kicker": "Acompanhamento da obra", "g_title": "Acompanhe a obra da Praça da Corujeira",
-           "g_text": "A obra já arrancou. Publicamos atualizações regulares com fotografias do estaleiro, para que os compradores possam acompanhar cada fase até à entrega em fevereiro de 2028.",
+           "g_text": "A demolição está concluída e o estaleiro vedado. Publicamos atualizações regulares com fotografias do estaleiro, para que os compradores possam acompanhar cada fase até à entrega em fevereiro de 2028.",
            "s_kicker": "Fases", "s_title": "Em que ponto estamos", "l_kicker": "Diário de obra", "l_title": "Últimas atualizações",
            "l_note": "Fotografias tiradas em obra. As datas das fases são estimativas e podem sofrer alterações.",
            "ct_title": "Quer visitar a obra?", "ct_text": "Peça-nos as fotografias mais recentes ou marque uma visita à Praça da Corujeira.", "ct_btn": "Contactar"},
-    "zh": {"licence": "建筑审批", "site": "场地与地基", "structure": "主体结构", "envelope": "外立面与屋顶",
+    "zh": {"licence": "建筑审批", "demolition": "拆除与平整", "site": "围挡与地基", "structure": "主体结构", "envelope": "外立面与屋顶",
            "interiors": "室内与装修", "handover": "交房 · 2028 年 2 月",
            "done": "已完成", "current": "进行中", "next": "未开始",
            "g_kicker": "工程进度", "g_title": "关注 Praça da Corujeira 的施工进展",
-           "g_text": "工程已经开工。我们会定期发布工地实拍照片，买家可以一直关注到 2028 年 2 月交房。",
+           "g_text": "旧建筑已拆除，工地已封闭。我们会定期发布工地实拍照片，买家可以一直关注到 2028 年 2 月交房。",
            "s_kicker": "施工阶段", "s_title": "目前进展", "l_kicker": "工地日志", "l_title": "最新动态",
            "l_note": "照片为工地实拍。各阶段时间为预估，可能会调整。",
            "ct_title": "想去工地看看？", "ct_text": "可以向我们索取最新照片，或预约参观 Praça da Corujeira。", "ct_btn": "联系我们"},
