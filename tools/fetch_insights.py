@@ -3,7 +3,7 @@
 
 Reads the read-only view `published_articles` (only rows an editor approved).
 Needs env SUPABASE_KEY (the project's publishable/anon key, stored as a GitHub secret).
-Run: SUPABASE_KEY=... python3 tools/fetch_insights.py
+Run: SUPABASE_KEY=... python3 tools/fetch_insights.py  (also runs in the Build Insights GitHub Action)
 """
 import json
 import os
