@@ -1,0 +1,32 @@
+name: Build Insights
+# Runs when the n8n publish workflow adds or changes an article in content/insights/.
+# Rebuilds the article pages, insights.html and sitemap.xml, then commits them;
+# Cloudflare deploys the commit automatically.
+on:
+  push:
+    branches: [main]
+    paths: ["content/insights/**", "tools/build_insights.py"]
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: build-insights
+  cancel-in-progress: false
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python3 tools/build_units.py
+      - name: Commit generated pages
+        run: |
+          git config user.name "yk-insights-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A insights insights.html sitemap.xml
+          if git diff --cached --quiet; then echo "nothing to commit"; exit 0; fi
+          git commit -m "Build Insights pages"
+          git pull --rebase origin main
+          git push origin HEAD:main

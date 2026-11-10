@@ -220,7 +220,10 @@ def main():
         d = os.path.join(ROOT, "apartamentos", f"fracao-{u['id']}")
         os.makedirs(d, exist_ok=True)
         open(os.path.join(d, "index.html"), "w", encoding="utf-8").write(page(u))
+    import build_insights
+    arts = build_insights.main()
     urls = ["", "about.html", "contact.html", "insights.html", "privacidade.html", "progress.html"] + [f"apartamentos/fracao-{u['id']}/" for u in UNITS]
+    urls += [f"insights/{L}/{a['slug']}/" for a in arts for L in build_insights.LANGS]
     today = date.today().isoformat()
     sm = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
     sm += "".join(f"  <url><loc>{SITE}/{p}</loc><lastmod>{today}</lastmod></url>\n" for p in urls)
@@ -233,9 +236,9 @@ def main():
     import build_pages
     open(os.path.join(ROOT, "about.html"), "w", encoding="utf-8").write(build_pages.about())
     open(os.path.join(ROOT, "progress.html"), "w", encoding="utf-8").write(build_pages.progress())
-    for name, fn in [("contact.html", build_pages.contact), ("insights.html", build_pages.insights), ("404.html", build_pages.not_found)]:
+    for name, fn in [("contact.html", build_pages.contact), ("404.html", build_pages.not_found)]:
         open(os.path.join(ROOT, name), "w", encoding="utf-8").write(fn())
-    print("built about, progress, contact, insights, 404")
+    print("built about, progress, contact, 404")
 
 
 if __name__ == "__main__":
