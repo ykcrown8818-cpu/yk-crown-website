@@ -1,10 +1,10 @@
 name: Build Insights
-# Every 30 minutes: download articles the editor approved (Supabase view published_articles),
+# Twice an hour (:07 and :37, off the busy top of the hour): download articles the editor approved (Supabase view published_articles),
 # rebuild the Insights pages, insights.html and sitemap.xml, and commit if anything changed.
 # Cloudflare deploys the commit automatically. Needs repo secret SUPABASE_KEY (publishable key).
 on:
   schedule:
-    - cron: "*/30 * * * *"
+    - cron: "7,37 * * * *"
   workflow_dispatch:
   push:
     branches: [main]
