@@ -1,0 +1,35 @@
+{
+ "date": "2026-11-10",
+ "en": {
+  "body": "According to the Portuguese financial news website ECO, Euribor rates recorded decreases at the start of the week across three, six and 12-month tenors compared to the levels registered on Friday. Specifically, the six-month Euribor fell by 0.015 percentage points on Monday, settling at a rate of 3.001%.\n\nThe six-month term plays a pivotal role in the Portuguese banking and mortgage landscape, having established itself in January 2024 as the most common benchmark applied to variable-rate housing loans in Portugal. Consequently, daily adjustments to this specific index directly determine borrowing parameters for a substantial proportion of home loan contracts signed across the country.\n\nThe downward movement across these interbank benchmarks may influence Portugal's wider property and housing finance environment. For households holding variable-rate home loans tied to these metrics, ongoing reductions in reference tenors can ease monthly repayment obligations, potentially affecting borrowing capacity, real estate transactions and overall market sentiment.",
+  "headline": "Euribor rates fall across three, six and 12-month tenors",
+  "lead": "Euribor interest rates fell across the three, six and 12-month tenors on Monday compared to Friday, according to ECO.",
+  "seo_description": "Euribor rates decreased across three, six and 12-month tenors, with the six-month rate dropping to 3.001%, according to financial website ECO.",
+  "seo_title": "Euribor rates fall across key maturities | YK CROWN",
+  "yk_observation": "This broad decrease across maturities may offer incremental financial relief to mortgage holders on variable-rate terms. If sustained over time, softening interbank indices could provide moderate support to buyer sentiment in Portugal's residential property market."
+ },
+ "id": "e77ad7b8-b1cf-4bbe-adc0-7d05ffd257d5",
+ "pt": {
+  "body": "De acordo com o jornal económico ECO, as taxas Euribor registaram descidas no arranque da semana nos três principais horizontes temporais, comparando com os valores apurados na sexta-feira anterior. No caso da taxa Euribor a seis meses, verificou-se um recuo de 0,015 pontos percentuais, fixando-se este indicador nos 3,001%.\n\nO prazo a seis meses assume uma relevância determinante no panorama financeiro português, uma vez que passou a ser, desde janeiro de 2024, o indexante mais utilizado nos empréstimos à habitação com taxa variável concedidos em Portugal. A evolução deste indicador em concreto condiciona a fixação dos custos de financiamento para uma parcela significativa das famílias mutuárias no país.\n\nEsta trajetória de redução nas taxas de referência interbancárias poderá ter reflexos no mercado imobiliário e habitacional português. Para os detentores de créditos indexados a estes prazos, qualquer movimento descendente pode aliviar o encargo mensal com as prestações bancárias, influenciando potencialmente a dinâmica económica e o poder de compra no setor residencial.",
+  "headline": "Euribor recua nos prazos a três, seis e 12 meses",
+  "lead": "As taxas Euribor registaram descidas esta segunda-feira nos prazos a três, a seis e a 12 meses face à sessão de sexta-feira, noticiou o ECO.",
+  "seo_description": "A Euribor recuou esta segunda-feira nos prazos a três, seis e 12 meses, fixando-se a taxa a seis meses em 3,001%, segundo dados avançados pelo ECO.",
+  "seo_title": "Euribor desce a três, seis e 12 meses | ECO",
+  "yk_observation": "A descida das taxas Euribor nos vários prazos sugere um alívio pontual no custo do crédito para os mutuários com empréstimos de taxa variável. Caso esta tendência de moderação dos indexantes se mantenha, o setor imobiliário residencial poderá registar uma sustentação gradual na procura e na capacidade de endividamento das famílias."
+ },
+ "slug": "2026-11-10-euribor-rates-fall-across-three-six-and-12-month-tenors-e77a",
+ "source": {
+  "name": "ECO",
+  "published_at": "2026-11-09T10:42:33+00:00",
+  "url": "https://eco.sapo.pt/2026/11/09/euribor-desce-a-tres-a-seis-e-a-12-meses-14/"
+ },
+ "topic": "finance",
+ "zh": {
+  "body": "据葡萄牙财经媒体ECO报道，欧洲银行间同业拆借利率（Euribor）在本周一全线下调，其中3个月期、6个月期以及12个月期的指标相较于上周五的记录水平均出现了回落。在具体变动方面，6个月期Euribor利率在当日下调了0.015个百分点，最终定于3.001%的水平。\n\n作为葡萄牙抵押贷款领域的核心指标，6个月期Euribor具有举足轻重的地位。自2024年1月起，该期限的利率已正式成为葡萄牙浮动利率住房贷款中使用最为广泛的基准指标。因此，该指标的任何变动都会直接关联到当地大量购房借款人的实际融资利息核算。\n\n银行间拆借基准利率的走低，可能会对葡萄牙的房地产行业以及住房融资生态产生影响。对于承担浮动利率房贷的购房者而言，参考利率的下行往往意味着每月还贷现金流压力的减轻，进而可能对家庭的实际偿债负担、购房意愿以及整个住宅市场的交易活跃度带来潜在作用。",
+  "headline": "Euribor在3个月、6个月及12个月期限全线回落",
+  "lead": "据葡萄牙媒体ECO报道，欧洲银行间同业拆借利率（Euribor）周一在3个月、6个月和12个月期限上均较上周五回落。",
+  "seo_description": "据ECO报道，欧洲银行间同业拆借利率周一全线下跌，葡萄牙主要房贷基准6个月期Euribor降至3.001%。",
+  "seo_title": "Euribor主要期限利率走低 | 葡房金融",
+  "yk_observation": "Euribor全期限利率的微幅回落，或在短期内为持有浮动利率房贷的家庭减轻月供还款负担。若基准利率持续处于缓和区间，葡萄牙住宅地产市场的购房情绪与融资环境可能迎来边际改善。"
+ }
+}
