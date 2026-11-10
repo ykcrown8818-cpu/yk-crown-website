@@ -28,7 +28,12 @@ def main():
     try:
         rows = json.load(urllib.request.urlopen(urllib.request.Request(URL, headers=headers), timeout=30))
     except urllib.error.HTTPError as err:
-        sys.exit(f"Supabase error {err.code}: {err.read().decode()[:300]}")
+        msg = f"Supabase error {err.code}: {err.read().decode()[:300]}"
+        print(f"::error::{msg}")
+        sys.exit(msg)
+    except Exception as err:  # network etc.
+        print(f"::error::fetch failed: {err!r}"[:400])
+        raise
     os.makedirs(OUT, exist_ok=True)
     keep = set()
     for r in rows:
@@ -56,4 +61,10 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except SystemExit:
+        raise
+    except Exception as err:
+        print(f"::error::{err!r}"[:400])
+        raise
