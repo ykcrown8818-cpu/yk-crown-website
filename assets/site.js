@@ -16,6 +16,24 @@
     zh: { wa: 'WhatsApp 咨询', hello: '您好 YK CROWN，我想了解更多信息', about: '关于', sent: '谢谢，我们已收到您的咨询，将在一个工作日内回复。', fallback: '正在打开 WhatsApp 发送您的咨询…' }
   };
   function waLink(text) { return 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(text); }
+  /* First-touch attribution: remember where the visitor came from for the whole visit,
+     so a lead keeps its source even after browsing other pages. Session only, no cookies. */
+  var SRC_KEY = 'yk_src';
+  function readSrc() { try { return JSON.parse(sessionStorage.getItem(SRC_KEY) || 'null'); } catch (e) { return null; } }
+  (function saveSrc() {
+    var qp = new URLSearchParams(location.search), s = readSrc();
+    var ref = document.referrer && document.referrer.indexOf(location.host) < 0 ? document.referrer : null;
+    if (s) return; // keep the first source of this visit
+    s = { landing_page: location.pathname + location.search, referrer: ref };
+    ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content'].forEach(function (k) { if (qp.get(k)) s[k] = qp.get(k); });
+    try { sessionStorage.setItem(SRC_KEY, JSON.stringify(s)); } catch (e) {}
+  })();
+  function addSrc(d) {
+    var s = readSrc() || {};
+    d.referrer = s.referrer || document.referrer || null;
+    d.landing_page = s.landing_page || null;
+    ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content'].forEach(function (k) { if (s[k]) d[k] = s[k]; });
+  }
   function track(name, params) {
     try { if (window.gtag) window.gtag('event', name, params || {}); } catch (e) {}
     try { if (window.fbq) window.fbq('track', name === 'generate_lead' ? 'Lead' : 'Contact'); } catch (e) {}
@@ -61,9 +79,7 @@
       d.request = 'pricelist';
       d.interest = 'Price list — Praça da Corujeira';
       d.page = location.href;
-      d.referrer = document.referrer || null;
-      var qp = new URLSearchParams(location.search);
-      ['utm_source', 'utm_medium', 'utm_campaign'].forEach(function (k) { if (qp.get(k)) d[k] = qp.get(k); });
+      addSrc(d);
       var st = document.getElementById('pl-status');
       var btn = plf.querySelector('button[type="submit"]');
       var C = (window.copy && window.copy[lang()]) || {};
@@ -111,8 +127,7 @@
     new FormData(form).forEach(function (v, k) { d[k] = String(v).trim(); });
     if (unit) d.interest = (d.interest ? d.interest + ' · ' : '') + unit;
     d.page = location.href;
-    d.referrer = document.referrer || null;
-    ['utm_source', 'utm_medium', 'utm_campaign'].forEach(function (k) { if (params.get(k)) d[k] = params.get(k); });
+    addSrc(d);
     d.submitted_at = new Date().toISOString();
     var btn = form.querySelector('button[type="submit"]');
     btn.disabled = true;
