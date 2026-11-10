@@ -18,10 +18,11 @@ OUT = os.path.join(ROOT, "content", "insights")
 
 
 def main():
-    key = os.environ.get("SUPABASE_KEY")
+    key = (os.environ.get("SUPABASE_KEY") or "").strip()
     if not key:
         print("SUPABASE_KEY is not set; skipping fetch")
         return
+    print(f"::notice::key type {key[:15]}... length {len(key)}")  # prefix only, never the full key
     headers = {"apikey": key}
     if key.startswith("eyJ"):  # legacy anon JWT; new sb_publishable_ keys go in apikey only
         headers["Authorization"] = f"Bearer {key}"
