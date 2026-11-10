@@ -250,7 +250,9 @@ def page():
 <meta content="{N} new apartments {TYPES_EN} · energy class A+ · parking included · delivery February 2028." property="og:description"/>
 <meta content="https://ykcrown.com/assets/photos/hero.webp" property="og:image"/>
 <meta content="website" property="og:type"/>
-<link as="image" href="assets/photos/hero.webp" rel="preload"/>
+<link as="image" href="assets/photos/hero-800.webp" media="(max-width: 700px)" rel="preload" fetchpriority="high"/>
+<link as="image" href="assets/photos/hero-1200.webp" media="(min-width: 701px) and (max-width: 1250px)" rel="preload" fetchpriority="high"/>
+<link as="image" href="assets/photos/hero-1600.webp" media="(min-width: 1251px)" rel="preload" fetchpriority="high"/>
 <link href="assets/favicon.svg" rel="icon" type="image/svg+xml"/>
 <link href="assets/site.css" rel="stylesheet"/>
 <script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>
@@ -265,7 +267,9 @@ a{{color:inherit;text-decoration:none}}img{{display:block;max-width:100%}}button
 .lang{{display:flex;gap:4px}}.lang button{{border:1px solid var(--line);background:#fff;padding:5px 7px;font-size:11px;cursor:pointer}}.lang button.active{{background:var(--navy);color:#fff;border-color:var(--navy)}}
 .btn{{display:inline-flex;align-items:center;justify-content:center;padding:13px 20px;font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--navy);cursor:pointer;white-space:nowrap}}
 .btn.gold{{background:var(--gold);border-color:var(--gold);color:var(--navy)}}.btn.navy{{background:var(--navy);color:#fff}}.btn.ghost{{border-color:rgba(255,255,255,.7);color:#fff}}.btn.sm{{padding:9px 14px;font-size:12px}}
-.hero{{min-height:min(88vh,760px);color:#fff;display:flex;align-items:flex-end;background:linear-gradient(90deg,rgba(5,16,27,.78),rgba(5,16,27,.3) 55%,rgba(5,16,27,0)),url("assets/photos/hero.webp") center/cover}}
+.hero{{min-height:min(88vh,760px);color:#fff;display:flex;align-items:flex-end;background:linear-gradient(90deg,rgba(5,16,27,.78),rgba(5,16,27,.3) 55%,rgba(5,16,27,0)),url("assets/photos/hero-1600.webp") center/cover}}
+@media(max-width:1250px){{.hero{{background-image:linear-gradient(90deg,rgba(5,16,27,.78),rgba(5,16,27,.3) 55%,rgba(5,16,27,0)),url("assets/photos/hero-1200.webp")}}}}
+@media(max-width:700px){{.hero{{background-image:linear-gradient(90deg,rgba(5,16,27,.78),rgba(5,16,27,.3) 55%,rgba(5,16,27,0)),url("assets/photos/hero-800.webp")}}}}
 .hero .wrap{{padding:90px 0 44px}}.kicker{{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:700}}.hero .kicker{{color:#e3c37e}}
 h1{{font-size:clamp(44px,7vw,88px);line-height:.98;margin:14px 0 18px;letter-spacing:-.045em}}.hero p{{font-size:clamp(17px,2vw,21px);max-width:620px;color:rgba(255,255,255,.9);margin:0 0 28px}}
 .hero .acts{{display:flex;gap:12px;flex-wrap:wrap}}
