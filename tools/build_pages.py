@@ -12,9 +12,9 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 e = html.escape
 
 NAV = {
-    "en": {"nav_apts": "Apartments", "nav_gallery": "Gallery", "nav_progress": "Progress", "nav_about": "About", "nav_contact": "Contact", "cta_visit": "Book a viewing"},
-    "pt": {"nav_apts": "Apartamentos", "nav_gallery": "Galeria", "nav_progress": "Obra", "nav_about": "Sobre nós", "nav_contact": "Contacto", "cta_visit": "Marcar visita"},
-    "zh": {"nav_apts": "在售公寓", "nav_gallery": "图库", "nav_progress": "工程进度", "nav_about": "关于我们", "nav_contact": "联系我们", "cta_visit": "预约看房"},
+    "en": {"nav_apts": "Apartments", "nav_gallery": "Gallery", "nav_progress": "Progress", "nav_about": "About", "nav_news": "News", "nav_contact": "Contact", "cta_visit": "Book a viewing"},
+    "pt": {"nav_apts": "Apartamentos", "nav_gallery": "Galeria", "nav_progress": "Obra", "nav_about": "Sobre nós", "nav_news": "Notícias", "nav_contact": "Contacto", "cta_visit": "Marcar visita"},
+    "zh": {"nav_apts": "在售公寓", "nav_gallery": "图库", "nav_progress": "工程进度", "nav_about": "关于我们", "nav_news": "市场资讯", "nav_contact": "联系我们", "cta_visit": "预约看房"},
 }
 
 CSS = """:root{--navy:#0b1b2b;--gold:#c7a15a;--cream:#f5f3ee;--ink:#17212b;--muted:#5f6973;--line:#e7e3da}
@@ -50,7 +50,7 @@ footer{padding:26px 5vw;font-size:12px;color:#747d84;display:flex;justify-conten
 def shell(page, title, desc, canonical, body, copy, cur):
     t = lambda k: e(copy["en"][k])  # noqa: E731
     links = [("index.html#apartments", "nav_apts"), ("index.html#gallery", "nav_gallery"),
-             ("progress.html", "nav_progress"), ("about.html", "nav_about"), ("index.html#contact", "nav_contact")]
+             ("progress.html", "nav_progress"), ("insights.html", "nav_news"), ("about.html", "nav_about"), ("index.html#contact", "nav_contact")]
     nav = "".join(f'<a{" class=cur" if h == cur else ""} data-i="{k}" href="{h}">{t(k)}</a>' for h, k in links)
     return f"""<!DOCTYPE html>
 <html lang="en">
@@ -344,7 +344,7 @@ def insights():
 <section><div class="wrap"><div class="card" style="max-width:760px"><div class="n" data-i="i_soon">{t('i_soon')}</div><p style="font-size:17px;margin:10px 0 22px" data-i="i_soon_t">{t('i_soon_t')}</p>
 <div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn navy" data-i="b1" href="index.html#apartments">{t('b1')}</a><a class="btn" data-i="b2" href="progress.html">{t('b2')}</a></div></div></div></section>"""
     return shell("insights", "Insights | Porto property market | YK CROWN",
-                 "Market data and news on Porto and Portuguese real estate.", "insights.html", body, c, "")
+                 "Market data and news on Porto and Portuguese real estate.", "insights.html", body, c, "insights.html")
 
 
 NF = {

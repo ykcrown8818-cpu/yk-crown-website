@@ -103,7 +103,7 @@ def nav(L, alt):
     a = "".join(f'<a href="{h}?lang={L}">{e(n[k])}</a>' for h, k in links)
     lang = "".join(f'<a class="{"active" if x == L else ""}" hreflang="{HTML_LANG[x]}" href="{alt[x]}">{ {"pt": "PT", "en": "EN", "zh": "中文"}[x]}</a>' for x in LANGS)
     return (f'<header class="nav"><a class="logo" href="/?lang={L}">YK <span>CROWN</span></a><nav class="navlinks">{a}'
-            f'<a class="cur" href="/insights.html?lang={L}">Insights</a></nav><div class="lang">{lang}</div>'
+            f'<a class="cur" href="/insights.html?lang={L}">{e(n["nav_news"])}</a></nav><div class="lang">{lang}</div>'
             f'<a class="btn navy sm" href="/?lang={L}#contact">{e(n["cta_visit"])}</a></header>')
 
 
@@ -213,7 +213,7 @@ def hub(arts):
 <script>document.addEventListener("click",function(ev){{var a=ev.target.closest("a[data-u]");if(!a)return;var l=document.documentElement.lang.slice(0,2);var v=(copy[l]||{{}})[a.dataset.u];if(v)a.href=v}},true)</script>"""
     out = shell("insights", "Insights | Porto & Portugal property news | YK CROWN",
                 "News and official data on Porto and Portuguese real estate, construction and tourism, in English, Portuguese and Chinese.",
-                "insights.html", body, c, "")
+                "insights.html", body, c, "insights.html")
     return out.replace("</style>", ART_CSS + "\n</style>", 1)
 
 

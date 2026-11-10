@@ -197,6 +197,33 @@ def t(k):
     return e(COPY["en"][k])
 
 
+NEWS = {"en": {"nav_news": "News", "news_kicker": "Market news", "news_title": "Porto & Portugal property news", "news_all": "All articles"},
+        "pt": {"nav_news": "Notícias", "news_kicker": "Mercado", "news_title": "Notícias do imobiliário em Portugal", "news_all": "Todos os artigos"},
+        "zh": {"nav_news": "市场资讯", "news_kicker": "市场资讯", "news_title": "波尔图与葡萄牙房产资讯", "news_all": "全部文章"}}
+for _L in NEWS:
+    COPY[_L].update(NEWS[_L])
+
+
+def news_section():
+    """Latest 3 approved Insights articles (content/insights), switched by the language buttons."""
+    import build_insights as bi
+    arts = bi.load()[:3]
+    if not arts:
+        return ""
+    for i, a in enumerate(arts):
+        for L in bi.LANGS:
+            top = bi.TOPICS.get(a.get("topic"), {}).get(L, "")
+            COPY[L][f"n{i}m"] = (top + " · " if top else "") + bi.fdate(a["date"], L)
+            COPY[L][f"n{i}h"] = a[L]["headline"]
+            COPY[L][f"n{i}l"] = a[L]["lead"]
+            COPY[L][f"n{i}u"] = bi.url(a, L)
+    cards = "".join(f'<a class="ncard" data-u="n{i}u" href="{bi.url(a, "en")}"><div class="m" data-i="n{i}m">{t(f"n{i}m")}</div>'
+                    f'<h3 data-i="n{i}h">{t(f"n{i}h")}</h3><p data-i="n{i}l">{t(f"n{i}l")}</p></a>' for i, a in enumerate(arts))
+    return (f'<section id="news"><div class="wrap"><div class="head"><div><div class="kicker" data-i="news_kicker">{t("news_kicker")}</div>'
+            f'<h2 data-i="news_title">{t("news_title")}</h2></div><a class="btn navy sm" data-i="news_all" href="insights.html">{t("news_all")}</a></div>'
+            f'<div class="news">{cards}</div></div></section>')
+
+
 def page():
     AVAIL_HTML = f'<p style="margin:12px 0 0;font-weight:700;color:var(--navy)" data-i="avail_note">{t("avail_note")}</p>' if SHOW_STATUS else ""
     TH_STATUS = f'<th data-i="th_status">{t("th_status")}</th>' if SHOW_STATUS else ""
@@ -256,6 +283,7 @@ table.units{{width:100%;border-collapse:collapse;background:#fff;font-size:15px}
 .gal{{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}}.gal figure{{margin:0;overflow:hidden;background:#eee;cursor:zoom-in}}.gal[hidden]{{display:none}}.gal img{{width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;transition:transform .4s}}.gal figure:hover img{{transform:scale(1.03)}}
 .note{{font-size:12px;color:#899097;margin-top:12px}}
 .loc{{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}}.loc img{{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover}}.loc address{{font-style:normal;margin:20px 0;font-weight:600}}
+.news{{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:28px}}.ncard{{background:#fff;border:1px solid var(--line);padding:24px;display:flex;flex-direction:column;gap:10px}}.ncard:hover{{border-color:var(--gold)}}.ncard .m{{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:700}}.ncard h3{{margin:0;font-size:18px;line-height:1.3}}.ncard p{{margin:0;color:var(--muted);font-size:14.5px}}@media(max-width:980px){{.news{{grid-template-columns:1fr}}}}
 .faq{{max-width:820px}}details{{border-bottom:1px solid var(--line);padding:18px 0}}summary{{cursor:pointer;font-weight:600;font-size:17px;list-style:none;display:flex;justify-content:space-between;gap:16px}}summary::after{{content:"+";color:var(--gold);font-size:22px;line-height:1}}details[open] summary::after{{content:"–"}}details p{{color:var(--muted);margin:10px 0 0}}
 .contact{{background:var(--navy);color:#fff}}.contact .lead{{color:rgba(255,255,255,.75)}}.cgrid{{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px}}
 form{{display:grid;gap:14px;background:#fff;color:var(--ink);padding:30px}}.row{{display:grid;grid-template-columns:1fr 1fr;gap:14px}}label{{display:block;font-size:12px;font-weight:700;letter-spacing:.06em;margin-bottom:6px;color:#39454e}}
@@ -272,7 +300,7 @@ footer{{padding:26px 5vw;font-size:12px;color:#747d84;display:flex;justify-conte
 <body>
 <header class="nav">
 <a class="logo" href="#top">YK <span>CROWN</span></a>
-<nav class="navlinks"><a data-i="nav_apts" href="#apartments">{t('nav_apts')}</a><a data-i="nav_why" href="#highlights">{t('nav_why')}</a><a data-i="nav_gallery" href="#gallery">{t('nav_gallery')}</a><a data-i="nav_loc" href="#location">{t('nav_loc')}</a><a data-i="nav_faq" href="#faq">{t('nav_faq')}</a><a data-i="nav_progress" href="progress.html">{t('nav_progress')}</a><a data-i="nav_about" href="about.html">{t('nav_about')}</a></nav>
+<nav class="navlinks"><a data-i="nav_apts" href="#apartments">{t('nav_apts')}</a><a data-i="nav_why" href="#highlights">{t('nav_why')}</a><a data-i="nav_gallery" href="#gallery">{t('nav_gallery')}</a><a data-i="nav_loc" href="#location">{t('nav_loc')}</a><a data-i="nav_faq" href="#faq">{t('nav_faq')}</a><a data-i="nav_progress" href="progress.html">{t('nav_progress')}</a><a data-i="nav_news" href="insights.html">{t('nav_news')}</a><a data-i="nav_about" href="about.html">{t('nav_about')}</a></nav>
 <div class="lang"><button class="active" data-lang="en">EN</button><button data-lang="pt">PT</button><button data-lang="zh">中文</button></div>
 <a class="btn navy sm" data-i="cta_visit" href="#contact">{t('cta_visit')}</a>
 </header>
@@ -330,6 +358,7 @@ footer{{padding:26px 5vw;font-size:12px;color:#747d84;display:flex;justify-conte
 <img alt="Aerial view of Praça da Corujeira, Porto" loading="lazy" decoding="async" src="assets/photos/location.webp" width="1920" height="1280"/>
 </div></section>
 
+{news_section()}
 <section id="faq"><div class="wrap faq">
 <div class="kicker" data-i="faq_kicker">{t('faq_kicker')}</div><h2 data-i="faq_title">{t('faq_title')}</h2>
 {faq}
@@ -360,6 +389,7 @@ function setLang(l){{if(!copy[l])return;document.documentElement.lang=l==="zh"?"
 const ls={{en:"English",pt:"Português",zh:"中文"}};const s=document.getElementById("language");if(s)s.value=ls[l];const s2=document.getElementById("pl-language");if(s2)s2.value=ls[l]}}
 document.querySelectorAll("[data-lang]").forEach(b=>b.addEventListener("click",()=>setLang(b.dataset.lang)));
 try{{const q=new URLSearchParams(location.search).get("lang")||localStorage.getItem("yk_lang")||((navigator.language||"").slice(0,2));if(q&&q!=="en")setLang(q)}}catch(e){{}}
+document.addEventListener("click",ev=>{{const a=ev.target.closest("a[data-u]");if(!a)return;const l=(document.documentElement.lang||"en").slice(0,2);const v=(copy[l]||{{}})[a.dataset.u];if(v)a.href=v}},true);
 document.querySelectorAll(".filters button").forEach(b=>b.addEventListener("click",()=>{{document.querySelectorAll(".filters button").forEach(x=>x.classList.toggle("on",x===b));document.querySelectorAll(".units tbody tr").forEach(r=>r.hidden=b.dataset.f!=="all"&&r.dataset.type!==b.dataset.f)}}));
 document.querySelectorAll(".units tbody tr:not(.nolink)").forEach(r=>r.addEventListener("click",ev=>{{if(!ev.target.closest("a"))location.href=r.querySelector("a").href}}));
 document.querySelectorAll(".tabs button").forEach(b=>b.addEventListener("click",()=>{{document.querySelectorAll(".tabs button").forEach(x=>x.classList.toggle("on",x===b));document.querySelectorAll(".gal").forEach(g=>g.hidden=g.dataset.tab!==b.dataset.t)}}));
