@@ -9,6 +9,7 @@ import json
 import os
 import re
 import sys
+import urllib.error
 import urllib.request
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -21,8 +22,13 @@ def main():
     if not key:
         print("SUPABASE_KEY is not set; skipping fetch")
         return
-    req = urllib.request.Request(URL, headers={"apikey": key, "Authorization": f"Bearer {key}"})
-    rows = json.load(urllib.request.urlopen(req, timeout=30))
+    headers = {"apikey": key}
+    if key.startswith("eyJ"):  # legacy anon JWT; new sb_publishable_ keys go in apikey only
+        headers["Authorization"] = f"Bearer {key}"
+    try:
+        rows = json.load(urllib.request.urlopen(urllib.request.Request(URL, headers=headers), timeout=30))
+    except urllib.error.HTTPError as err:
+        sys.exit(f"Supabase error {err.code}: {err.read().decode()[:300]}")
     os.makedirs(OUT, exist_ok=True)
     keep = set()
     for r in rows:
