@@ -218,7 +218,15 @@ def hub(arts):
 
 
 def main():
+    import shutil
     arts = load()
+    slugs = {a["slug"] for a in arts}
+    for L in LANGS:  # drop pages of articles that were un-published
+        d = os.path.join(ROOT, "insights", L)
+        if os.path.isdir(d):
+            for s in os.listdir(d):
+                if s not in slugs:
+                    shutil.rmtree(os.path.join(d, s))
     for L in LANGS:
         for a in arts:
             d = os.path.join(ROOT, "insights", L, a["slug"])
