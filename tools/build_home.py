@@ -204,6 +204,28 @@ for _L in NEWS:
     COPY[_L].update(NEWS[_L])
 
 
+VIDEOS = ["apresentacao", "interiores", "tipologias", "praca", "obra"]
+VID = {"en": {"vid_kicker": "Video tour", "vid_title": "See Praça da Corujeira in 20 seconds", "vid_note": "Short videos with Portuguese and English captions. Illustrative renders; the site diary shows real photos.",
+              "v_apresentacao": "The project", "v_interiores": "Interiors", "v_tipologias": "Floor plans", "v_praca": "The square and the building", "v_obra": "Site diary"},
+       "pt": {"vid_kicker": "Vídeos", "vid_title": "A Praça da Corujeira em 20 segundos", "vid_note": "Vídeos curtos com legendas em português e inglês. Imagens ilustrativas; o diário de obra mostra fotografias reais.",
+              "v_apresentacao": "O projeto", "v_interiores": "Interiores", "v_tipologias": "Plantas", "v_praca": "A praça e o edifício", "v_obra": "Diário de obra"},
+       "zh": {"vid_kicker": "视频看房", "vid_title": "20 秒看懂 Praça da Corujeira", "vid_note": "短视频配有葡语和英语字幕，项目介绍视频提供中文版。效果图仅供参考，工程日记为现场实拍。",
+              "v_apresentacao": "项目介绍（中文版）", "v_interiores": "室内效果", "v_tipologias": "户型图", "v_praca": "广场与大楼", "v_obra": "工程日记"}}
+for _L in VID:
+    COPY[_L].update(VID[_L])
+
+
+def video_section():
+    """Vertical short videos; nothing loads until the visitor presses play. The presentation video switches to a Chinese version."""
+    cards = "".join(
+        f'<figure class="vcard"><div class="vbox"><video playsinline preload="none" poster="assets/video/{v}.webp" src="assets/video/{v}.mp4"'
+        + (' data-zh="assets/video/apresentacao-zh.mp4" data-zh-poster="assets/video/apresentacao-zh.webp"' if v == "apresentacao" else "")
+        + f' width="720" height="1280"></video><button class="vplay" type="button" aria-label="Play">&#9654;</button></div><figcaption data-i="v_{v}">{t("v_" + v)}</figcaption></figure>' for v in VIDEOS)
+    return (f'<section class="alt" id="videos"><div class="wrap"><div class="kicker" data-i="vid_kicker">{t("vid_kicker")}</div>'
+            f'<h2 data-i="vid_title">{t("vid_title")}</h2><div class="vids">{cards}</div>'
+            f'<p class="note" data-i="vid_note">{t("vid_note")}</p></div></section>')
+
+
 def news_section():
     """Latest 3 approved Insights articles (content/insights), switched by the language buttons."""
     import build_insights as bi
@@ -287,6 +309,7 @@ table.units{{width:100%;border-collapse:collapse;background:#fff;font-size:15px}
 .gal{{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}}.gal figure{{margin:0;overflow:hidden;background:#eee;cursor:zoom-in}}.gal[hidden]{{display:none}}.gal img{{width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;transition:transform .4s}}.gal figure:hover img{{transform:scale(1.03)}}
 .note{{font-size:12px;color:#899097;margin-top:12px}}
 .loc{{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}}.loc img{{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover}}.loc address{{font-style:normal;margin:20px 0;font-weight:600}}
+.vids{{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(190px,1fr);gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;margin-top:26px;padding-bottom:6px}}.vcard{{margin:0;scroll-snap-align:start;min-width:0}}.vcard video{{display:block;width:100%;height:auto;aspect-ratio:9/16;background:var(--navy);object-fit:cover}}.vbox{{position:relative}}.vplay{{position:absolute;left:50%;top:42%;transform:translate(-50%,-50%);width:64px;height:64px;border-radius:50%;border:0;background:rgba(11,27,43,.72);color:#fff;font-size:24px;padding-left:5px;cursor:pointer;box-shadow:0 6px 20px rgba(0,0,0,.3)}}.vplay:hover{{background:var(--gold);color:var(--navy)}}.vcard figcaption{{margin-top:8px;font-weight:700;font-size:14px;color:var(--navy)}}@media(max-width:700px){{.vids{{grid-auto-columns:62%}}}}
 .news{{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:28px}}.ncard{{background:#fff;border:1px solid var(--line);padding:24px;display:flex;flex-direction:column;gap:10px}}.ncard:hover{{border-color:var(--gold)}}.ncard .m{{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:700}}.ncard h3{{margin:0;font-size:18px;line-height:1.3}}.ncard p{{margin:0;color:var(--muted);font-size:14.5px}}@media(max-width:980px){{.news{{grid-template-columns:1fr}}}}
 .faq{{max-width:820px}}details{{border-bottom:1px solid var(--line);padding:18px 0}}summary{{cursor:pointer;font-weight:600;font-size:17px;list-style:none;display:flex;justify-content:space-between;gap:16px}}summary::after{{content:"+";color:var(--gold);font-size:22px;line-height:1}}details[open] summary::after{{content:"–"}}details p{{color:var(--muted);margin:10px 0 0}}
 .contact{{background:var(--navy);color:#fff}}.contact .lead{{color:rgba(255,255,255,.75)}}.cgrid{{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px}}
@@ -355,6 +378,8 @@ footer{{padding:26px 5vw;font-size:12px;color:#747d84;display:flex;justify-conte
 <p class="note" data-i="gal_note">{t('gal_note')}</p>
 </div></section>
 
+{video_section()}
+
 <section class="alt" id="location"><div class="wrap loc">
 <div><div class="kicker" data-i="loc_kicker">{t('loc_kicker')}</div><h2 data-i="loc_title">{t('loc_title')}</h2><p class="lead" data-i="loc_text">{t('loc_text')}</p>
 <address>Praça da Corujeira 201–203<br/>4300 Campanhã, Porto</address><p class="note">Licença de obras n.º NUD/679095/2025/CMP · Câmara Municipal do Porto</p>
@@ -392,6 +417,7 @@ const copy=window.copy={json.dumps(COPY, ensure_ascii=False)};
 function setLang(l){{if(!copy[l])return;document.documentElement.lang=l==="zh"?"zh-CN":l;document.querySelectorAll("[data-lang]").forEach(b=>b.classList.toggle("active",b.dataset.lang===l));document.querySelectorAll("[data-i]").forEach(el=>{{const v=copy[l][el.dataset.i];if(v)el.textContent=v}});try{{localStorage.setItem("yk_lang",l)}}catch(e){{}}
 const ls={{en:"English",pt:"Português",zh:"中文"}};const s=document.getElementById("language");if(s)s.value=ls[l];const s2=document.getElementById("pl-language");if(s2)s2.value=ls[l]}}
 document.querySelectorAll("[data-lang]").forEach(b=>b.addEventListener("click",()=>setLang(b.dataset.lang)));
+(function(){{const vs=[...document.querySelectorAll(".vcard video")];vs.forEach(v=>{{v.dataset.en=v.getAttribute("src");v.dataset.enPoster=v.getAttribute("poster");v.addEventListener("play",()=>vs.forEach(o=>{{if(o!==v)o.pause()}}));const pb=v.parentNode.querySelector(".vplay");pb.addEventListener("click",()=>{{v.controls=true;pb.remove();v.play()}})}});const sw=()=>{{const zh=(document.documentElement.lang||"").startsWith("zh");vs.forEach(v=>{{if(!v.dataset.zh)return;const src=zh?v.dataset.zh:v.dataset.en;if(v.getAttribute("src")!==src){{v.pause();v.setAttribute("src",src);v.setAttribute("poster",zh?v.dataset.zhPoster:v.dataset.enPoster)}}}})}};new MutationObserver(sw).observe(document.documentElement,{{attributes:true,attributeFilter:["lang"]}});sw()}})();
 try{{const q=new URLSearchParams(location.search).get("lang")||localStorage.getItem("yk_lang")||((navigator.language||"").slice(0,2));if(q&&q!=="en")setLang(q)}}catch(e){{}}
 document.addEventListener("click",ev=>{{const a=ev.target.closest("a[data-u]");if(!a)return;const l=(document.documentElement.lang||"en").slice(0,2);const v=(copy[l]||{{}})[a.dataset.u];if(v)a.href=v}},true);
 document.querySelectorAll(".filters button").forEach(b=>b.addEventListener("click",()=>{{document.querySelectorAll(".filters button").forEach(x=>x.classList.toggle("on",x===b));document.querySelectorAll(".units tbody tr").forEach(r=>r.hidden=b.dataset.f!=="all"&&r.dataset.type!==b.dataset.f)}}));
