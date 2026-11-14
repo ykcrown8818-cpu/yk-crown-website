@@ -175,7 +175,7 @@ def page(u):
 <link href="{url}" rel="canonical"/>
 <meta content="{e(name)} · {u['type']} — Praça da Corujeira, Porto" property="og:title"/>
 <meta content="{e(desc)}" property="og:description"/>
-<meta content="{SITE}/assets/img/{u['plan'] or '../photos/hero.webp'}" property="og:image"/>
+<meta content="{SITE}/assets/img/{u['plan'] or '../photos/hero.webp'}" property="og:image"/><meta content="summary_large_image" name="twitter:card"/>
 <meta content="website" property="og:type"/>
 <script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>
 <link href="../../assets/favicon.svg" rel="icon" type="image/svg+xml"/>

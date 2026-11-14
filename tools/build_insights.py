@@ -150,7 +150,7 @@ def article(a, L, arts):
 <meta content="#0b1b2b" name="theme-color"/>
 <link href="{canon}" rel="canonical"/>{hreflang}
 <meta content="article" property="og:type"/><meta content="{e(title)}" property="og:title"/><meta content="{e(desc)}" property="og:description"/>
-<meta content="{canon}" property="og:url"/><meta content="{SITE}/assets/photos/location-porto.webp" property="og:image"/>
+<meta content="{canon}" property="og:url"/><meta content="{SITE}/assets/photos/location-porto.webp" property="og:image"/><meta content="summary_large_image" name="twitter:card"/>
 <link href="/assets/favicon.svg" rel="icon" type="image/svg+xml"/>
 <link href="/assets/site.css" rel="stylesheet"/>
 <style>

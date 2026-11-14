@@ -62,7 +62,7 @@ def shell(page, title, desc, canonical, body, copy, cur):
 <meta content="#0b1b2b" name="theme-color"/>
 <link href="https://ykcrown.com/{canonical}" rel="canonical"/>
 <meta content="{e(title)}" property="og:title"/><meta content="{e(desc)}" property="og:description"/>
-<meta content="https://ykcrown.com/assets/photos/hero.webp" property="og:image"/>
+<meta content="https://ykcrown.com/assets/photos/hero.webp" property="og:image"/><meta content="summary_large_image" name="twitter:card"/>
 <link href="assets/favicon.svg" rel="icon" type="image/svg+xml"/>
 <link href="assets/site.css" rel="stylesheet"/>
 <style>
